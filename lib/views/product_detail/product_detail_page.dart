@@ -19,6 +19,11 @@ class ProductDetail extends StatelessWidget {
         images.add(Image.network(current.images[i]['src']));
       }
     }
+    if (images.isEmpty) {
+      images.add(Image.asset('assets/images/placeholder.png'));
+      images.add(Image.asset('assets/images/placeholder.png'));
+      images.add(Image.asset('assets/images/placeholder.png'));
+    }
     //build
     return Scaffold(
       body: SafeArea(
@@ -33,14 +38,20 @@ class ProductDetail extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pop(context);
+                        Consumer<DetailVM>(
+                          builder: (context, value, child) {
+                            return GestureDetector(
+                              onTap: () {
+                                value.selectedSizeIndex = 0;
+                                value.imageCurrentIndex = 0;
+                                Navigator.pop(context);
+                              },
+                              child: Container(
+                                child: Image.asset(
+                                    'assets/icons/icons_44/ic_back.png'),
+                              ),
+                            );
                           },
-                          child: Container(
-                            child: Image.asset(
-                                'assets/icons/icons_44/ic_back.png'),
-                          ),
                         ),
                         Container(
                           width: 270,
@@ -60,18 +71,42 @@ class ProductDetail extends StatelessWidget {
                 ),
               ),
               MyWidget().topCarousel(),
-              CarouselSlider(
-                options: CarouselOptions(
-                  height: 300,
-                  viewportFraction: 0.7,
-                ),
-                items: images.isEmpty
-                    ? [
-                        Image.asset('assets/images/placeholder.png'),
-                        Image.asset('assets/images/placeholder.png'),
-                        Image.asset('assets/images/placeholder.png')
-                      ]
-                    : images,
+              Consumer<DetailVM>(
+                builder: (context, value, child) {
+                  return CarouselSlider(
+                    options: CarouselOptions(
+                      height: 300,
+                      viewportFraction: 0.7,
+                      onPageChanged: (index, reason) {
+                        value.ImageChanged(index);
+                      },
+                    ),
+                    items: images,
+                  );
+                },
+              ),
+              Consumer<DetailVM>(
+                builder: (context, value, child) {
+                  print(value.imageCurrentIndex);
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: images.map((e) {
+                      int index = images.indexOf(e);
+                      return Container(
+                        width: 8.0,
+                        height: 8.0,
+                        margin: EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 2.0),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: value.imageCurrentIndex == index
+                              ? Color.fromRGBO(0, 0, 0, 1.0)
+                              : Color.fromRGBO(0, 0, 0, 0.5),
+                        ),
+                      );
+                    }).toList(),
+                  );
+                },
               ),
               buildBody(context, current),
             ],
