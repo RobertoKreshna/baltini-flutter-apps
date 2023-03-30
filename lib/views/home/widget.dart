@@ -28,7 +28,7 @@ class HomeWidget {
     );
   }
 
-  Widget newArrival(HomeVM vm) {
+  Widget newArrival(BuildContext context, HomeVM vm) {
     return vm.products.isEmpty
         ? Column()
         : Padding(
@@ -38,6 +38,7 @@ class HomeWidget {
                 Column(
                   children: [
                     displayRow(
+                      context: context,
                       id1: '${vm.products[0].id}',
                       id2: '${vm.products[1].id}',
                       path1: '${vm.products[0].image}',
@@ -53,6 +54,7 @@ class HomeWidget {
                       height: 16,
                     ),
                     displayRow(
+                      context: context,
                       id1: '${vm.products[2].id}',
                       id2: '${vm.products[3].id}',
                       path1: '${vm.products[2].image}',
@@ -68,6 +70,7 @@ class HomeWidget {
                       height: 16,
                     ),
                     displayRow(
+                      context: context,
                       id1: '${vm.products[4].id}',
                       id2: '${vm.products[5].id}',
                       path1: '${vm.products[4].image}',
@@ -87,6 +90,7 @@ class HomeWidget {
   }
 
   Widget displayRow({
+    required BuildContext context,
     required String id1,
     required String id2,
     required String path1,
@@ -104,21 +108,21 @@ class HomeWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        rowItem(path1, brand1, name1, price1, disc1, id1),
+        rowItem(context, path1, brand1, name1, price1, disc1, id1),
         SizedBox(
           width: 17,
         ),
-        rowItem(path2, brand2, name2, price2, disc2, id2),
+        rowItem(context, path2, brand2, name2, price2, disc2, id2),
       ],
     );
   }
 
-  Widget rowItem(String path, String brand, String name, String price,
-      String disc, String id) {
+  Widget rowItem(BuildContext context, String path, String brand, String name,
+      String price, String disc, String id) {
     return GestureDetector(
       onTap: () async {
         var product = await HomeService().getProductByID(id);
-        print(product.vendor);
+        Navigator.pushNamed(context, '/details', arguments: product);
       },
       child: Container(
         width: 163,

@@ -108,7 +108,7 @@ class HomePage extends StatelessWidget {
                   value.setProduct();
                 }
                 vm = value;
-                return homeWidget.newArrival(vm);
+                return homeWidget.newArrival(context, vm);
               }),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 8.0),
