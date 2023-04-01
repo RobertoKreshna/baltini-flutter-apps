@@ -1,3 +1,5 @@
+import 'package:baltini_flutter_apps/views/product_list/product_list_page.dart';
+import 'package:baltini_flutter_apps/views/product_list/vm/list_vm.dart';
 import 'package:baltini_flutter_apps/views/search/vm/search_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -34,14 +36,14 @@ class Search extends StatelessWidget {
                             child: TextField(
                               controller: vm.controller,
                               onChanged: (value) {
-                                vm.toggleHistory(false); //matikan
+                                vm.toggleHistory(false);
+                                vm.searchProduct(value); //matikan
                               },
                               onEditingComplete: () {
                                 vm.addToHistory(vm.controller.text);
                                 vm.toggleHistory(true);
                                 vm.controller.clear();
                               },
-                              keyboardType: TextInputType.text,
                               decoration: InputDecoration(
                                 icon: Image.asset(
                                   'assets/icons/icons_24/ic_search.png',
@@ -68,7 +70,46 @@ class Search extends StatelessWidget {
                                 );
                               }),
                         )
-                      : Container(),
+                      : Flexible(
+                          child: Column(
+                            children: [
+                              Flexible(
+                                child: ListView.builder(
+                                    shrinkWrap: true,
+                                    itemCount: vm.recommendedItems.isEmpty
+                                        ? vm.recommendedItems.length
+                                        : 4,
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      if (index <
+                                          (vm.recommendedItems.length)) {
+                                        return ListTile(
+                                          title: Text(
+                                              vm.recommendedItems[index].title),
+                                          subtitle: Text(vm
+                                              .recommendedItems[index].vendor),
+                                        );
+                                      }
+                                    }),
+                              ),
+                              Flexible(
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(context, '/list',
+                                        arguments: ListVM(
+                                            products: vm.recommendedItems,
+                                            fromSearch: true));
+                                  },
+                                  child: Text(
+                                    'View All ${vm.recommendedItems.length} Product(s)',
+                                    style: TextStyle(
+                                        decoration: TextDecoration.underline),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                 ],
               );
             },

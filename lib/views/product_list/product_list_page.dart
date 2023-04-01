@@ -15,15 +15,21 @@ class ProductList extends StatelessWidget {
   Widget build(BuildContext context) {
     //pindahkan product dari vm yang dibuat ke vm yang provider
     List<Product> prods = vm.products;
+    bool fromSearch = vm.fromSearch;
     vm = Provider.of<ListVM>(context, listen: false);
     vm.products = prods;
+    vm.fromSearch = fromSearch;
     //build widget
     return Scaffold(
       body: SafeArea(
         child: Column(children: [
-          Padding(
-            padding: EdgeInsets.all(16.0),
-            child: MyWidget().topRow(context, true),
+          Consumer<ListVM>(
+            builder: (context, value, child) {
+              return Padding(
+                padding: EdgeInsets.all(16.0),
+                child: MyWidget().topRow(context, true, value.fromSearch),
+              );
+            },
           ),
           MyWidget().topCarousel(),
           Padding(

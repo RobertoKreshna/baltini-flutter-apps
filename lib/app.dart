@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<HomeVM>(create: (_) => HomeVM()),
-        ChangeNotifierProvider<ListVM>(create: (_) => ListVM([])),
+        ChangeNotifierProvider<ListVM>(create: (_) => ListVM(products: [])),
         ChangeNotifierProvider<DetailVM>(
           create: (_) => DetailVM(),
         ),

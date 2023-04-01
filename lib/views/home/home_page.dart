@@ -22,14 +22,15 @@ class HomePage extends StatelessWidget {
             children: [
               Padding(
                 padding: EdgeInsets.all(16.0),
-                child: MyWidget().topRow(context, false),
+                child: MyWidget().topRow(context, false, false),
               ),
               MyWidget().topCarousel(),
               GestureDetector(
                 onTap: () async {
                   Navigator.pushNamed(context, '/list',
-                      arguments:
-                          ListVM(await HomeService().getNewArrivalProduct()));
+                      arguments: ListVM(
+                          products:
+                              await HomeService().getNewArrivalProduct()));
                 },
                 child: AspectRatio(
                   aspectRatio: 7.0 / 4.0,
@@ -47,8 +48,9 @@ class HomePage extends StatelessWidget {
                     GestureDetector(
                       onTap: () async {
                         Navigator.pushNamed(context, '/list',
-                            arguments: ListVM(await HomeService()
-                                .getProductByGender('Women')));
+                            arguments: ListVM(
+                                products: await HomeService()
+                                    .getProductByGender('Women')));
                       },
                       child: Container(
                         height: 275,
@@ -65,7 +67,8 @@ class HomePage extends StatelessWidget {
                       onTap: () async {
                         Navigator.pushNamed(context, '/list',
                             arguments: ListVM(
-                                await HomeService().getProductByGender('Men')));
+                                products: await HomeService()
+                                    .getProductByGender('Men')));
                       },
                       child: Container(
                         height: 275,
@@ -94,8 +97,9 @@ class HomePage extends StatelessWidget {
               GestureDetector(
                 onTap: () async {
                   Navigator.pushNamed(context, '/list',
-                      arguments:
-                          ListVM(await HomeService().getNewArrivalProduct()));
+                      arguments: ListVM(
+                          products:
+                              await HomeService().getNewArrivalProduct()));
                 },
                 child: Text(
                   'VIEW ALL',

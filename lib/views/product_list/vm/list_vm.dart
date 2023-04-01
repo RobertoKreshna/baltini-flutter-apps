@@ -5,9 +5,10 @@ import '../../../utils/models/product.dart';
 
 class ListVM extends ChangeNotifier {
   List<Product> products = [];
+  bool fromSearch;
   String sortBy = 'Featured';
 
-  ListVM(this.products);
+  ListVM({required this.products, this.fromSearch = false});
 
   List<String> sortValue = [
     'Best Selling',

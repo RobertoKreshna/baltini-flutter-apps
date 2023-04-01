@@ -3,7 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class MyWidget {
-  Widget topRow(BuildContext context, bool back) {
+  Widget topRow(BuildContext context, bool back, bool fromSearch) {
     return Row(
       children: [
         back
@@ -41,11 +41,13 @@ class MyWidget {
             ),
           ),
         ),
-        Expanded(
-            child: GestureDetector(
-          onTap: () {},
-          child: Image.asset('assets/icons/icons_44/ic_cart.png'),
-        )),
+        fromSearch
+            ? Container()
+            : Expanded(
+                child: GestureDetector(
+                onTap: () {},
+                child: Image.asset('assets/icons/icons_44/ic_cart.png'),
+              )),
       ],
     );
   }

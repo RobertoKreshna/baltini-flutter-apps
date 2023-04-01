@@ -15,7 +15,8 @@ class HomeWidget {
       child: GestureDetector(
         onTap: () async {
           Navigator.pushNamed(context, '/list',
-              arguments: ListVM(await HomeService().getProductByBrand(brand)));
+              arguments: ListVM(
+                  products: await HomeService().getProductByBrand(brand)));
         },
         child: AspectRatio(
           aspectRatio: 3.0 / 4.0,
@@ -205,8 +206,9 @@ class HomeWidget {
             child: GestureDetector(
               onTap: () async {
                 Navigator.pushNamed(context, '/list',
-                    arguments:
-                        ListVM(await HomeService().getProductByBrand(brand)));
+                    arguments: ListVM(
+                        products:
+                            await HomeService().getProductByBrand(brand)));
               },
               child: Text(
                 '$brand'.toUpperCase(),
