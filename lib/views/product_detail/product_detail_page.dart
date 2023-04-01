@@ -87,7 +87,6 @@ class ProductDetail extends StatelessWidget {
               ),
               Consumer<DetailVM>(
                 builder: (context, value, child) {
-                  print(value.imageCurrentIndex);
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: images.map((e) {

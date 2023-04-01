@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 
 import '../../views/product_detail/product_detail_page.dart';
 import '../../views/product_list/product_list_page.dart';
+import '../../views/search/search_page.dart';
 import '../models/product.dart';
 
 class RouteGenerator {
@@ -23,6 +24,8 @@ class RouteGenerator {
             builder: (_) => ProductDetail(settings.arguments as Product));
       case '/chart':
         return MaterialPageRoute(builder: (_) => SizeChart());
+      case '/search':
+        return MaterialPageRoute(builder: (_) => Search());
       case '/shipreturn':
         return MaterialPageRoute(builder: (_) => ShipReturn());
       case '/authentic':

@@ -1,6 +1,7 @@
 import 'package:baltini_flutter_apps/views/home/vm/home_vm.dart';
 import 'package:baltini_flutter_apps/views/product_detail/vm/detail_vm.dart';
 import 'package:baltini_flutter_apps/views/product_list/vm/list_vm.dart';
+import 'package:baltini_flutter_apps/views/search/vm/search_vm.dart';
 import 'package:baltini_flutter_apps/views/size_chart/vm/size_chart_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
           create: (_) => DetailVM(),
         ),
         ChangeNotifierProvider<ChartVM>(create: (_) => ChartVM()),
+        ChangeNotifierProvider<SearchVM>(create: (_) => SearchVM()),
       ],
       child: MaterialApp(
         initialRoute: '/',

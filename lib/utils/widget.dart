@@ -19,17 +19,26 @@ class MyWidget {
             decoration: BoxDecoration(
                 color: Style.grey, borderRadius: BorderRadius.circular(5.0)),
             padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
-            child: TextField(
-                decoration: InputDecoration(
-                  hintText: "Search",
-                  hintStyle: TextStyle(fontSize: 13),
-                  icon: Icon(Icons.search),
-                  enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.transparent)),
-                  focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.transparent)),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/search');
+              },
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Image.asset('assets/icons/icons_24/ic_search.png'),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      'Search...',
+                      style: TextStyle(fontSize: 14),
+                    ),
+                  ],
                 ),
-                onChanged: (value) {}),
+              ),
+            ),
           ),
         ),
         Expanded(
