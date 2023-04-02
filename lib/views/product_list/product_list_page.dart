@@ -119,7 +119,9 @@ class ProductList extends StatelessWidget {
                   builder: (context, value, child) =>
                       Flexible(child: makeCard(value.products)))
               : Center(
-                  child: Text('No Product Found'),
+                  child: Container(
+                    child: Image.asset('assets/icons/icons_80/ic_empty.png'),
+                  ),
                 ),
         ]),
       ),
