@@ -45,7 +45,9 @@ class MyWidget {
             ? Container()
             : Expanded(
                 child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, '/cart');
+                },
                 child: Image.asset('assets/icons/icons_44/ic_cart.png'),
               )),
       ],

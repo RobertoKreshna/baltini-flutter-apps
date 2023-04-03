@@ -1,5 +1,6 @@
 import 'package:baltini_flutter_apps/utils/models/product.dart';
 import 'package:baltini_flutter_apps/utils/widget.dart';
+import 'package:baltini_flutter_apps/views/cart/vm/cart_vm.dart';
 import 'package:baltini_flutter_apps/views/product_detail/vm/detail_vm.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -108,6 +109,76 @@ class ProductDetail extends StatelessWidget {
                 },
               ),
               buildBody(context, current),
+              Consumer2<DetailVM, CartVM>(
+                builder: (context, detail, cart, child) {
+                  return Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.0),
+                    child: GestureDetector(
+                      onTap: () {
+                        cart.addProduct(current, detail.quantity);
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          width: 227,
+                          content: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Item added to cart.",
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 14),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  cart.deleteProduct(current);
+                                },
+                                child: Text(
+                                  'UNDO',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 14,
+                                      decoration: TextDecoration.underline),
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  ScaffoldMessenger.of(context)
+                                      .hideCurrentSnackBar();
+                                },
+                                child: Container(
+                                  height: 16,
+                                  width: 16,
+                                  child: Image.asset(
+                                      'assets/icons/icons_44/ic_close.png'),
+                                ),
+                              ),
+                            ],
+                          ),
+                          behavior: SnackBarBehavior.floating,
+                          backgroundColor: Color.fromRGBO(232, 236, 238, 1.0),
+                          elevation: 10, //shadow
+                        ));
+                      },
+                      child: Row(children: [
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(vertical: 14.0),
+                              child: Text(
+                                'ADD TO CART',
+                                style: TextStyle(color: Colors.white),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ]),
+                    ),
+                  );
+                },
+              ),
             ],
           ),
         ),

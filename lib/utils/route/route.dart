@@ -1,3 +1,4 @@
+import 'package:baltini_flutter_apps/views/cart/cart_page.dart';
 import 'package:baltini_flutter_apps/views/navbar/bottom_nav.dart';
 import 'package:baltini_flutter_apps/views/product_list/vm/list_vm.dart';
 import 'package:baltini_flutter_apps/views/size_chart/size_chart_page.dart';
@@ -26,6 +27,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => SizeChart());
       case '/search':
         return MaterialPageRoute(builder: (_) => Search());
+      case '/cart':
+        return MaterialPageRoute(builder: (_) => Cart());
       case '/shipreturn':
         return MaterialPageRoute(builder: (_) => ShipReturn());
       case '/authentic':

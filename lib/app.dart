@@ -1,3 +1,4 @@
+import 'package:baltini_flutter_apps/views/cart/vm/cart_vm.dart';
 import 'package:baltini_flutter_apps/views/home/vm/home_vm.dart';
 import 'package:baltini_flutter_apps/views/product_detail/vm/detail_vm.dart';
 import 'package:baltini_flutter_apps/views/product_list/vm/list_vm.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<ChartVM>(create: (_) => ChartVM()),
         ChangeNotifierProvider<SearchVM>(create: (_) => SearchVM()),
+        ChangeNotifierProvider<CartVM>(create: (_) => CartVM()),
       ],
       child: MaterialApp(
         initialRoute: '/',
