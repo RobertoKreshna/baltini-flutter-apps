@@ -1,6 +1,9 @@
 import 'package:baltini_flutter_apps/utils/style.dart';
+import 'package:baltini_flutter_apps/views/cart/vm/cart_vm.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:badges/badges.dart' as badges;
+import 'package:provider/provider.dart';
 
 class MyWidget {
   Widget topRow(BuildContext context, bool back, bool fromSearch) {
@@ -43,13 +46,27 @@ class MyWidget {
         ),
         fromSearch
             ? Container()
-            : Expanded(
-                child: GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, '/cart');
+            : Consumer<CartVM>(
+                builder: (context, value, child) {
+                  return Expanded(
+                      child: GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/cart');
+                          },
+                          child: value.products.isEmpty
+                              ? Image.asset('assets/icons/icons_44/ic_cart.png')
+                              : badges.Badge(
+                                  position: badges.BadgePosition.bottomEnd(
+                                      end: 8, bottom: 0),
+                                  badgeContent: Text(
+                                    value.products.length.toString(),
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  child: Image.asset(
+                                      'assets/icons/icons_44/ic_cart.png'),
+                                )));
                 },
-                child: Image.asset('assets/icons/icons_44/ic_cart.png'),
-              )),
+              ),
       ],
     );
   }

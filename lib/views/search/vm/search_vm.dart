@@ -1,5 +1,5 @@
 import 'package:baltini_flutter_apps/utils/models/product.dart';
-import 'package:baltini_flutter_apps/views/search/vm/service/search_service.dart';
+import 'package:baltini_flutter_apps/views/search/service/search_service.dart';
 import 'package:flutter/material.dart';
 
 class SearchVM extends ChangeNotifier {

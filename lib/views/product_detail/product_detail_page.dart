@@ -4,6 +4,7 @@ import 'package:baltini_flutter_apps/views/cart/vm/cart_vm.dart';
 import 'package:baltini_flutter_apps/views/product_detail/vm/detail_vm.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:badges/badges.dart' as badges;
 import 'package:provider/provider.dart';
 
 class ProductDetail extends StatelessWidget {
@@ -64,11 +65,26 @@ class ProductDetail extends StatelessWidget {
                         ),
                       ],
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/cart');
+                    Consumer<CartVM>(
+                      builder: (context, value, child) {
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/cart');
+                          },
+                          child: value.products.isNotEmpty
+                              ? badges.Badge(
+                                  badgeContent: Text(
+                                    value.products.length.toString(),
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  position: badges.BadgePosition.bottomEnd(
+                                      end: 0, bottom: 0),
+                                  child: Image.asset(
+                                      'assets/icons/icons_44/ic_cart.png'))
+                              : Image.asset(
+                                  'assets/icons/icons_44/ic_cart.png'),
+                        );
                       },
-                      child: Image.asset('assets/icons/icons_44/ic_cart.png'),
                     ),
                   ],
                 ),

@@ -1,7 +1,7 @@
 import 'package:baltini_flutter_apps/utils/service/base_service.dart';
 import 'package:dio/dio.dart';
 
-import '../../../../utils/models/product.dart';
+import '../../../utils/models/product.dart';
 
 class SearchService extends BaseService {
   getProduct(String searchValue) async {

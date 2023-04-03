@@ -44,9 +44,9 @@ class Search extends StatelessWidget {
                                 vm.toggleHistory(true);
                                 vm.controller.clear();
                                 Navigator.pushNamed(context, '/list',
-                                        arguments: ListVM(
-                                            products: vm.recommendedItems,
-                                            fromSearch: true));
+                                    arguments: ListVM(
+                                        products: vm.recommendedItems,
+                                        fromSearch: true));
                               },
                               decoration: InputDecoration(
                                 icon: Image.asset(
