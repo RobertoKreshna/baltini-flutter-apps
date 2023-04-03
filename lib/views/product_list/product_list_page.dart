@@ -118,9 +118,24 @@ class ProductList extends StatelessWidget {
               ? Consumer<ListVM>(
                   builder: (context, value, child) =>
                       Flexible(child: makeCard(value.products)))
-              : Center(
-                  child: Container(
-                    child: Image.asset('assets/icons/icons_80/ic_empty.png'),
+              : Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset('assets/icons/icons_80/ic_empty.png'),
+                      SizedBox(
+                        height: 24,
+                      ),
+                      Text(
+                        'No item found.\nTry again with another filter or keyword.',
+                        style: TextStyle(
+                          color: Color.fromRGBO(18, 19, 19, 1.0),
+                          fontSize: 14,
+                          height: 1.5,
+                        ),
+                        textAlign: TextAlign.center,
+                      )
+                    ],
                   ),
                 ),
         ]),
