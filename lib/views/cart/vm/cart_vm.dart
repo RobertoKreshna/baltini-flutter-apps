@@ -11,6 +11,9 @@ class CartVM extends ChangeNotifier {
   List<Product> products = [];
   List<int> sizeIndex = [];
   List<int> qty = [];
+  late Product recentlydeleted;
+  late int recentlydeletedqty;
+  late int recentlydeletedselectedsize;
 
   addProduct(Product currentProduct, int currentQuantity, int selectedSize) {
     products.add(currentProduct);
@@ -23,6 +26,9 @@ class CartVM extends ChangeNotifier {
 
   deleteProduct(Product currentProduct) {
     int index = products.indexOf(currentProduct);
+    recentlydeleted = currentProduct;
+    recentlydeletedqty = qty.elementAt(index);
+    recentlydeletedselectedsize = sizeIndex.elementAt(index);
     products.removeAt(index);
     sizeIndex.removeAt(index);
     qty.removeAt(index);

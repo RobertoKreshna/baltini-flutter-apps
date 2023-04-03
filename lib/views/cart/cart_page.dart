@@ -43,7 +43,7 @@ class Cart extends StatelessWidget {
                             physics: NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                             itemCount: value.products.length,
-                            itemBuilder: (BuildContext context, index) {
+                            itemBuilder: (BuildContext context2, index) {
                               if (index < value.products.length) {
                                 return Padding(
                                   padding: EdgeInsets.symmetric(vertical: 24.0),
@@ -179,6 +179,67 @@ class Cart extends StatelessWidget {
                                                 onTap: () {
                                                   value.deleteProduct(
                                                       value.products[index]);
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(SnackBar(
+                                                    width: 250,
+                                                    content: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Text(
+                                                          "Item deleted from cart.",
+                                                          style: TextStyle(
+                                                              color:
+                                                                  Colors.black,
+                                                              fontSize: 14),
+                                                        ),
+                                                        GestureDetector(
+                                                          onTap: () {
+                                                            value.addProduct(
+                                                                value
+                                                                    .recentlydeleted,
+                                                                value
+                                                                    .recentlydeletedqty,
+                                                                value
+                                                                    .recentlydeletedselectedsize);
+                                                            ScaffoldMessenger
+                                                                    .of(context)
+                                                                .hideCurrentSnackBar();
+                                                          },
+                                                          child: Text(
+                                                            'UNDO',
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .black,
+                                                                fontSize: 14,
+                                                                decoration:
+                                                                    TextDecoration
+                                                                        .underline),
+                                                          ),
+                                                        ),
+                                                        GestureDetector(
+                                                          onTap: () {
+                                                            ScaffoldMessenger
+                                                                    .of(context)
+                                                                .hideCurrentSnackBar();
+                                                          },
+                                                          child: Container(
+                                                            height: 20,
+                                                            width: 20,
+                                                            child: Image.asset(
+                                                                'assets/icons/icons_44/ic_close.png'),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    behavior: SnackBarBehavior
+                                                        .floating,
+                                                    backgroundColor:
+                                                        Color.fromRGBO(
+                                                            232, 236, 238, 1.0),
+                                                    elevation: 10, //shadow
+                                                  ));
                                                 },
                                                 child: Container(
                                                   height: 44,
