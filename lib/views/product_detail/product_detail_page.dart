@@ -65,7 +65,9 @@ class ProductDetail extends StatelessWidget {
                       ],
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, '/cart');
+                      },
                       child: Image.asset('assets/icons/icons_44/ic_cart.png'),
                     ),
                   ],
@@ -115,7 +117,8 @@ class ProductDetail extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 16.0),
                     child: GestureDetector(
                       onTap: () {
-                        cart.addProduct(current, detail.quantity);
+                        cart.addProduct(
+                            current, detail.quantity, detail.selectedSizeIndex);
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                           width: 227,
                           content: Row(
@@ -129,6 +132,8 @@ class ProductDetail extends StatelessWidget {
                               GestureDetector(
                                 onTap: () {
                                   cart.deleteProduct(current);
+                                  ScaffoldMessenger.of(context)
+                                      .hideCurrentSnackBar();
                                 },
                                 child: Text(
                                   'UNDO',
@@ -144,8 +149,8 @@ class ProductDetail extends StatelessWidget {
                                       .hideCurrentSnackBar();
                                 },
                                 child: Container(
-                                  height: 16,
-                                  width: 16,
+                                  height: 20,
+                                  width: 20,
                                   child: Image.asset(
                                       'assets/icons/icons_44/ic_close.png'),
                                 ),
