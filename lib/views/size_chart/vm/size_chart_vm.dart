@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
 class ChartVM extends ChangeNotifier {
-  bool clothingVisible = false;
-  bool jeansVisible = false;
-  bool shoesVisible = false;
-  bool hatsVisible = false;
-  bool glovesVisible = false;
-  bool beltsVisible = false;
-  bool ringsVisible = false;
-  bool eyewearVisible = false;
+  Map<String, bool> condition = {
+    'Clothing': false,
+    'Jeans': false,
+    'Shoes': false,
+    'Hats': false,
+    'Gloves': false,
+    'Belts': false,
+    'Rings': false,
+    'Eyewear': false,
+  };
 
   Widget clothingChart = Table(
       columnWidths: {
@@ -47,43 +49,8 @@ class ChartVM extends ChangeNotifier {
         makeTableRow('Standard', 'IT', 'FR', 'US', 'UK', 'JP'),
       ]);
 
-  toggleClothing() {
-    clothingVisible = !clothingVisible;
-    notifyListeners();
-  }
-
-  toggleJeans() {
-    jeansVisible = !jeansVisible;
-    notifyListeners();
-  }
-
-  toggleShoes() {
-    shoesVisible = !shoesVisible;
-    notifyListeners();
-  }
-
-  toggleHats() {
-    hatsVisible = !hatsVisible;
-    notifyListeners();
-  }
-
-  toggleGloves() {
-    glovesVisible = !glovesVisible;
-    notifyListeners();
-  }
-
-  toggleBelts() {
-    beltsVisible = !beltsVisible;
-    notifyListeners();
-  }
-
-  toggleRings() {
-    ringsVisible = !ringsVisible;
-    notifyListeners();
-  }
-
-  toggleEyewear() {
-    eyewearVisible = !eyewearVisible;
+  toggleCondition(String key) {
+    condition[key] = !condition[key]!;
     notifyListeners();
   }
 

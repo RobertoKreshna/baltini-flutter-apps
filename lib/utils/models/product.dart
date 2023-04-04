@@ -1,15 +1,6 @@
 class Product {
-  late var id,
-      title,
-      vendor,
-      product_type,
-      status,
-      image,
-      price,
-      created,
-      variant,
-      options,
-      images;
+  String id, title, vendor, product_type, status, image, price, created;
+  List variant, options, images;
 
   Product({
     required this.id,
@@ -27,7 +18,7 @@ class Product {
 
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
-      id: json['id'],
+      id: json['id'].toString(),
       title: json['title'],
       vendor: json['vendor'],
       product_type: json['product_type'],

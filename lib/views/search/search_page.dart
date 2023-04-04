@@ -1,10 +1,12 @@
+import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
+import 'package:baltini_flutter_apps/views/product_list/components/sending_arguments.dart';
 import 'package:baltini_flutter_apps/views/product_list/product_list_page.dart';
 import 'package:baltini_flutter_apps/views/product_list/vm/list_vm.dart';
 import 'package:baltini_flutter_apps/views/search/vm/search_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class Search extends StatelessWidget {
+class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +24,7 @@ class Search extends StatelessWidget {
                           vm.controller.clear();
                           Navigator.pop(context);
                         },
-                        child: Image.asset('assets/icons/icons_44/ic_back.png'),
+                        child: Image.asset(back),
                       ),
                       Expanded(
                         child: Container(
@@ -44,13 +46,12 @@ class Search extends StatelessWidget {
                                 vm.toggleHistory(true);
                                 vm.controller.clear();
                                 Navigator.pushNamed(context, '/list',
-                                    arguments: ListVM(
-                                        products: vm.recommendedItems,
-                                        fromSearch: true));
+                                    arguments: ListPageArguments(
+                                        vm.recommendedItems, true));
                               },
                               decoration: InputDecoration(
                                 icon: Image.asset(
-                                  'assets/icons/icons_24/ic_search.png',
+                                  search,
                                 ),
                                 hintText: 'Search...',
                                 border: InputBorder.none,

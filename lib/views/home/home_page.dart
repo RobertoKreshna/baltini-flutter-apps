@@ -1,20 +1,21 @@
-import 'package:baltini_flutter_apps/utils/widget.dart';
+import 'package:baltini_flutter_apps/utils/components/top_carousel.dart';
+import 'package:baltini_flutter_apps/utils/components/top_row.dart';
+import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
 import 'package:baltini_flutter_apps/views/home/vm/home_vm.dart';
-import 'package:baltini_flutter_apps/views/home/widget.dart';
+import 'package:baltini_flutter_apps/views/product_list/components/sending_arguments.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../product_list/vm/list_vm.dart';
+import 'components/exclusive.dart';
+import 'components/new_arrival.dart';
+import 'components/spotlight_banner.dart';
 import 'service/home_service.dart';
 
 class HomePage extends StatelessWidget {
-  HomeWidget homeWidget = HomeWidget();
-  late HomeVM vm;
-
-  HomePage(this.vm);
-
   @override
   Widget build(BuildContext context) {
+    Provider.of<HomeVM>(context, listen: false).setProductNewArrival();
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -22,71 +23,79 @@ class HomePage extends StatelessWidget {
             children: [
               Padding(
                 padding: EdgeInsets.all(16.0),
-                child: MyWidget().topRow(context, false, false),
+                child: TopRow(false, false),
               ),
-              MyWidget().topCarousel(),
-              GestureDetector(
-                onTap: () async {
-                  Navigator.pushNamed(context, '/list',
-                      arguments: ListVM(
-                          products:
-                              await HomeService().getNewArrivalProduct()));
+              TopCarousel(),
+              Consumer<HomeVM>(
+                builder: (context, value, child) {
+                  return GestureDetector(
+                    onTap: () async {
+                      Navigator.pushNamed(context, '/list',
+                          arguments:
+                              ListPageArguments(value.Homeproducts, false));
+                    },
+                    child: AspectRatio(
+                      aspectRatio: 7.0 / 4.0,
+                      child: Image.asset(
+                        collection,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  );
                 },
-                child: AspectRatio(
-                  aspectRatio: 7.0 / 4.0,
-                  child: Image.asset(
-                    'assets/images/collection_banner.png',
-                    fit: BoxFit.fill,
-                  ),
-                ),
               ),
               Padding(
                 padding: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    GestureDetector(
-                      onTap: () async {
-                        Navigator.pushNamed(context, '/list',
-                            arguments: ListVM(
-                                products: await HomeService()
-                                    .getProductByGender('Women')));
+                    Consumer<HomeVM>(
+                      builder: (context, value, child) {
+                        return GestureDetector(
+                          onTap: () async {
+                            await value.setArgs('gender', 'Women');
+                            Navigator.pushNamed(context, '/list',
+                                arguments: ListPageArguments(
+                                    value.argsProducts, false));
+                          },
+                          child: Container(
+                            height: 275,
+                            child: Image.asset(
+                              women,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        );
                       },
-                      child: Container(
-                        height: 275,
-                        child: Image.asset(
-                          'assets/images/women_banner.png',
-                          fit: BoxFit.fill,
-                        ),
-                      ),
                     ),
                     SizedBox(
                       width: 16,
                     ),
-                    GestureDetector(
-                      onTap: () async {
-                        Navigator.pushNamed(context, '/list',
-                            arguments: ListVM(
-                                products: await HomeService()
-                                    .getProductByGender('Men')));
+                    Consumer<HomeVM>(
+                      builder: (context, value, child) {
+                        return GestureDetector(
+                          onTap: () async {
+                            await value.setArgs('gender', 'Men');
+                            Navigator.pushNamed(context, '/list',
+                                arguments: ListPageArguments(
+                                    value.argsProducts, false));
+                          },
+                          child: Container(
+                            height: 275,
+                            child: Image.asset(
+                              men,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        );
                       },
-                      child: Container(
-                        height: 275,
-                        child: Image.asset(
-                          'assets/images/men_banner.png',
-                          fit: BoxFit.fill,
-                        ),
-                      ),
                     ),
                   ],
                 ),
               ),
-              homeWidget.spotlightBanner(context,
-                  'assets/images/spotlight_banner_1.png', 'Stella McCartney'),
-              homeWidget.spotlightBanner(context,
-                  'assets/images/spotlight_banner_2.png', 'Bottega Veneta'),
-              homeWidget.spotlightBanner(context,
-                  'assets/images/spotlight_banner_3.png', 'Stella McCartney'),
+              SpotlightBanner(spotlight1, 'Stella McCartney'),
+              SpotlightBanner(spotlight2, 'Bottega Veneta'),
+              SpotlightBanner(spotlight3, 'Stella McCartney'),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 8.0),
                 child: Text(
@@ -94,25 +103,24 @@ class HomePage extends StatelessWidget {
                   style: TextStyle(fontSize: 18),
                 ),
               ),
-              GestureDetector(
-                onTap: () async {
-                  Navigator.pushNamed(context, '/list',
-                      arguments: ListVM(
-                          products:
-                              await HomeService().getNewArrivalProduct()));
+              Consumer<HomeVM>(
+                builder: (context, value, child) {
+                  return GestureDetector(
+                    onTap: () async {
+                      Navigator.pushNamed(context, '/list',
+                          arguments:
+                              ListPageArguments(value.Homeproducts, false));
+                    },
+                    child: Text(
+                      'VIEW ALL',
+                      style: TextStyle(
+                          fontSize: 12, decoration: TextDecoration.underline),
+                    ),
+                  );
                 },
-                child: Text(
-                  'VIEW ALL',
-                  style: TextStyle(
-                      fontSize: 12, decoration: TextDecoration.underline),
-                ),
               ),
               Consumer<HomeVM>(builder: (context, value, child) {
-                if (value.products.isEmpty) {
-                  value.setProduct();
-                }
-                vm = value;
-                return homeWidget.newArrival(context, vm);
+                return NewArrival(value);
               }),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 8.0),
@@ -121,21 +129,9 @@ class HomePage extends StatelessWidget {
                   style: TextStyle(fontSize: 18),
                 ),
               ),
-              homeWidget.exclusive(
-                  context,
-                  'assets/images/brand_banner_1.png',
-                  'Alexander McQueen',
-                  'The Alexander McQueen brand is renowned for its eccentricity and constancy as a high fashion innovator. The company has constantly adopted a gothic, sensual, dark look that is essentially what makes it famous.'),
-              homeWidget.exclusive(
-                  context,
-                  'assets/images/brand_banner_2.png',
-                  'Dolce & Gabbana',
-                  'Italian designers Domenico Dolce and Stefano Gabbana established the opulent Dolce & Gabbana fashion brand in Legnano in 1985. They debuted their leotard collection in 1988, then in 1989 they started creating swimwear and undergarments.'),
-              homeWidget.exclusive(
-                  context,
-                  'assets/images/brand_banner_3.png',
-                  'Versace',
-                  'Versace gained recognition on a global scale for his extravagant designs, breathtaking theatrical costumes, and cutting-edge menswear design. Versace\'s fashion incorporated overt eroticism along with elegant classicism.'),
+              Exclusive(brand1, 'Alexander McQueen', brand1desc),
+              Exclusive(brand2, 'Dolce & Gabbana', brand2desc),
+              Exclusive(brand3, 'Versace', brand3desc),
               Padding(
                 padding: EdgeInsets.fromLTRB(0.0, 40.0, 0.0, 8.0),
                 child: Text(

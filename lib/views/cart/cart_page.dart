@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../utils/models/product.dart';
 
-class Cart extends StatelessWidget {
+class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -198,11 +198,11 @@ class Cart extends StatelessWidget {
                                                           onTap: () {
                                                             value.addProduct(
                                                                 value
-                                                                    .recentlydeleted,
+                                                                    .recentlydeleted!,
                                                                 value
-                                                                    .recentlydeletedqty,
+                                                                    .recentlydeletedqty!,
                                                                 value
-                                                                    .recentlydeletedselectedsize);
+                                                                    .recentlydeletedselectedsize!);
                                                             ScaffoldMessenger
                                                                     .of(context)
                                                                 .hideCurrentSnackBar();

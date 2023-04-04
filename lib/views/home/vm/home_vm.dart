@@ -4,11 +4,24 @@ import 'package:flutter/material.dart';
 import '../../../utils/models/product.dart';
 
 class HomeVM extends ChangeNotifier {
-  List<Product> products = [];
+  List<Product> Homeproducts = [];
 
-  setProduct() async {
+  List<Product>? argsProducts;
+  Product? product;
+
+  setProductNewArrival() async {
     var data = await HomeService().getNewArrivalProduct();
-    products = data;
+    Homeproducts = data;
     notifyListeners();
+  }
+
+  setArgs(String how, String value) async {
+    if (how == 'brand') {
+      argsProducts = await HomeService().getProductByBrand(value);
+      notifyListeners();
+    } else if (how == 'gender') {
+      argsProducts = await HomeService().getProductByGender(value);
+      notifyListeners();
+    }
   }
 }

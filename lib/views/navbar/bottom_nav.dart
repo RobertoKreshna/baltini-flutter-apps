@@ -1,3 +1,4 @@
+import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
 import 'package:baltini_flutter_apps/views/home/home_page.dart';
 import 'package:baltini_flutter_apps/views/home/vm/home_vm.dart';
 import 'package:flutter/material.dart';
@@ -30,12 +31,7 @@ class _MyNavbarState extends State<MyNavBar> {
             _currentIndex = index;
           });
         },
-        children: [
-          HomePage(HomeVM()),
-          CategoryPage(),
-          OrderPage(),
-          AccountPage()
-        ],
+        children: [HomePage(), CategoryPage(), OrderPage(), AccountPage()],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
@@ -47,18 +43,13 @@ class _MyNavbarState extends State<MyNavBar> {
           _pageController.jumpToPage(index);
         },
         items: [
+          BottomNavigationBarItem(icon: Image.asset(homeactive), label: 'HOME'),
           BottomNavigationBarItem(
-              icon: Image.asset('assets/icons/nav_icon/home_active.png'),
-              label: 'HOME'),
+              icon: Image.asset(categoryactive), label: 'CATEGORY'),
           BottomNavigationBarItem(
-              icon: Image.asset('assets/icons/nav_icon/category_active.png'),
-              label: 'CATEGORY'),
+              icon: Image.asset(orderactive), label: 'MY ORDER'),
           BottomNavigationBarItem(
-              icon: Image.asset('assets/icons/nav_icon/my_order_active.png'),
-              label: 'MY ORDER'),
-          BottomNavigationBarItem(
-              icon: Image.asset('assets/icons/nav_icon/my_account_active.png'),
-              label: 'MY ACCOUNT'),
+              icon: Image.asset(accountactive), label: 'MY ACCOUNT'),
         ],
       ),
     );

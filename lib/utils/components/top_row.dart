@@ -1,12 +1,19 @@
+import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
 import 'package:baltini_flutter_apps/utils/style.dart';
-import 'package:baltini_flutter_apps/views/cart/vm/cart_vm.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:provider/provider.dart';
 
-class MyWidget {
-  Widget topRow(BuildContext context, bool back, bool fromSearch) {
+import '../../views/cart/vm/cart_vm.dart';
+
+class TopRow extends StatelessWidget {
+  bool back;
+  bool fromSearch;
+
+  TopRow(this.back, this.fromSearch);
+
+  @override
+  Widget build(BuildContext context) {
     return Row(
       children: [
         back
@@ -30,7 +37,7 @@ class MyWidget {
                 padding: EdgeInsets.all(8.0),
                 child: Row(
                   children: [
-                    Image.asset('assets/icons/icons_24/ic_search.png'),
+                    Image.asset(search),
                     SizedBox(
                       width: 5,
                     ),
@@ -54,7 +61,7 @@ class MyWidget {
                             Navigator.pushNamed(context, '/cart');
                           },
                           child: value.products.isEmpty
-                              ? Image.asset('assets/icons/icons_44/ic_cart.png')
+                              ? Image.asset(cart)
                               : badges.Badge(
                                   position: badges.BadgePosition.bottomEnd(
                                       end: 8, bottom: 0),
@@ -62,52 +69,12 @@ class MyWidget {
                                     value.products.length.toString(),
                                     style: TextStyle(color: Colors.white),
                                   ),
-                                  child: Image.asset(
-                                      'assets/icons/icons_44/ic_cart.png'),
+                                  child: Image.asset(cart),
                                 )));
                 },
               ),
       ],
     );
-  }
-
-  Widget topCarousel() {
-    return Container(
-      color: Colors.black,
-      height: 36,
-      width: double.infinity,
-      child: CarouselSlider(
-        options: CarouselOptions(
-          autoPlay: true,
-          autoPlayInterval: Duration(seconds: 3),
-          autoPlayAnimationDuration: Duration(milliseconds: 800),
-          autoPlayCurve: Curves.fastOutSlowIn,
-          viewportFraction: 1.0,
-        ),
-        items: [
-          Center(
-            child: Text(
-              'Free worldwide express shipping on all orders over \$200',
-              textAlign: TextAlign.center,
-              style: Style.homeCarouselText,
-            ),
-          ),
-          Center(
-            child: Text(
-              'Subscribe to get our latest and hottest deals',
-              textAlign: TextAlign.center,
-              style: Style.homeCarouselText,
-            ),
-          ),
-          Center(
-            child: Text(
-              'Celebrate our 3rd birthday with us and save up to 60% this week',
-              textAlign: TextAlign.start,
-              style: Style.homeCarouselText,
-            ),
-          ),
-        ],
-      ),
-    );
+    ;
   }
 }

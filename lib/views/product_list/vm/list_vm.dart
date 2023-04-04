@@ -1,3 +1,4 @@
+import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
 import 'package:baltini_flutter_apps/views/product_list/service/list_service.dart';
 import 'package:flutter/material.dart';
 
@@ -32,7 +33,20 @@ class ListVM extends ChangeNotifier {
 
   List<String> selectedFilter = [];
 
-  setSortValue(String text) async {
+  setProduct(List<Product> prods) {
+    this.products = prods;
+  }
+
+  setFromSearch(bool value) {
+    this.fromSearch = value;
+  }
+
+  setSortValue(String value) {
+    sortBy = value;
+    notifyListeners();
+  }
+
+  SortProduct(String text) async {
     sortBy = text;
     if (text == 'Best Selling' || text == 'Featured') {
       products = await ListService().getProduct();

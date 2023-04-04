@@ -1,8 +1,11 @@
+import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
 import 'package:baltini_flutter_apps/views/size_chart/vm/size_chart_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class SizeChart extends StatelessWidget {
+import 'components/chart.dart';
+
+class SizeChartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +21,7 @@ class SizeChart extends StatelessWidget {
                     onTap: () {
                       Navigator.pop(context);
                     },
-                    child: Image.asset('assets/icons/icons_44/ic_close.png'),
+                    child: Image.asset(close),
                   ),
                   Text(
                     'Size Chart',
@@ -36,71 +39,13 @@ class SizeChart extends StatelessWidget {
               ),
               Consumer<ChartVM>(
                 builder: (context, value, child) {
-                  return buildChart(context, value);
+                  return Chart(value);
                 },
               )
             ],
           ),
         ),
       )),
-    );
-  }
-
-  Widget buildChart(BuildContext context, ChartVM vm) {
-    return Column(
-      children: [
-        buildChartItem('Clothing', vm.clothingVisible, vm, vm.clothingChart),
-        buildChartItem('Jeans', vm.jeansVisible, vm, vm.testTable),
-        buildChartItem('Shoes', vm.shoesVisible, vm, vm.testTable),
-        buildChartItem('Hats', vm.hatsVisible, vm, vm.testTable),
-        buildChartItem('Gloves', vm.glovesVisible, vm, vm.testTable),
-        buildChartItem('Belts', vm.beltsVisible, vm, vm.testTable),
-        buildChartItem('Rings', vm.ringsVisible, vm, vm.testTable),
-        buildChartItem('Eyewear', vm.eyewearVisible, vm, vm.testTable),
-      ],
-    );
-  }
-
-  Widget buildChartItem(String title, bool showChart, ChartVM vm, Widget data) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 14.0),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(title),
-              GestureDetector(
-                onTap: () {
-                  if (title == 'Clothing') {
-                    vm.toggleClothing();
-                  } else if (title == 'Jeans') {
-                    vm.toggleJeans();
-                  } else if (title == 'Shoes') {
-                    vm.toggleShoes();
-                  } else if (title == 'Hats') {
-                    vm.toggleHats();
-                  } else if (title == 'Gloves') {
-                    vm.toggleGloves();
-                  } else if (title == 'Belts') {
-                    vm.toggleBelts();
-                  } else if (title == 'Rings') {
-                    vm.toggleRings();
-                  } else {
-                    vm.toggleEyewear();
-                  }
-                },
-                child: Image.asset('assets/icons/icons_24/ic_cevron_down.png'),
-              ),
-            ],
-          ),
-          showChart == true
-              ? Container(
-                  child: data,
-                )
-              : Container(),
-        ],
-      ),
     );
   }
 }
