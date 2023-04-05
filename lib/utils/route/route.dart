@@ -1,3 +1,6 @@
+import 'package:baltini_flutter_apps/views/forgotpassword/forgot_password_page.dart';
+import 'package:baltini_flutter_apps/views/login&register/login_page.dart';
+import 'package:baltini_flutter_apps/views/login&register/register_page.dart';
 import 'package:baltini_flutter_apps/views/cart/cart_page.dart';
 import 'package:baltini_flutter_apps/views/navbar/bottom_nav.dart';
 import 'package:baltini_flutter_apps/views/product_list/vm/list_vm.dart';
@@ -28,6 +31,12 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => SearchPage());
       case '/cart':
         return MaterialPageRoute(builder: (_) => CartPage());
+      case '/login':
+        return MaterialPageRoute(builder: (_) => LoginPage());
+      case '/register':
+        return MaterialPageRoute(builder: (_) => RegisterPage());
+      case '/forgotpassword':
+        return MaterialPageRoute(builder: (_) => ForgotPasswordPage());
       case '/shipreturn':
         return MaterialPageRoute(builder: (_) => ShipReturn());
       case '/authentic':
