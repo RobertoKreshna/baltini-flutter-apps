@@ -1,5 +1,4 @@
 import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
-import 'package:baltini_flutter_apps/views/product_list/components/sending_arguments.dart';
 import 'package:baltini_flutter_apps/views/product_list/product_list_page.dart';
 import 'package:baltini_flutter_apps/views/product_list/vm/list_vm.dart';
 import 'package:baltini_flutter_apps/views/search/vm/search_vm.dart';
@@ -35,27 +34,31 @@ class SearchPage extends StatelessWidget {
                           ),
                           child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 8.0),
-                            child: TextField(
-                              controller: vm.controller,
-                              onChanged: (value) {
-                                vm.toggleHistory(false);
-                                vm.searchProduct(value); //matikan
+                            child: Consumer<ListVM>(
+                              builder: (context, list, child) {
+                                return TextField(
+                                  controller: vm.controller,
+                                  onChanged: (value) {
+                                    vm.toggleHistory(false);
+                                    vm.searchProduct(value); //matikan
+                                  },
+                                  onEditingComplete: () {
+                                    vm.addToHistory(vm.controller.text);
+                                    vm.toggleHistory(true);
+                                    vm.controller.clear();
+                                    list.setFromSearch(true);
+                                    list.setProduct(vm.recommendedItems);
+                                    Navigator.pushNamed(context, '/list');
+                                  },
+                                  decoration: InputDecoration(
+                                    icon: Image.asset(
+                                      search,
+                                    ),
+                                    hintText: 'Search...',
+                                    border: InputBorder.none,
+                                  ),
+                                );
                               },
-                              onEditingComplete: () {
-                                vm.addToHistory(vm.controller.text);
-                                vm.toggleHistory(true);
-                                vm.controller.clear();
-                                Navigator.pushNamed(context, '/list',
-                                    arguments: ListPageArguments(
-                                        vm.recommendedItems, true));
-                              },
-                              decoration: InputDecoration(
-                                icon: Image.asset(
-                                  search,
-                                ),
-                                hintText: 'Search...',
-                                border: InputBorder.none,
-                              ),
                             ),
                           ),
                         ),

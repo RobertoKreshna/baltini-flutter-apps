@@ -1,6 +1,5 @@
 import 'package:baltini_flutter_apps/views/cart/cart_page.dart';
 import 'package:baltini_flutter_apps/views/navbar/bottom_nav.dart';
-import 'package:baltini_flutter_apps/views/product_list/components/sending_arguments.dart';
 import 'package:baltini_flutter_apps/views/product_list/vm/list_vm.dart';
 import 'package:baltini_flutter_apps/views/size_chart/size_chart_page.dart';
 import 'package:baltini_flutter_apps/views/utils/ask_question_page.dart';
@@ -19,9 +18,7 @@ class RouteGenerator {
       case '/':
         return MaterialPageRoute(builder: (_) => MyNavBar());
       case '/list':
-        return MaterialPageRoute(
-            builder: (_) =>
-                ProductListPage(settings.arguments as ListPageArguments));
+        return MaterialPageRoute(builder: (_) => ProductListPage());
       case '/details':
         return MaterialPageRoute(
             builder: (_) => ProductDetailPage(settings.arguments as Product));

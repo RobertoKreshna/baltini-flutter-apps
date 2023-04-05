@@ -1,5 +1,5 @@
 import 'package:baltini_flutter_apps/views/home/vm/home_vm.dart';
-import 'package:baltini_flutter_apps/views/product_list/components/sending_arguments.dart';
+import 'package:baltini_flutter_apps/views/product_list/vm/list_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -22,16 +22,16 @@ class Exclusive extends StatelessWidget {
               fit: BoxFit.fitWidth,
             ),
           ),
-          Consumer<HomeVM>(
-            builder: (context, value, child) {
+          Consumer2<HomeVM, ListVM>(
+            builder: (context, home, list, child) {
               return Padding(
                 padding: EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 8.0),
                 child: GestureDetector(
                   onTap: () async {
-                    value.setArgs('brand', brand);
-                    Navigator.pushNamed(context, '/list',
-                        arguments:
-                            ListPageArguments(value.argsProducts, false));
+                    home.setArgs('brand', brand);
+                    list.setFromSearch(false);
+                    list.setProduct(home.argsProducts!);
+                    Navigator.pushNamed(context, '/list');
                   },
                   child: Text(
                     '$brand'.toUpperCase(),

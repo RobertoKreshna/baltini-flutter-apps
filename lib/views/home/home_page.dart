@@ -2,7 +2,6 @@ import 'package:baltini_flutter_apps/utils/components/top_carousel.dart';
 import 'package:baltini_flutter_apps/utils/components/top_row.dart';
 import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
 import 'package:baltini_flutter_apps/views/home/vm/home_vm.dart';
-import 'package:baltini_flutter_apps/views/product_list/components/sending_arguments.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -26,13 +25,13 @@ class HomePage extends StatelessWidget {
                 child: TopRow(false, false),
               ),
               TopCarousel(),
-              Consumer<HomeVM>(
-                builder: (context, value, child) {
+              Consumer2<HomeVM, ListVM>(
+                builder: (context, home, list, child) {
                   return GestureDetector(
                     onTap: () async {
-                      Navigator.pushNamed(context, '/list',
-                          arguments:
-                              ListPageArguments(value.Homeproducts, false));
+                      list.setFromSearch(false);
+                      list.setProduct(home.Homeproducts);
+                      Navigator.pushNamed(context, '/list');
                     },
                     child: AspectRatio(
                       aspectRatio: 7.0 / 4.0,
@@ -49,14 +48,14 @@ class HomePage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Consumer<HomeVM>(
-                      builder: (context, value, child) {
+                    Consumer2<HomeVM, ListVM>(
+                      builder: (context, home, list, child) {
                         return GestureDetector(
                           onTap: () async {
-                            await value.setArgs('gender', 'Women');
-                            Navigator.pushNamed(context, '/list',
-                                arguments: ListPageArguments(
-                                    value.argsProducts, false));
+                            await home.setArgs('gender', 'Women');
+                            list.setFromSearch(false);
+                            list.setProduct(home.argsProducts!);
+                            Navigator.pushNamed(context, '/list');
                           },
                           child: Container(
                             height: 275,
@@ -71,14 +70,14 @@ class HomePage extends StatelessWidget {
                     SizedBox(
                       width: 16,
                     ),
-                    Consumer<HomeVM>(
-                      builder: (context, value, child) {
+                    Consumer2<HomeVM, ListVM>(
+                      builder: (context, home, list, child) {
                         return GestureDetector(
                           onTap: () async {
-                            await value.setArgs('gender', 'Men');
-                            Navigator.pushNamed(context, '/list',
-                                arguments: ListPageArguments(
-                                    value.argsProducts, false));
+                            await home.setArgs('gender', 'Men');
+                            list.setFromSearch(false);
+                            list.setProduct(home.argsProducts!);
+                            Navigator.pushNamed(context, '/list');
                           },
                           child: Container(
                             height: 275,
@@ -103,13 +102,13 @@ class HomePage extends StatelessWidget {
                   style: TextStyle(fontSize: 18),
                 ),
               ),
-              Consumer<HomeVM>(
-                builder: (context, value, child) {
+              Consumer2<HomeVM, ListVM>(
+                builder: (context, home, list, child) {
                   return GestureDetector(
                     onTap: () async {
-                      Navigator.pushNamed(context, '/list',
-                          arguments:
-                              ListPageArguments(value.Homeproducts, false));
+                      list.setFromSearch(false);
+                      list.setProduct(home.Homeproducts);
+                      Navigator.pushNamed(context, '/list');
                     },
                     child: Text(
                       'VIEW ALL',

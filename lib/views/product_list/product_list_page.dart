@@ -5,7 +5,6 @@ import 'package:baltini_flutter_apps/utils/components/top_row.dart';
 import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
 import 'package:baltini_flutter_apps/utils/style.dart';
 import 'package:baltini_flutter_apps/views/product_list/components/product_card.dart';
-import 'package:baltini_flutter_apps/views/product_list/components/sending_arguments.dart';
 import 'package:baltini_flutter_apps/views/product_list/vm/list_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,16 +15,8 @@ part 'components/sort_sheet.dart';
 part 'components/filter_sheet.dart';
 
 class ProductListPage extends StatelessWidget {
-  ListPageArguments args;
-
-  ProductListPage(this.args);
-
   @override
   Widget build(BuildContext context) {
-    if (Provider.of<ListVM>(context, listen: false).products.isEmpty) {
-      Provider.of<ListVM>(context, listen: false).setProduct(args.prods!);
-    }
-    Provider.of<ListVM>(context, listen: false).setFromSearch(args.fromSearch);
     return Scaffold(
       body: SafeArea(
         child: Consumer<ListVM>(
