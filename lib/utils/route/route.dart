@@ -1,3 +1,4 @@
+import 'package:baltini_flutter_apps/views/account/change_password_page.dart';
 import 'package:baltini_flutter_apps/views/account/my_profile_page.dart';
 import 'package:baltini_flutter_apps/views/forgotpassword/forgot_password_page.dart';
 import 'package:baltini_flutter_apps/views/login&register/login_page.dart';
@@ -40,6 +41,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => ForgotPasswordPage());
       case '/profile':
         return MaterialPageRoute(builder: (_) => MyProfilePage());
+      case '/changepw':
+        return MaterialPageRoute(builder: (_) => ChangePasswordPage());
       case '/shipreturn':
         return MaterialPageRoute(builder: (_) => ShipReturn());
       case '/authentic':

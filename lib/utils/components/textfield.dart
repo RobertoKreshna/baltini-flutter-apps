@@ -15,6 +15,7 @@ class NonPWTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    controller.text = value;
     return TextField(
       controller: controller,
       style: TextStyle(fontSize: 14),
