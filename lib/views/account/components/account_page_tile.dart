@@ -4,10 +4,15 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
 class AccountPageTile extends StatelessWidget {
-  String path;
   String name;
+  String? image;
+  Color? color;
 
-  AccountPageTile(this.path, this.name);
+  AccountPageTile({
+    required this.name,
+    this.image = arrowright,
+    this.color = Colors.black,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +21,12 @@ class AccountPageTile extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(name),
+          Text(
+            name,
+            style: TextStyle(color: color),
+          ),
           Container(
-            child: Image.asset(arrowright),
+            child: Image.asset(image!),
           ),
         ],
       ),

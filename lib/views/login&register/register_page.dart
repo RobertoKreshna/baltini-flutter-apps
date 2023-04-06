@@ -1,5 +1,7 @@
 import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
+import 'package:baltini_flutter_apps/utils/models/user.dart';
 import 'package:baltini_flutter_apps/views/account/components/button.dart';
+import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
 import 'package:baltini_flutter_apps/views/login&register/components/textfield.dart';
 import 'package:baltini_flutter_apps/views/login&register/vm/register_vm.dart';
 import 'package:flutter/material.dart';
@@ -55,14 +57,23 @@ class RegisterPage extends StatelessWidget {
                 SizedBox(
                   height: 24,
                 ),
-                GestureDetector(
-                  onTap: () {
-                    showDialog(
-                        context: context,
-                        builder: (BuildContext context) =>
-                            _buildSuccessPopUp());
+                Consumer<AccountVM>(
+                  builder: (context, account, child) {
+                    return GestureDetector(
+                      onTap: () {
+                        bool res = value.addUsertoDB();
+                        if (res) {
+                          account.setAccount(value.getUser(), true);
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) =>
+                                  _buildSuccessPopUp()).then(
+                              (value) => Navigator.pushNamed(context, '/'));
+                        }
+                      },
+                      child: AccountButton('CREATE', true),
+                    );
                   },
-                  child: AccountButton('CREATE', true),
                 ),
               ],
             );

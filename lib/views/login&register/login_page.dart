@@ -1,5 +1,6 @@
 import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
 import 'package:baltini_flutter_apps/views/account/components/button.dart';
+import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
 import 'package:baltini_flutter_apps/views/login&register/components/textfield.dart';
 import 'package:baltini_flutter_apps/views/login&register/vm/login_vm.dart';
 import 'package:flutter/material.dart';
@@ -66,9 +67,18 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                GestureDetector(
-                  onTap: () {},
-                  child: AccountButton('LOGIN', true),
+                Consumer<AccountVM>(
+                  builder: (context, account, child) {
+                    return GestureDetector(
+                      onTap: () {
+                        if (value.checkLogin()) {
+                          account.setAccount(value.getUser()!, true);
+                          Navigator.pushNamed(context, '/');
+                        }
+                      },
+                      child: AccountButton('LOGIN', true),
+                    );
+                  },
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 24.0),

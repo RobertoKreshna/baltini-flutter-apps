@@ -28,6 +28,7 @@ const String sort = '${icon_path}icons_24/ic_sort.png';
 const String search = '${icon_path}icons_24/ic_search.png';
 const String min = '${icon_path}icons_24/ic_minus.png';
 const String plus = '${icon_path}icons_24/ic_plus.png';
+const String logout = '${icon_path}icons_24/ic_logout.png';
 const String back = '${icon_path}icons_44/ic_back.png';
 const String cart = '${icon_path}icons_44/ic_cart.png';
 const String close = '${icon_path}icons_44/ic_close.png';

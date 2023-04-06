@@ -1,4 +1,6 @@
+import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
 import 'package:baltini_flutter_apps/views/account/components/account_page_tile.dart';
+import 'package:baltini_flutter_apps/views/account/components/button.dart';
 import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -23,44 +25,46 @@ class AccountPage extends StatelessWidget {
                     ),
                   ),
                   vm.userLoggedin
-                      ? AccountPageTile('', 'My Profile')
+                      ? AccountPageTile(name: 'My Profile')
                       : Container(),
                   vm.userLoggedin
-                      ? AccountPageTile('', 'My Address')
+                      ? AccountPageTile(name: 'My Address')
                       : Container(),
-                  AccountPageTile('', 'Baltini Magazine'),
-                  AccountPageTile('', 'About Baltini'),
-                  AccountPageTile('', 'Terms and Condition'),
-                  AccountPageTile('', 'Partnerships'),
-                  AccountPageTile('', 'Helps'),
+                  AccountPageTile(name: 'Baltini Magazine'),
+                  AccountPageTile(name: 'About Baltini'),
+                  AccountPageTile(name: 'Terms and Condition'),
+                  AccountPageTile(name: 'Partnerships'),
+                  AccountPageTile(name: 'Helps'),
+                  vm.userLoggedin
+                      ? GestureDetector(
+                          onTap: () {
+                            vm.logout();
+                          },
+                          child: AccountPageTile(
+                            name: 'Log Out',
+                            image: logout,
+                            color: Colors.red,
+                          ),
+                        )
+                      : Container(),
                   SizedBox(
                     height: 40,
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, '/login');
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.black),
-                              borderRadius: BorderRadius.circular(5),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(vertical: 12.0),
-                              child: Text(
-                                'Login to Baltini'.toUpperCase(),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
+                  vm.userLoggedin
+                      ? Container()
+                      : GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/login');
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                  child:
+                                      AccountButton('LOGIN TO BALTINI', false)),
+                            ],
                           ),
-                        ),
-                      ],
-                    ),
-                  )
+                        )
                 ],
               );
             },
