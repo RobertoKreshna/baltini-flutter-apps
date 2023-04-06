@@ -35,7 +35,11 @@ class AccountPage extends StatelessWidget {
                         )
                       : Container(),
                   vm.userLoggedin
-                      ? AccountPageTile(name: 'My Profile')
+                      ? GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/profile');
+                          },
+                          child: AccountPageTile(name: 'My Profile'))
                       : Container(),
                   vm.userLoggedin
                       ? AccountPageTile(name: 'My Address')

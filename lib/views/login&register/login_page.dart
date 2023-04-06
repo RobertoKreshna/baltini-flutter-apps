@@ -1,10 +1,12 @@
 import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
 import 'package:baltini_flutter_apps/views/account/components/button.dart';
 import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
-import 'package:baltini_flutter_apps/views/login&register/components/textfield.dart';
+import 'package:baltini_flutter_apps/utils/components/textfield.dart';
 import 'package:baltini_flutter_apps/views/login&register/vm/login_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../utils/components/password_textfield.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -40,13 +42,21 @@ class LoginPage extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 24.0),
-                  child: LoginRegisterTextField('EMAIL',
-                      'Enter your email address here', value.email, false),
+                  child: NonPWTextField(
+                    label: 'EMAIL',
+                    hinttext: 'Enter your email address here',
+                    controller: value.email,
+                  ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 8.0),
-                  child: LoginRegisterTextField(
-                      'PASSWORD', 'Enter your password here', value.pass, true),
+                  child: PWTextField(
+                    label: 'PASSWORD',
+                    hinttext: 'Enter your password here',
+                    controller: value.pass,
+                    isVisible: value.passVisible,
+                    onIconTap: value.toggleVisibile,
+                  ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 24.0),

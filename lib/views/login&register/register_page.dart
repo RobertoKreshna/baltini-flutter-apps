@@ -2,10 +2,12 @@ import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
 import 'package:baltini_flutter_apps/utils/models/user.dart';
 import 'package:baltini_flutter_apps/views/account/components/button.dart';
 import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
-import 'package:baltini_flutter_apps/views/login&register/components/textfield.dart';
+import 'package:baltini_flutter_apps/utils/components/textfield.dart';
 import 'package:baltini_flutter_apps/views/login&register/vm/register_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../utils/components/password_textfield.dart';
 
 class RegisterPage extends StatelessWidget {
   @override
@@ -36,23 +38,36 @@ class RegisterPage extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 16.0),
-                  child: LoginRegisterTextField('First Name',
-                      'Enter your first name here', value.firstName, false),
+                  child: NonPWTextField(
+                    label: 'First Name',
+                    hinttext: 'Enter your first name here',
+                    controller: value.firstName,
+                  ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 16.0),
-                  child: LoginRegisterTextField('Last Name',
-                      'Enter your last name here', value.lastName, false),
+                  child: NonPWTextField(
+                    label: 'Last Name',
+                    hinttext: 'Enter your last name here',
+                    controller: value.lastName,
+                  ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 16.0),
-                  child: LoginRegisterTextField(
-                      'Email', 'Enter your email here', value.email, false),
+                  child: NonPWTextField(
+                    label: 'Email',
+                    hinttext: 'Enter your email here',
+                    controller: value.email,
+                  ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 16.0),
-                  child: LoginRegisterTextField(
-                      'Password', 'Enter your password here', value.pass, true),
+                  child: PWTextField(
+                    label: 'Password',
+                    hinttext: 'Enter your password here',
+                    controller: value.pass,
+                    onIconTap: value.toggleVisibile,
+                  ),
                 ),
                 SizedBox(
                   height: 24,
