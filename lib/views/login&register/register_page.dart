@@ -66,6 +66,7 @@ class RegisterPage extends StatelessWidget {
                     label: 'Password',
                     hinttext: 'Enter your password here',
                     controller: value.pass,
+                    isVisible: value.passVisible,
                     onIconTap: value.toggleVisibile,
                   ),
                 ),
