@@ -17,13 +17,13 @@ class UserAdapter extends TypeAdapter<User> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return User(
-      fields[0] as String,
-      fields[1] as String,
-      fields[2] as String,
-      fields[3] as String,
-    )
-      ..address = (fields[4] as List).cast<dynamic>()
-      ..order = (fields[5] as List).cast<dynamic>();
+      firstName: fields[0] as String,
+      lastName: fields[1] as String,
+      email: fields[2] as String,
+      password: fields[3] as String,
+      address: (fields[4] as List).cast<Address>(),
+      orders: (fields[5] as List).cast<Order>(),
+    );
   }
 
   @override
@@ -41,7 +41,7 @@ class UserAdapter extends TypeAdapter<User> {
       ..writeByte(4)
       ..write(obj.address)
       ..writeByte(5)
-      ..write(obj.order);
+      ..write(obj.orders);
   }
 
   @override

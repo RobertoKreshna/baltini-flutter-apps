@@ -1,4 +1,5 @@
 import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
+import 'package:baltini_flutter_apps/utils/hive/boxes.dart';
 import 'package:baltini_flutter_apps/views/account/components/account_page_tile.dart';
 import 'package:baltini_flutter_apps/views/account/components/button.dart';
 import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
@@ -18,12 +19,21 @@ class AccountPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: 24),
+                    padding: EdgeInsets.symmetric(vertical: 16),
                     child: Text(
                       'My Account',
                       style: TextStyle(fontSize: 18),
                     ),
                   ),
+                  vm.userLoggedin
+                      ? Padding(
+                          padding: EdgeInsets.symmetric(vertical: 16),
+                          child: Text(
+                            'Hi ${vm.currentUser!.firstName} ${vm.currentUser!.lastName}',
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        )
+                      : Container(),
                   vm.userLoggedin
                       ? AccountPageTile(name: 'My Profile')
                       : Container(),

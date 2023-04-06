@@ -17,11 +17,21 @@ class RegisterVM extends ChangeNotifier {
   }
 
   User getUser() {
-    return User(firstName.text, lastName.text, email.text, pass.text);
+    return User(
+      firstName: firstName.text,
+      lastName: lastName.text,
+      email: email.text,
+      password: pass.text,
+    );
   }
 
   bool addUsertoDB() {
-    User newUser = User(firstName.text, lastName.text, email.text, pass.text);
+    User newUser = User(
+      firstName: firstName.text,
+      lastName: lastName.text,
+      email: email.text,
+      password: pass.text,
+    );
     var box = Boxes.getUsersBox();
     box.add(newUser);
     return true;

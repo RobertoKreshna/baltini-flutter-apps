@@ -1,3 +1,5 @@
+import 'package:baltini_flutter_apps/utils/models/address.dart';
+import 'package:baltini_flutter_apps/utils/models/order.dart';
 import 'package:hive/hive.dart';
 
 part 'user.g.dart';
@@ -5,17 +7,24 @@ part 'user.g.dart';
 @HiveType(typeId: 0)
 class User extends HiveObject {
   @HiveField(0)
-  late String firstName;
+  String firstName;
   @HiveField(1)
-  late String lastName;
+  String lastName;
   @HiveField(2)
-  late String email;
+  String email;
   @HiveField(3)
-  late String password;
+  String password;
   @HiveField(4)
-  late List address;
+  List<Address> address;
   @HiveField(5)
-  late List order;
+  List<Order> orders;
 
-  User(this.firstName, this.lastName, this.email, this.password);
+  User({
+    required this.firstName,
+    required this.lastName,
+    required this.email,
+    required this.password,
+    this.address = const [],
+    this.orders = const [],
+  });
 }
