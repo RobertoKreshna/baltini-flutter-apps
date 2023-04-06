@@ -73,7 +73,10 @@ class LoginPage extends StatelessWidget {
                       onTap: () {
                         if (value.checkLogin()) {
                           account.setAccount(value.getUser()!, true);
+                          value.clearAll();
                           Navigator.pushNamed(context, '/');
+                        } else {
+                          print('wrong credentials');
                         }
                       },
                       child: AccountButton('LOGIN', true),

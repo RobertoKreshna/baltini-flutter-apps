@@ -16,6 +16,11 @@ class LoginVM extends ChangeNotifier {
     notifyListeners();
   }
 
+  clearAll() {
+    email.clear();
+    pass.clear();
+  }
+
   User? getUser() {
     User? wantedUser;
     final box = Boxes.getUsersBox();

@@ -19,6 +19,7 @@ class LoginRegisterTextField extends StatelessWidget {
     return Consumer<LoginVM>(
       builder: (context, value, child) {
         return TextField(
+          controller: controller,
           style: TextStyle(fontSize: 14),
           decoration: isPassword
               ? InputDecoration(

@@ -63,7 +63,8 @@ class RegisterPage extends StatelessWidget {
                       onTap: () {
                         bool res = value.addUsertoDB();
                         if (res) {
-                          account.setAccount(value.getUser(), true);
+                          account.setAccount(value.currentUser!, true);
+                          value.clearAll();
                           showDialog(
                               context: context,
                               builder: (BuildContext context) =>
