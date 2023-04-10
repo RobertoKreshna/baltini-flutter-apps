@@ -2,8 +2,6 @@ import 'package:baltini_flutter_apps/views/cart/vm/cart_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../utils/models/product.dart';
-
 class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

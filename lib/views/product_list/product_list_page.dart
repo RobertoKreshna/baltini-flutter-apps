@@ -9,8 +9,6 @@ import 'package:baltini_flutter_apps/views/product_list/vm/list_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../utils/models/product.dart';
-
 part 'components/sort_sheet.dart';
 part 'components/filter_sheet.dart';
 

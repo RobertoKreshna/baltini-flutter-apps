@@ -5,7 +5,6 @@ import 'package:baltini_flutter_apps/views/login&register/login_page.dart';
 import 'package:baltini_flutter_apps/views/login&register/register_page.dart';
 import 'package:baltini_flutter_apps/views/cart/cart_page.dart';
 import 'package:baltini_flutter_apps/views/navbar/bottom_nav.dart';
-import 'package:baltini_flutter_apps/views/product_list/vm/list_vm.dart';
 import 'package:baltini_flutter_apps/views/size_chart/size_chart_page.dart';
 import 'package:baltini_flutter_apps/views/utils/ask_question_page.dart';
 import 'package:baltini_flutter_apps/views/utils/authenticity_page.dart';

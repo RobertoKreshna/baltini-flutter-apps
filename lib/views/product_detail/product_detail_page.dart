@@ -96,7 +96,7 @@ class ProductDetailPage extends StatelessWidget {
                       height: 300,
                       viewportFraction: 0.7,
                       onPageChanged: (index, reason) {
-                        value.ImageChanged(index);
+                        value.imageChanged(index);
                       },
                     ),
                     items: images,

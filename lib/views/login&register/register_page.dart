@@ -1,5 +1,4 @@
 import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
-import 'package:baltini_flutter_apps/utils/models/user.dart';
 import 'package:baltini_flutter_apps/views/account/components/button.dart';
 import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
 import 'package:baltini_flutter_apps/utils/components/textfield.dart';

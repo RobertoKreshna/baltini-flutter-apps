@@ -1,12 +1,12 @@
 class Product {
-  String id, title, vendor, product_type, status, image, price, created;
+  String id, title, vendor, productType, status, image, price, created;
   List variant, options, images;
 
   Product({
     required this.id,
     required this.title,
     required this.vendor,
-    required this.product_type,
+    required this.productType,
     required this.status,
     required this.image,
     required this.variant,
@@ -21,7 +21,7 @@ class Product {
       id: json['id'].toString(),
       title: json['title'],
       vendor: json['vendor'],
-      product_type: json['product_type'],
+      productType: json['product_type'],
       image: json['image'] != null ? json['image']['src'] : 'null',
       status: json['status'],
       options: json['options'],

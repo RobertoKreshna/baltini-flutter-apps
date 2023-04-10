@@ -81,7 +81,7 @@ class MyProfilePage extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    value.UpdateUser(
+                    value.updateUser(
                         vm.firstName.text, vm.lastName.text, vm.email.text);
                     Navigator.pop(context);
                   },

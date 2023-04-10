@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../product_list/vm/list_vm.dart';
-import '../service/home_service.dart';
 import '../vm/home_vm.dart';
 
 class SpotlightBanner extends StatelessWidget {

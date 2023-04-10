@@ -9,7 +9,6 @@ import '../product_list/vm/list_vm.dart';
 import 'components/exclusive.dart';
 import 'components/new_arrival.dart';
 import 'components/spotlight_banner.dart';
-import 'service/home_service.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -30,7 +29,7 @@ class HomePage extends StatelessWidget {
                   return GestureDetector(
                     onTap: () async {
                       list.setFromSearch(false);
-                      list.setProduct(home.Homeproducts);
+                      list.setProduct(home.homeproducts);
                       Navigator.pushNamed(context, '/list');
                     },
                     child: AspectRatio(
@@ -107,7 +106,7 @@ class HomePage extends StatelessWidget {
                   return GestureDetector(
                     onTap: () async {
                       list.setFromSearch(false);
-                      list.setProduct(home.Homeproducts);
+                      list.setProduct(home.homeproducts);
                       Navigator.pushNamed(context, '/list');
                     },
                     child: Text(

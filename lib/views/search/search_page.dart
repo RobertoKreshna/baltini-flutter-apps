@@ -1,5 +1,4 @@
 import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
-import 'package:baltini_flutter_apps/views/product_list/product_list_page.dart';
 import 'package:baltini_flutter_apps/views/product_list/vm/list_vm.dart';
 import 'package:baltini_flutter_apps/views/search/vm/search_vm.dart';
 import 'package:flutter/material.dart';

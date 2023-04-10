@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:baltini_flutter_apps/utils/hive/boxes.dart';
 import 'package:baltini_flutter_apps/utils/models/user.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +9,7 @@ class AccountVM extends ChangeNotifier {
 
   setAccount(User current, bool value) {
     currentUser = current;
-    this.userLoggedin = value;
+    userLoggedin = value;
     notifyListeners();
   }
 
@@ -21,7 +19,7 @@ class AccountVM extends ChangeNotifier {
     notifyListeners();
   }
 
-  UpdateUser(String firstName, String lastName, String email) {
+  updateUser(String firstName, String lastName, String email) {
     String finalFirstName = currentUser!.firstName == firstName
         ? currentUser!.firstName
         : firstName;

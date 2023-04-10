@@ -1,8 +1,6 @@
 import 'package:baltini_flutter_apps/views/size_chart/components/chart_item.dart';
 import 'package:baltini_flutter_apps/views/size_chart/vm/size_chart_vm.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class Chart extends StatelessWidget {
   ChartVM vm;
