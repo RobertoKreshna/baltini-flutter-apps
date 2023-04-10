@@ -1,3 +1,4 @@
+import 'package:baltini_flutter_apps/utils/components/popup.dart';
 import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
 import 'package:baltini_flutter_apps/views/account/components/button.dart';
 import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
@@ -83,7 +84,7 @@ class RegisterPage extends StatelessWidget {
                           showDialog(
                               context: context,
                               builder: (BuildContext context) =>
-                                  _buildSuccessPopUp()).then(
+                                  BaltiniPopUp('Account Created')).then(
                               (value) => Navigator.pushNamed(context, '/'));
                         }
                       },
@@ -96,38 +97,6 @@ class RegisterPage extends StatelessWidget {
           },
         ),
       )),
-    );
-  }
-
-  Widget _buildSuccessPopUp() {
-    return AlertDialog(
-      contentPadding: EdgeInsets.zero,
-      backgroundColor: Colors.transparent,
-      content: Container(
-        height: 251,
-        width: 247,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0), color: Colors.white),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: 24,
-            ),
-            Container(
-              child: Image.asset(success),
-            ),
-            SizedBox(
-              height: 40,
-            ),
-            Text(
-              'Account Created',
-              maxLines: 1,
-              style: TextStyle(color: Colors.black, fontSize: 18),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

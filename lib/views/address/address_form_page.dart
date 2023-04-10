@@ -6,6 +6,8 @@ import 'package:baltini_flutter_apps/views/address/vm/my_address_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../utils/components/popup.dart';
+
 class AddressFormPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -122,11 +124,19 @@ class AddressFormPage extends StatelessWidget {
                       onTap: () {
                         if (value.editing == false) {
                           value.addAddress(account.currentUser!);
-                          Navigator.pop(context);
+                          showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) =>
+                                      BaltiniPopUp('Address Saved'))
+                              .then((value) => Navigator.pop(context));
                         } else {
                           value.updateAddress(account.currentUser!);
                           value.editing = false;
-                          Navigator.pop(context);
+                          showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) =>
+                                      BaltiniPopUp('Address Saved'))
+                              .then((value) => Navigator.pop(context));
                         }
                       },
                       child: AccountButton('SAVE ADDRESS', true),

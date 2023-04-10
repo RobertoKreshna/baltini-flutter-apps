@@ -1,3 +1,4 @@
+import 'package:baltini_flutter_apps/utils/components/popup.dart';
 import 'package:baltini_flutter_apps/utils/components/textfield.dart';
 import 'package:baltini_flutter_apps/views/account/components/button.dart';
 import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
@@ -68,7 +69,11 @@ class ChangePasswordPage extends StatelessWidget {
                     if (value.currentUser!.password == vm.oldPW.text &&
                         vm.newPW.text == vm.confirmNewPW.text) {
                       value.updatePassword(vm.newPW.text);
-                      Navigator.pop(context);
+                      showDialog(
+                              context: context,
+                              builder: (BuildContext context) =>
+                                  BaltiniPopUp('Password Changed'))
+                          .then((value) => Navigator.pop(context));
                     } else {
                       print('salah');
                     }
