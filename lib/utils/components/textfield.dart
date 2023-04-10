@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 
 class NonPWTextField extends StatelessWidget {
-  String hinttext, label, value;
+  String hinttext, label;
   TextEditingController controller;
 
   NonPWTextField({
     required this.label,
     required this.hinttext,
     required this.controller,
-    this.value = '',
   });
 
   @override
   Widget build(BuildContext context) {
-    controller.text = value;
     return TextField(
       controller: controller,
       style: TextStyle(fontSize: 14),

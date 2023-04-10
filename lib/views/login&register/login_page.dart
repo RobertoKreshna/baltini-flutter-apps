@@ -86,6 +86,7 @@ class LoginPage extends StatelessWidget {
                           value.clearAll();
                           Navigator.pushNamed(context, '/');
                         } else {
+                          value.clearAll();
                           print('wrong credentials');
                         }
                       },

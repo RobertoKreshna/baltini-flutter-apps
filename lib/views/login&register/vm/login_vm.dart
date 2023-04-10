@@ -24,7 +24,7 @@ class LoginVM extends ChangeNotifier {
     final box = Boxes.getUsersBox();
     Map users = box.toMap();
     for (User user in users.values) {
-      if (user.email == email.text) {
+      if (user.email == email.text && user.password == pass.text) {
         wantedUser = user;
       }
     }

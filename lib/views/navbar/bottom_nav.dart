@@ -1,6 +1,5 @@
 import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
 import 'package:baltini_flutter_apps/views/home/home_page.dart';
-import 'package:baltini_flutter_apps/views/home/vm/home_vm.dart';
 import 'package:flutter/material.dart';
 
 import '../account/account_page.dart';

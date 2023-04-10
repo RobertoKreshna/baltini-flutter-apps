@@ -1,5 +1,8 @@
+import 'package:baltini_flutter_apps/utils/components/back_and_title.dart';
 import 'package:baltini_flutter_apps/views/utils/ask_question_components/components.dart';
 import 'package:flutter/material.dart';
+
+import '../../utils/const/asset_path.dart';
 
 class AskQuestion extends StatelessWidget {
   @override
@@ -11,20 +14,9 @@ class AskQuestion extends StatelessWidget {
             child: SingleChildScrollView(
           child: Column(
             children: [
-              Row(
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Image.asset('assets/icons/icons_44/ic_back.png'),
-                  ),
-                  Text(
-                    'Contact Us',
-                    style: TextStyle(fontSize: 18),
-                  )
-                ],
-              ),
+              BackAndTitle('Contact Us', () {
+                Navigator.pop(context);
+              }),
               SizedBox(
                 height: 30,
               ),

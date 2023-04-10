@@ -10,7 +10,7 @@ class BaseService {
     Map<String, dynamic>? params,
   }) async {
     final Response<dynamic> res = await _dio.get(
-      '$url',
+      url,
       queryParameters: params,
       options: Options(
         headers: {

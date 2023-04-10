@@ -1,3 +1,4 @@
+import 'package:baltini_flutter_apps/utils/components/back_and_title.dart';
 import 'package:baltini_flutter_apps/utils/components/textfield.dart';
 import 'package:baltini_flutter_apps/views/account/components/button.dart';
 import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
@@ -17,32 +18,21 @@ class MyProfilePage extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 16.0),
         child: Consumer<AccountVM>(
           builder: (context, value, child) {
+            vm.firstName.text = value.currentUser!.firstName;
+            vm.lastName.text = value.currentUser!.lastName;
+            vm.email.text = value.currentUser!.email;
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16.0),
-                  child: Row(
-                    children: [
-                      GestureDetector(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: Image.asset(back)),
-                      Text(
-                        'My Profile',
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ],
-                  ),
-                ),
+                BackAndTitle('My Profile', () {
+                  Navigator.pop(context);
+                }),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 16.0),
                   child: NonPWTextField(
                     label: 'First Name',
                     hinttext: 'Enter your first name here',
                     controller: vm.firstName,
-                    value: value.currentUser!.firstName,
                   ),
                 ),
                 Padding(
@@ -51,7 +41,6 @@ class MyProfilePage extends StatelessWidget {
                     label: 'Last Name',
                     hinttext: 'Enter your last name here',
                     controller: vm.lastName,
-                    value: value.currentUser!.lastName,
                   ),
                 ),
                 Padding(
@@ -60,7 +49,6 @@ class MyProfilePage extends StatelessWidget {
                     label: 'Email',
                     hinttext: 'Enter your email here',
                     controller: vm.email,
-                    value: value.currentUser!.email,
                   ),
                 ),
                 Padding(

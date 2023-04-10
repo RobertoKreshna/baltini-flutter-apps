@@ -1,4 +1,5 @@
 import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
+import 'package:baltini_flutter_apps/views/address/vm/my_address_vm.dart';
 import 'package:baltini_flutter_apps/views/cart/vm/cart_vm.dart';
 import 'package:baltini_flutter_apps/views/forgotpassword/vm/forgot_vm.dart';
 import 'package:baltini_flutter_apps/views/home/vm/home_vm.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<LoginVM>(create: (_) => LoginVM()),
         ChangeNotifierProvider<ForgotVM>(create: (_) => ForgotVM()),
         ChangeNotifierProvider<RegisterVM>(create: (_) => RegisterVM()),
+        ChangeNotifierProvider<AddressVM>(create: (_) => AddressVM()),
       ],
       child: MaterialApp(
         initialRoute: '/',

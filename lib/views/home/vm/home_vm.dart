@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import '../../../utils/models/product.dart';
 
 class HomeVM extends ChangeNotifier {
-  List<Product> Homeproducts = [];
+  List<Product> homeproducts = [];
 
   List<Product>? argsProducts;
   Product? product;
 
   setProductNewArrival() async {
     var data = await HomeService().getNewArrivalProduct();
-    Homeproducts = data;
+    homeproducts = data;
     notifyListeners();
   }
 

@@ -5,7 +5,7 @@ class DetailVM extends ChangeNotifier {
   int selectedSizeIndex = 0;
   int imageCurrentIndex = 0;
 
-  ImageChanged(int index) {
+  imageChanged(int index) {
     imageCurrentIndex = index;
     notifyListeners();
   }

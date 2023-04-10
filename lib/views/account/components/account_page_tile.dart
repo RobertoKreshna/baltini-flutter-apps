@@ -1,7 +1,5 @@
 import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class AccountPageTile extends StatelessWidget {
   String name;

@@ -1,4 +1,5 @@
 import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
+import 'package:baltini_flutter_apps/utils/hive/boxes.dart';
 import 'package:baltini_flutter_apps/views/account/components/account_page_tile.dart';
 import 'package:baltini_flutter_apps/views/account/components/button.dart';
 import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
@@ -41,7 +42,11 @@ class AccountPage extends StatelessWidget {
                           child: AccountPageTile(name: 'My Profile'))
                       : Container(),
                   vm.userLoggedin
-                      ? AccountPageTile(name: 'My Address')
+                      ? GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/address');
+                          },
+                          child: AccountPageTile(name: 'My Address'))
                       : Container(),
                   AccountPageTile(name: 'Baltini Magazine'),
                   AccountPageTile(name: 'About Baltini'),

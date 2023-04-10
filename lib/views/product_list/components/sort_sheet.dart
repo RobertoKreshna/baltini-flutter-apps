@@ -39,7 +39,7 @@ void showSortBottomSheet(BuildContext context, ListVM vm) {
                           groupValue: currentSortValue,
                           onChanged: (value) {
                             vm.setSortValue(value.toString());
-                            vm.SortProduct(value.toString());
+                            vm.sortProduct(value.toString());
                             Navigator.pop(context);
                           });
                     }),

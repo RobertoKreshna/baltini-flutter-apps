@@ -1,3 +1,4 @@
+import 'package:baltini_flutter_apps/utils/components/back_and_title.dart';
 import 'package:flutter/material.dart';
 
 class ShipReturn extends StatelessWidget {
@@ -10,20 +11,9 @@ class ShipReturn extends StatelessWidget {
             child: SingleChildScrollView(
           child: Column(
             children: [
-              Row(
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Image.asset('assets/icons/icons_44/ic_back.png'),
-                  ),
-                  Text(
-                    'Shipping & Returns',
-                    style: TextStyle(fontSize: 18),
-                  )
-                ],
-              ),
+              BackAndTitle('Shipping & Returns', () {
+                Navigator.pop(context);
+              }),
               SizedBox(
                 height: 30,
               ),
