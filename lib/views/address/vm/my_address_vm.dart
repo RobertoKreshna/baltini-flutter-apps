@@ -40,8 +40,8 @@ class AddressVM extends ChangeNotifier {
 
   addAddress(User current) {
     int index = Boxes.getUserIndex(current);
-    String name = firstname.text + ' ' + lastname.text;
-    String address = address1.text + ' ' + address2.text;
+    String name = '${firstname.text} ${lastname.text}';
+    String address = '${address1.text} ${address2.text}';
     Address newAddress = Address(name, address, city.text, country.text,
         state.text, zipcode.text, phone.text, company.text);
     current.address.add(newAddress); // add current
@@ -53,14 +53,14 @@ class AddressVM extends ChangeNotifier {
   deleteAddress(User current, int index) {
     int userIndex = Boxes.getUserIndex(current);
     current.address.removeAt(index); //remove current
-    Boxes.getUsersBox().putAt(index, current); //update db
+    Boxes.getUsersBox().putAt(userIndex, current); //update db
     notifyListeners();
   }
 
   updateAddress(User current) {
     int userIndex = Boxes.getUserIndex(current);
-    String name = firstname.text + ' ' + lastname.text;
-    String address = address1.text + ' ' + address2.text;
+    String name = '${firstname.text} ${lastname.text}';
+    String address = '${address1.text} ${address2.text}';
     Address newAddress = Address(name, address, city.text, country.text,
         state.text, zipcode.text, phone.text, company.text);
     for (int i = 0; i < current.address.length; i++) {
