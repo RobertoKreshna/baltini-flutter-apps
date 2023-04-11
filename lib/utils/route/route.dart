@@ -2,6 +2,7 @@ import 'package:baltini_flutter_apps/views/account/change_password_page.dart';
 import 'package:baltini_flutter_apps/views/account/my_profile_page.dart';
 import 'package:baltini_flutter_apps/views/address/address_form_page.dart';
 import 'package:baltini_flutter_apps/views/address/my_address_page.dart';
+import 'package:baltini_flutter_apps/views/category/specific_category_page.dart';
 import 'package:baltini_flutter_apps/views/forgotpassword/forgot_password_page.dart';
 import 'package:baltini_flutter_apps/views/login&register/login_page.dart';
 import 'package:baltini_flutter_apps/views/login&register/register_page.dart';
@@ -48,6 +49,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => MyAddressPage());
       case '/formaddress':
         return MaterialPageRoute(builder: (_) => AddressFormPage());
+      case '/specificcategory':
+        return MaterialPageRoute(builder: (_) => SpecificCategoryPage());
       case '/shipreturn':
         return MaterialPageRoute(builder: (_) => ShipReturn());
       case '/authentic':

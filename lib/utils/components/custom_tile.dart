@@ -1,12 +1,12 @@
 import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
 import 'package:flutter/material.dart';
 
-class AccountPageTile extends StatelessWidget {
+class CustomTile extends StatelessWidget {
   String name;
   String? image;
   Color? color;
 
-  AccountPageTile({
+  CustomTile({
     required this.name,
     this.image = arrowright,
     this.color = Colors.black,
@@ -24,7 +24,7 @@ class AccountPageTile extends StatelessWidget {
             style: TextStyle(color: color),
           ),
           Container(
-            child: Image.asset(image!),
+            child: image == '' ? Container() : Image.asset(image!),
           ),
         ],
       ),

@@ -3,7 +3,7 @@ import 'package:baltini_flutter_apps/views/home/home_page.dart';
 import 'package:flutter/material.dart';
 
 import '../account/account_page.dart';
-import '../category/category_page.dart';
+import '../category/category_page_bar.dart';
 import '../order/order_page.dart';
 
 class MyNavBar extends StatefulWidget {
@@ -30,7 +30,7 @@ class _MyNavbarState extends State<MyNavBar> {
             _currentIndex = index;
           });
         },
-        children: [HomePage(), CategoryPage(), OrderPage(), AccountPage()],
+        children: [HomePage(), CategoryPageBar(), OrderPage(), AccountPage()],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,

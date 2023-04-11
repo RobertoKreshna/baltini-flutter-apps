@@ -1,6 +1,6 @@
 import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
 import 'package:baltini_flutter_apps/utils/hive/boxes.dart';
-import 'package:baltini_flutter_apps/views/account/components/account_page_tile.dart';
+import 'package:baltini_flutter_apps/utils/components/custom_tile.dart';
 import 'package:baltini_flutter_apps/views/account/components/button.dart';
 import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
 import 'package:flutter/material.dart';
@@ -39,26 +39,26 @@ class AccountPage extends StatelessWidget {
                           onTap: () {
                             Navigator.pushNamed(context, '/profile');
                           },
-                          child: AccountPageTile(name: 'My Profile'))
+                          child: CustomTile(name: 'My Profile'))
                       : Container(),
                   vm.userLoggedin
                       ? GestureDetector(
                           onTap: () {
                             Navigator.pushNamed(context, '/address');
                           },
-                          child: AccountPageTile(name: 'My Address'))
+                          child: CustomTile(name: 'My Address'))
                       : Container(),
-                  AccountPageTile(name: 'Baltini Magazine'),
-                  AccountPageTile(name: 'About Baltini'),
-                  AccountPageTile(name: 'Terms and Condition'),
-                  AccountPageTile(name: 'Partnerships'),
-                  AccountPageTile(name: 'Helps'),
+                  CustomTile(name: 'Baltini Magazine'),
+                  CustomTile(name: 'About Baltini'),
+                  CustomTile(name: 'Terms and Condition'),
+                  CustomTile(name: 'Partnerships'),
+                  CustomTile(name: 'Helps'),
                   vm.userLoggedin
                       ? GestureDetector(
                           onTap: () {
                             vm.logout();
                           },
-                          child: AccountPageTile(
+                          child: CustomTile(
                             name: 'Log Out',
                             image: logout,
                             color: Colors.red,
