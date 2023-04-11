@@ -1,4 +1,5 @@
 import 'package:baltini_flutter_apps/utils/models/product.dart';
+import 'package:baltini_flutter_apps/views/category/service/category_service.dart';
 import 'package:flutter/material.dart';
 
 class CategoryVM extends ChangeNotifier {
@@ -89,6 +90,24 @@ class CategoryVM extends ChangeNotifier {
 
   setCurrentCategory(String current) {
     currentCategory = {current: category[gender]![current]!};
+    notifyListeners();
+  }
+
+  getProduct() async {
+    var data = await CategoryService().getAllProduct();
+    products = data;
+    notifyListeners();
+  }
+
+  getProductByType(String type) async {
+    List<Product> data = await CategoryService().getAllProduct();
+    List<Product> res = [];
+    for (Product product in data) {
+      if (product.productType == type) {
+        res.add(product);
+      }
+    }
+    products = res;
     notifyListeners();
   }
 }
