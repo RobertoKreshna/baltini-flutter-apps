@@ -1,5 +1,6 @@
 import 'package:baltini_flutter_apps/views/cart/item_on_cart.dart';
 import 'package:baltini_flutter_apps/views/cart/vm/cart_vm.dart';
+import 'package:baltini_flutter_apps/views/checkout/vm/checkout_flow_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -167,7 +168,7 @@ class CartPage extends StatelessWidget {
                                       'Subtotal',
                                     ),
                                     Text(
-                                      'Rp. ${value.totalPrice.toString()}',
+                                      'Rp. ${double.parse(value.totalPrice.toString()).toInt()}',
                                       style: TextStyle(fontSize: 16),
                                     ),
                                   ],
@@ -176,22 +177,39 @@ class CartPage extends StatelessWidget {
                               SizedBox(
                                 width: 8,
                               ),
-                              Expanded(
-                                child: GestureDetector(
-                                  onTap: () {},
-                                  child: Container(
-                                    padding: EdgeInsets.all(12.0),
-                                    decoration: BoxDecoration(
-                                      color: Colors.black,
-                                      borderRadius: BorderRadius.circular(3),
+                              Consumer<CheckoutFlowVM>(
+                                builder: (context, checkout, child) {
+                                  return Expanded(
+                                    child: GestureDetector(
+                                      onTap: value.agreeTC
+                                          ? () {
+                                              checkout.setProductQtyProtect(
+                                                  value.products,
+                                                  value.qty,
+                                                  value.sizeIndex,
+                                                  value.valueClickProtect);
+                                              Navigator.pushNamed(
+                                                  context, '/checkout');
+                                            }
+                                          : () {},
+                                      child: Container(
+                                        padding: EdgeInsets.all(12.0),
+                                        decoration: BoxDecoration(
+                                          color: value.agreeTC
+                                              ? Colors.black
+                                              : Colors.grey,
+                                          borderRadius:
+                                              BorderRadius.circular(3),
+                                        ),
+                                        child: Text(
+                                          'CHECKOUT',
+                                          style: TextStyle(color: Colors.white),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
                                     ),
-                                    child: Text(
-                                      'CHECKOUT',
-                                      style: TextStyle(color: Colors.white),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ),
-                                ),
+                                  );
+                                },
                               ),
                             ],
                           ),

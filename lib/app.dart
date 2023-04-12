@@ -2,6 +2,7 @@ import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
 import 'package:baltini_flutter_apps/views/address/vm/my_address_vm.dart';
 import 'package:baltini_flutter_apps/views/cart/vm/cart_vm.dart';
 import 'package:baltini_flutter_apps/views/category/vm/category_vm.dart';
+import 'package:baltini_flutter_apps/views/checkout/vm/checkout_flow_vm.dart';
 import 'package:baltini_flutter_apps/views/forgotpassword/vm/forgot_vm.dart';
 import 'package:baltini_flutter_apps/views/home/vm/home_vm.dart';
 import 'package:baltini_flutter_apps/views/login&register/vm/login_vm.dart';
@@ -22,9 +23,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<HomeVM>(create: (_) => HomeVM()),
         ChangeNotifierProvider<ListVM>(create: (_) => ListVM(products: [])),
-        ChangeNotifierProvider<DetailVM>(
-          create: (_) => DetailVM(),
-        ),
+        ChangeNotifierProvider<DetailVM>(create: (_) => DetailVM()),
         ChangeNotifierProvider<ChartVM>(create: (_) => ChartVM()),
         ChangeNotifierProvider<SearchVM>(create: (_) => SearchVM()),
         ChangeNotifierProvider<CartVM>(create: (_) => CartVM()),
@@ -34,6 +33,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<RegisterVM>(create: (_) => RegisterVM()),
         ChangeNotifierProvider<AddressVM>(create: (_) => AddressVM()),
         ChangeNotifierProvider<CategoryVM>(create: (_) => CategoryVM()),
+        ChangeNotifierProvider<CheckoutFlowVM>(create: (_) => CheckoutFlowVM()),
       ],
       child: MaterialApp(
         initialRoute: '/',

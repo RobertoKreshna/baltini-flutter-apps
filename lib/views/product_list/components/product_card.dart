@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 import '../../../utils/models/product.dart';
 
-class ProductCart extends StatelessWidget {
+class ProductCard extends StatelessWidget {
   List<Product> products;
 
-  ProductCart(this.products);
+  ProductCard(this.products);
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class ProductCart extends StatelessWidget {
                   ),
                   Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                     Text(
-                      'Rp. ${double.parse(products[index].price)}',
+                      'Rp. ${double.parse(products[index].price).toInt()}',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 14,

@@ -56,7 +56,7 @@ class ItemOnCart extends StatelessWidget {
                         height: 4,
                       ),
                       Text(
-                        'Rp. ${current.price}',
+                        'Rp. ${double.parse(current.price).toInt()}',
                         style: TextStyle(height: 1.5),
                       ),
                       SizedBox(

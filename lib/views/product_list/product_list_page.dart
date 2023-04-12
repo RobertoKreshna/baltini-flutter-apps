@@ -107,7 +107,7 @@ class ProductListPage extends StatelessWidget {
               value.products.isNotEmpty
                   ? Consumer<ListVM>(
                       builder: (context, value, child) =>
-                          Flexible(child: ProductCart(value.products)))
+                          Flexible(child: ProductCard(value.products)))
                   : Expanded(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,

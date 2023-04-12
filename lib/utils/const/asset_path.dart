@@ -16,6 +16,8 @@ const String spotlight3 = '${imagePath}spotlight_banner_3.png';
 const String women = '${imagePath}women_banner.png';
 const String men = '${imagePath}men_banner.png';
 
+const String shipping = '${imagePath}shipping.png';
+
 const String placeholder = '${imagePath}placeholder.png';
 
 const String iconPath = 'assets/icons/';
