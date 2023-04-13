@@ -46,6 +46,17 @@ class CheckoutFlowVM extends ChangeNotifier {
     'Klarna - Flexible payments': [placeholder],
     'NihaoPay': [placeholder],
   };
+  //billing address
+  var billingCountry = TextEditingController();
+  var billingFirstname = TextEditingController();
+  var billingLastname = TextEditingController();
+  var billingCompany = TextEditingController();
+  var billingAddress1 = TextEditingController();
+  var billingAddress2 = TextEditingController();
+  var billingCity = TextEditingController();
+  var billingState = TextEditingController();
+  var billingZipcode = TextEditingController();
+  var billingPhone = TextEditingController();
 
   setProductQtyProtect(
       List<Product> prod, List<int> qty, List<int> size, bool protectValue) {
