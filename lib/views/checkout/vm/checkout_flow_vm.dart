@@ -87,9 +87,10 @@ class CheckoutFlowVM extends ChangeNotifier {
   getShipping() {
     if (subtotal! > 2000000) {
       shipping = 0;
-      shippingmethods['Regular (Free Shipping & Tax Included)'] = 0.0;
+      shippingmethods['Regular Shipping (3-5 days) Tax Included'] = 0.0;
     } else {
       shipping = 50000;
+      shippingmethods['Regular Shipping (3-5 days) Tax Included'] = 50000.0;
     }
   }
 
@@ -111,7 +112,7 @@ class CheckoutFlowVM extends ChangeNotifier {
   }
 
   setSelectedShipping(int index) {
-    this.selectedShipping = index;
+    selectedShipping = index;
     shipping = shippingmethods.values.elementAt(index).toInt();
     getTotal();
     notifyListeners();

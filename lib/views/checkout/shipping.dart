@@ -20,6 +20,7 @@ class ShippingPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     BackAndTitle('Shipping', () {
+                      value.selectedShipping = 0;
                       Navigator.pop(context);
                     }),
                     ItemAndSummary(),
