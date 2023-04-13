@@ -18,6 +18,18 @@ const String men = '${imagePath}men_banner.png';
 
 const String shipping = '${imagePath}shipping.png';
 
+const String paymentImage = '${imagePath}payment/';
+const String cc1 = '${paymentImage}creditcard1.png';
+const String cc2 = '${paymentImage}creditcard2.png';
+const String cc3 = '${paymentImage}creditcard3.png';
+const String cc4 = '${paymentImage}creditcard4.png';
+const String shoppay = '${paymentImage}shoppay.png';
+const String afterpay = '${paymentImage}afterpay.png';
+const String klarna = '${paymentImage}klarna.png';
+const String nihao1 = '${paymentImage}nihao1.png';
+const String nihao2 = '${paymentImage}nihao2.png';
+const String nihao3 = '${paymentImage}nihao3.png';
+
 const String placeholder = '${imagePath}placeholder.png';
 
 const String iconPath = 'assets/icons/';
