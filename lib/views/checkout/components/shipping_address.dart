@@ -84,6 +84,11 @@ class ShippingAddress extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 8.0),
+              child: NonPWTextField(
+                  text: 'Zip Code', controller: checkout.zipcode),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 8.0),
               child: NonPWTextField(text: 'Phone', controller: checkout.phone),
             ),
           ],

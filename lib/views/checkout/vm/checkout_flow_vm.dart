@@ -1,3 +1,4 @@
+import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
 import 'package:baltini_flutter_apps/utils/models/product.dart';
 import 'package:baltini_flutter_apps/utils/models/user.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +29,21 @@ class CheckoutFlowVM extends ChangeNotifier {
   var state = TextEditingController();
   var zipcode = TextEditingController();
   var phone = TextEditingController();
+
+  //shipping method
+  Map<String, double> shippingmethods = {
+    'Regular (Free Shipping & Tax Included)': 0.0,
+    'Express Shipping (Tax Included)': 150000.0,
+    'Same Day Shipping (Tax Included)': 300000.0,
+  };
+  //payment method
+  Map<String, List<String>> paymentmethods = {
+    'Credit Card': [placeholder],
+    'Shop pay - Pay in full or in installments': [placeholder],
+    'Afterpay': [placeholder],
+    'Klarna - Flexible payments': [placeholder],
+    'NihaoPay': [placeholder],
+  };
 
   setProductQtyProtect(
       List<Product> prod, List<int> qty, List<int> size, bool protectValue) {

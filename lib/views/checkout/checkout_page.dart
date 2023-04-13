@@ -1,5 +1,6 @@
 import 'package:baltini_flutter_apps/utils/components/back_and_title.dart';
 import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
+import 'package:baltini_flutter_apps/views/checkout/components/address_confrimation.dart';
 import 'package:baltini_flutter_apps/views/checkout/components/checkout_item_tile.dart';
 import 'package:baltini_flutter_apps/views/checkout/components/giftcard_discount_textfield.dart';
 import 'package:baltini_flutter_apps/views/checkout/vm/checkout_flow_vm.dart';
@@ -135,7 +136,12 @@ class CheckoutPage extends StatelessWidget {
                         ),
                         Expanded(
                           child: GestureDetector(
-                            onTap: () {},
+                            onTap: () => showDialog(
+                                barrierDismissible: false,
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AddressConfirmation();
+                                }),
                             child: Container(
                               padding: EdgeInsets.all(12.0),
                               decoration: BoxDecoration(

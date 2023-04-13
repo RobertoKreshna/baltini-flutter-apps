@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 class AccountButton extends StatelessWidget {
   String text;
+  double size;
   bool blackBG;
 
-  AccountButton(this.text, this.blackBG);
+  AccountButton(this.text, this.blackBG, [this.size = 16]);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,9 @@ class AccountButton extends StatelessWidget {
               child: Text(
                 text,
                 style: TextStyle(
-                    color: blackBG == false ? Colors.black : Colors.white),
+                  color: blackBG == false ? Colors.black : Colors.white,
+                  fontSize: size,
+                ),
                 textAlign: TextAlign.center,
               ),
             ),
