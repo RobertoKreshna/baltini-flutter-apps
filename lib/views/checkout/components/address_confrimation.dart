@@ -49,7 +49,9 @@ class AddressConfirmation extends StatelessWidget {
                   height: 8,
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/shipping');
+                  },
                   child: AccountButton('YES, PROCEED', true, 14),
                 ),
               ],

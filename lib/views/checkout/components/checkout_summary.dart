@@ -8,9 +8,6 @@ class CheckoutSummary extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<CheckoutFlowVM>(
       builder: (context, value, child) {
-        value.getitemSubtotal();
-        value.getShipping();
-        value.getTotal();
         return Column(
           children: [
             CheckoutSummaryRow(

@@ -39,12 +39,14 @@ class CartVM extends ChangeNotifier {
 
   addQty(int index) {
     qty[index] += 1;
+    totalPrice += double.parse(products[index].price);
     notifyListeners();
   }
 
   minQty(int index) {
     if (qty[index] > 1) {
       qty[index] -= 1;
+      totalPrice -= double.parse(products[index].price);
     }
     notifyListeners();
   }

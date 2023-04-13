@@ -1,14 +1,12 @@
-import 'package:baltini_flutter_apps/utils/components/back_and_title.dart';
-import 'package:baltini_flutter_apps/views/checkout/components/address_confrimation.dart';
-import 'package:baltini_flutter_apps/views/checkout/item_and_summary.dart';
 import 'package:baltini_flutter_apps/views/checkout/vm/checkout_flow_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'components/contact_information.dart';
-import 'components/shipping_address.dart';
+import '../../utils/components/back_and_title.dart';
+import 'components/contact_summary.dart';
+import 'item_and_summary.dart';
 
-class CheckoutPage extends StatelessWidget {
+class ShippingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,13 +16,10 @@ class CheckoutPage extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 16.0),
             child: Consumer<CheckoutFlowVM>(
               builder: (context, value, child) {
-                value.getitemSubtotal();
-                value.getShipping();
-                value.getTotal();
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    BackAndTitle('Checkout', () {
+                    BackAndTitle('Shipping', () {
                       Navigator.pop(context);
                     }),
                     ItemAndSummary(),
@@ -33,26 +28,52 @@ class CheckoutPage extends StatelessWidget {
                       height: 2,
                       thickness: 2,
                     ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 16.0),
-                      child: ContactInformation(),
+                    ContactSummary(),
+                    Divider(
+                      color: Colors.black.withOpacity(0.2),
+                      height: 2,
+                      thickness: 2,
+                    ),
+                    SizedBox(
+                      height: 24,
+                    ),
+                    Text(
+                      'SHIPPING METHOD',
+                      style: TextStyle(fontSize: 14),
+                    ),
+                    ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: value.shippingmethods.keys.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return RadioListTile(
+                          activeColor: Colors.black,
+                          value: index,
+                          groupValue: value.selectedShipping,
+                          onChanged: (newValue) {
+                            value.setSelectedShipping(index);
+                          },
+                          title: Text(
+                            value.shippingmethods.keys.toList()[index],
+                            style: TextStyle(fontSize: 14),
+                          ),
+                          subtitle: Text('subtitle'),
+                          secondary: Text(
+                            'Rp. ${value.shippingmethods.values.elementAt(index).toString()}',
+                            style: TextStyle(fontSize: 14),
+                          ),
+                        );
+                      },
+                    ),
+                    SizedBox(
+                      height: 32,
                     ),
                     Divider(
                       color: Colors.black.withOpacity(0.2),
                       height: 2,
                       thickness: 2,
                     ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 24.0),
-                      child: ShippingAddress(),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 16.0),
-                      child: Divider(
-                        color: Colors.black.withOpacity(0.2),
-                        height: 2,
-                        thickness: 2,
-                      ),
+                    SizedBox(
+                      height: 12,
                     ),
                     Row(
                       children: [
@@ -75,12 +96,9 @@ class CheckoutPage extends StatelessWidget {
                         ),
                         Expanded(
                           child: GestureDetector(
-                            onTap: () => showDialog(
-                                barrierDismissible: false,
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AddressConfirmation();
-                                }),
+                            onTap: () {
+                              Navigator.pushNamed(context, '/payment');
+                            },
                             child: Container(
                               padding: EdgeInsets.all(12.0),
                               decoration: BoxDecoration(
@@ -88,7 +106,7 @@ class CheckoutPage extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(3),
                               ),
                               child: Text(
-                                'SHIPPING',
+                                'TO PAYMENT',
                                 style: TextStyle(color: Colors.white),
                                 textAlign: TextAlign.center,
                               ),

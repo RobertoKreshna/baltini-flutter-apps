@@ -29,13 +29,15 @@ class CheckoutFlowVM extends ChangeNotifier {
   var state = TextEditingController();
   var zipcode = TextEditingController();
   var phone = TextEditingController();
-
+  //address confirm
+  bool addressconfirmvalue = false;
   //shipping method
   Map<String, double> shippingmethods = {
-    'Regular (Free Shipping & Tax Included)': 0.0,
-    'Express Shipping (Tax Included)': 150000.0,
-    'Same Day Shipping (Tax Included)': 300000.0,
+    'Regular Shipping (3-5 days) Tax Included': 50000.0,
+    'Express Shipping (2-3 days) Tax Included': 150000.0,
+    'Same Day Shipping (1 day) Tax Included': 300000.0,
   };
+  int selectedShipping = 0;
   //payment method
   Map<String, List<String>> paymentmethods = {
     'Credit Card': [placeholder],
@@ -74,6 +76,7 @@ class CheckoutFlowVM extends ChangeNotifier {
   getShipping() {
     if (subtotal! > 2000000) {
       shipping = 0;
+      shippingmethods['Regular (Free Shipping & Tax Included)'] = 0.0;
     } else {
       shipping = 50000;
     }
@@ -94,5 +97,12 @@ class CheckoutFlowVM extends ChangeNotifier {
         '${current.address[0].country} (${current.firstName} ${current.lastName})';
     firstname.text = current.firstName;
     lastname.text = current.lastName;
+  }
+
+  setSelectedShipping(int index) {
+    this.selectedShipping = index;
+    shipping = shippingmethods.values.elementAt(index).toInt();
+    getTotal();
+    notifyListeners();
   }
 }

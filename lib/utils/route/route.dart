@@ -4,6 +4,8 @@ import 'package:baltini_flutter_apps/views/address/address_form_page.dart';
 import 'package:baltini_flutter_apps/views/address/my_address_page.dart';
 import 'package:baltini_flutter_apps/views/category/specific_category_page.dart';
 import 'package:baltini_flutter_apps/views/checkout/checkout_page.dart';
+import 'package:baltini_flutter_apps/views/checkout/payment_page.dart';
+import 'package:baltini_flutter_apps/views/checkout/shipping.dart';
 import 'package:baltini_flutter_apps/views/forgotpassword/forgot_password_page.dart';
 import 'package:baltini_flutter_apps/views/login&register/login_page.dart';
 import 'package:baltini_flutter_apps/views/login&register/register_page.dart';
@@ -38,6 +40,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => CartPage());
       case '/checkout':
         return MaterialPageRoute(builder: (_) => CheckoutPage());
+      case '/shipping':
+        return MaterialPageRoute(builder: (_) => ShippingPage());
+      case '/payment':
+        return MaterialPageRoute(builder: (_) => PaymentPage());
       case '/login':
         return MaterialPageRoute(builder: (_) => LoginPage());
       case '/register':
