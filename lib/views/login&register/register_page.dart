@@ -39,24 +39,21 @@ class RegisterPage extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 16.0),
                   child: NonPWTextField(
-                    label: 'First Name',
-                    hinttext: 'Enter your first name here',
+                    text: 'Enter your first name here',
                     controller: value.firstName,
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 16.0),
                   child: NonPWTextField(
-                    label: 'Last Name',
-                    hinttext: 'Enter your last name here',
+                    text: 'Enter your last name here',
                     controller: value.lastName,
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 16.0),
                   child: NonPWTextField(
-                    label: 'Email',
-                    hinttext: 'Enter your email here',
+                    text: 'Enter your email here',
                     controller: value.email,
                   ),
                 ),

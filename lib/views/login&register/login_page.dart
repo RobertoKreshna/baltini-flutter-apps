@@ -43,8 +43,7 @@ class LoginPage extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 24.0),
                   child: NonPWTextField(
-                    label: 'EMAIL',
-                    hinttext: 'Enter your email address here',
+                    text: 'Enter your email address here',
                     controller: value.email,
                   ),
                 ),

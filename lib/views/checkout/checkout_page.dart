@@ -7,6 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:invert_colors/invert_colors.dart';
 import 'package:provider/provider.dart';
 
+import 'components/checkout_summary.dart';
+import 'components/contact_information.dart';
+import 'components/shipping_address.dart';
+
 class CheckoutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -48,7 +52,7 @@ class CheckoutPage extends StatelessWidget {
                                 ],
                               ),
                               Text(
-                                '\$22.00',
+                                'Rp. 325000',
                                 style: TextStyle(fontSize: 16),
                               ),
                             ],
@@ -76,10 +80,78 @@ class CheckoutPage extends StatelessWidget {
                             child: value.discountCodeValidator
                                 ? Image.asset(delete)
                                 : InvertColors(child: Image.asset(arrowright)),
-                          )
+                          ),
                         ],
                       ),
-                    )
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 32.0),
+                      child: CheckoutSummary(),
+                    ),
+                    Divider(
+                      color: Colors.black.withOpacity(0.2),
+                      height: 2,
+                      thickness: 2,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 16.0),
+                      child: ContactInformation(),
+                    ),
+                    Divider(
+                      color: Colors.black.withOpacity(0.2),
+                      height: 2,
+                      thickness: 2,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 24.0),
+                      child: ShippingAddress(),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 16.0),
+                      child: Divider(
+                        color: Colors.black.withOpacity(0.2),
+                        height: 2,
+                        thickness: 2,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text(
+                                'Total Price',
+                              ),
+                              Text(
+                                'Rp. ${value.total}',
+                                style: TextStyle(fontSize: 16),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: () {},
+                            child: Container(
+                              padding: EdgeInsets.all(12.0),
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(3),
+                              ),
+                              child: Text(
+                                'SHIPPING',
+                                style: TextStyle(color: Colors.white),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 );
               },

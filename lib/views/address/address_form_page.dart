@@ -27,80 +27,70 @@ class AddressFormPage extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 8.0),
                       child: NonPWTextField(
-                        label: 'First Name',
-                        hinttext: 'First Name',
+                        text: 'First Name',
                         controller: value.firstname,
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 8.0),
                       child: NonPWTextField(
-                        label: 'Last Name',
-                        hinttext: 'Last Name',
+                        text: 'Last Name',
                         controller: value.lastname,
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 8.0),
                       child: NonPWTextField(
-                        label: 'Company (optional)',
-                        hinttext: 'Company (optional)',
+                        text: 'Company (optional)',
                         controller: value.company,
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 8.0),
                       child: NonPWTextField(
-                        label: 'Address 1',
-                        hinttext: 'Address 1',
+                        text: 'Address 1',
                         controller: value.address1,
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 8.0),
                       child: NonPWTextField(
-                        label: 'Address 2',
-                        hinttext: 'Address 2',
+                        text: 'Address 2',
                         controller: value.address2,
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 8.0),
                       child: NonPWTextField(
-                        label: 'City',
-                        hinttext: 'City',
+                        text: 'City',
                         controller: value.city,
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 8.0),
                       child: NonPWTextField(
-                        label: 'Country',
-                        hinttext: 'Country',
+                        text: 'Country',
                         controller: value.country,
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 8.0),
                       child: NonPWTextField(
-                        label: 'State',
-                        hinttext: 'State',
+                        text: 'State',
                         controller: value.state,
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 8.0),
                       child: NonPWTextField(
-                        label: 'Zip Code',
-                        hinttext: 'Zip Code',
+                        text: 'Zip Code',
                         controller: value.zipcode,
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 8.0),
                       child: NonPWTextField(
-                        label: 'Phone',
-                        hinttext: 'Phone',
+                        text: 'Phone',
                         controller: value.phone,
                       ),
                     ),

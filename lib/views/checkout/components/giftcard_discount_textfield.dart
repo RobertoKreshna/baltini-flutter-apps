@@ -11,11 +11,12 @@ class GiftDiscountTextField extends StatelessWidget {
           controller: value.discountCode,
           decoration: InputDecoration(
             labelText: 'Gift card or discount code',
-            labelStyle: TextStyle(color: Colors.black, fontSize: 14),
+            labelStyle:
+                TextStyle(color: Colors.black.withOpacity(0.5), fontSize: 14),
             enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.black)),
+                borderSide: BorderSide(color: Colors.black.withOpacity(0.5))),
             focusedBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.black)),
+                borderSide: BorderSide(color: Colors.black.withOpacity(0.5))),
           ),
           autovalidateMode: AutovalidateMode.onUserInteraction,
           validator: (formValue) {

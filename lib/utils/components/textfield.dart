@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
 class NonPWTextField extends StatelessWidget {
-  String hinttext, label;
+  String text;
   TextEditingController controller;
 
   NonPWTextField({
-    required this.label,
-    required this.hinttext,
+    required this.text,
     required this.controller,
   });
 
@@ -16,8 +15,8 @@ class NonPWTextField extends StatelessWidget {
       controller: controller,
       style: TextStyle(fontSize: 14),
       decoration: InputDecoration(
-        hintText: hinttext,
-        labelText: label,
+        hintText: text,
+        labelText: text,
         labelStyle: TextStyle(color: Colors.black, fontSize: 14),
         focusColor: Colors.black,
         enabledBorder:

@@ -40,24 +40,21 @@ class ChangePasswordPage extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 16.0),
                   child: NonPWTextField(
-                    label: 'Old Password',
-                    hinttext: 'Enter your old password here',
+                    text: 'Enter your old password here',
                     controller: vm.oldPW,
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 16.0),
                   child: NonPWTextField(
-                    label: 'New Password',
-                    hinttext: 'Enter your new password here',
+                    text: 'Enter your new password here',
                     controller: vm.newPW,
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 16.0),
                   child: NonPWTextField(
-                    label: 'Confirm New Password',
-                    hinttext: 'Confirm your new password here',
+                    text: 'Confirm your new password here',
                     controller: vm.confirmNewPW,
                   ),
                 ),
