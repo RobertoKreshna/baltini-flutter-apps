@@ -20,7 +20,7 @@ class ShippingPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     BackAndTitle('Shipping', () {
-                      value.selectedShipping = 0;
+                      value.resetSelectedShipping();
                       Navigator.pop(context);
                     }),
                     ItemAndSummary(),
@@ -98,6 +98,7 @@ class ShippingPage extends StatelessWidget {
                         Expanded(
                           child: GestureDetector(
                             onTap: () {
+                              value.clearAll();
                               Navigator.pushNamed(context, '/payment');
                             },
                             child: Container(

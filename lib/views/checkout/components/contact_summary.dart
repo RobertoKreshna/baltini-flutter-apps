@@ -74,7 +74,7 @@ class ContactSummary extends StatelessWidget {
                 height: 8,
               ),
               Text(
-                '${value.address1.text}, ${value.address2.text}, ${value.city.text}, ${value.state.text} \n${value.zipcode.text}, ${value.country.text}',
+                '${value.shippingAddress!.name} (${value.shippingAddress!.phone})\n${value.shippingAddress!.address}, ${value.shippingAddress!.city}, ${value.shippingAddress!.state}\n${value.shippingAddress!.country}, ${value.shippingAddress!.zipcode}',
                 style: TextStyle(fontSize: 14),
               )
             ],

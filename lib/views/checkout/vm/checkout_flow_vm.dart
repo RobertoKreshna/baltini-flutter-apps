@@ -1,4 +1,5 @@
 import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
+import 'package:baltini_flutter_apps/utils/models/address.dart';
 import 'package:baltini_flutter_apps/utils/models/product.dart';
 import 'package:baltini_flutter_apps/utils/models/user.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class CheckoutFlowVM extends ChangeNotifier {
   //contact
   var email = TextEditingController();
   bool wantedtoEmail = false;
-  //shipping address
+  //shipping & billing address
   var savedaddress = TextEditingController();
   var country = TextEditingController();
   var firstname = TextEditingController();
@@ -29,6 +30,8 @@ class CheckoutFlowVM extends ChangeNotifier {
   var state = TextEditingController();
   var zipcode = TextEditingController();
   var phone = TextEditingController();
+
+  Address? shippingAddress, billingAddress;
   //address confirm
   bool addressconfirmvalue = false;
   //shipping method
@@ -46,17 +49,20 @@ class CheckoutFlowVM extends ChangeNotifier {
     'Klarna - Flexible payments': [placeholder],
     'NihaoPay': [placeholder],
   };
-  //billing address
-  var billingCountry = TextEditingController();
-  var billingFirstname = TextEditingController();
-  var billingLastname = TextEditingController();
-  var billingCompany = TextEditingController();
-  var billingAddress1 = TextEditingController();
-  var billingAddress2 = TextEditingController();
-  var billingCity = TextEditingController();
-  var billingState = TextEditingController();
-  var billingZipcode = TextEditingController();
-  var billingPhone = TextEditingController();
+
+  clearAll() {
+    savedaddress.clear();
+    country.clear();
+    firstname.clear();
+    lastname.clear();
+    company.clear();
+    address1.clear();
+    address2.clear();
+    city.clear();
+    state.clear();
+    zipcode.clear();
+    phone.clear();
+  }
 
   setProductQtyProtect(
       List<Product> prod, List<int> qty, List<int> size, bool protectValue) {
@@ -75,22 +81,20 @@ class CheckoutFlowVM extends ChangeNotifier {
     notifyListeners();
   }
 
-  getitemSubtotal() {
+  getitemSubtotalandShipping() {
     int res = 0;
     for (int i = 0; i < checkoutProduct.length; i++) {
       int price = getTotalPerItem(i);
       res += price;
     }
     subtotal = res;
-  }
-
-  getShipping() {
     if (subtotal! > 2000000) {
-      shipping = 0;
-      shippingmethods['Regular Shipping (3-5 days) Tax Included'] = 0.0;
+      shippingmethods['Regular Shipping (3-5 days) Tax Included'] = 0;
     } else {
-      shipping = 50000;
-      shippingmethods['Regular Shipping (3-5 days) Tax Included'] = 50000.0;
+      shippingmethods['Regular Shipping (3-5 days) Tax Included'] = 50000;
+    }
+    if (shipping == null) {
+      shipping = shippingmethods.values.elementAt(0).toInt();
     }
   }
 
@@ -114,6 +118,13 @@ class CheckoutFlowVM extends ChangeNotifier {
   setSelectedShipping(int index) {
     selectedShipping = index;
     shipping = shippingmethods.values.elementAt(index).toInt();
+    getTotal();
+    notifyListeners();
+  }
+
+  resetSelectedShipping() {
+    selectedShipping = 0;
+    shipping = shippingmethods.values.elementAt(0).toInt();
     getTotal();
     notifyListeners();
   }

@@ -18,8 +18,7 @@ class CheckoutPage extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 16.0),
             child: Consumer<CheckoutFlowVM>(
               builder: (context, value, child) {
-                value.getitemSubtotal();
-                value.getShipping();
+                value.getitemSubtotalandShipping();
                 value.getTotal();
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

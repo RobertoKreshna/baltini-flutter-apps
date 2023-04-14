@@ -3,6 +3,8 @@ import 'package:baltini_flutter_apps/views/checkout/vm/checkout_flow_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../utils/models/address.dart';
+
 class AddressConfirmation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -50,6 +52,16 @@ class AddressConfirmation extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
+                    value.shippingAddress = Address(
+                      '${value.firstname.text} ${value.lastname.text}',
+                      '${value.address1.text} ${value.address2.text}',
+                      value.city.text,
+                      value.country.text,
+                      value.state.text,
+                      value.zipcode.text,
+                      value.phone.text,
+                      value.company.text,
+                    );
                     Navigator.pushNamed(context, '/shipping');
                   },
                   child: AccountButton('YES, PROCEED', true, 14),
