@@ -23,19 +23,19 @@ class AddressConfirmation extends StatelessWidget {
                   height: 16,
                 ),
                 Text(
-                  '${value.address1.text}, ${value.address2.text}',
+                  '${value.shippingaddress1.text}, ${value.shippingaddress2.text}',
                   style: TextStyle(fontSize: 14),
                 ),
                 Text(
-                  '${value.city.text}',
+                  '${value.shippingcity.text}',
                   style: TextStyle(fontSize: 14),
                 ),
                 Text(
-                  '${value.state.text}',
+                  '${value.shippingstate.text}',
                   style: TextStyle(fontSize: 14),
                 ),
                 Text(
-                  '${value.zipcode.text}',
+                  '${value.shippingzipcode.text}',
                   style: TextStyle(fontSize: 14),
                 ),
                 SizedBox(
@@ -53,14 +53,14 @@ class AddressConfirmation extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     value.shippingAddress = Address(
-                      '${value.firstname.text} ${value.lastname.text}',
-                      '${value.address1.text} ${value.address2.text}',
-                      value.city.text,
-                      value.country.text,
-                      value.state.text,
-                      value.zipcode.text,
-                      value.phone.text,
-                      value.company.text,
+                      '${value.shippingfirstname.text} ${value.shippinglastname.text}',
+                      '${value.shippingaddress1.text} ${value.shippingaddress2.text}',
+                      value.shippingcity.text,
+                      value.shippingcountry.text,
+                      value.shippingstate.text,
+                      value.shippingzipcode.text,
+                      value.shippingphone.text,
+                      value.shippingcompany.text,
                     );
                     Navigator.pushNamed(context, '/shipping');
                   },

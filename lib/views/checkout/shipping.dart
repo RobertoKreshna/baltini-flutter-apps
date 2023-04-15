@@ -1,3 +1,4 @@
+import 'package:baltini_flutter_apps/views/checkout/components/shipping_choice.dart';
 import 'package:baltini_flutter_apps/views/checkout/vm/checkout_flow_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -42,29 +43,7 @@ class ShippingPage extends StatelessWidget {
                       'SHIPPING METHOD',
                       style: TextStyle(fontSize: 14),
                     ),
-                    ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: value.shippingmethods.keys.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return RadioListTile(
-                          activeColor: Colors.black,
-                          value: index,
-                          groupValue: value.selectedShipping,
-                          onChanged: (newValue) {
-                            value.setSelectedShipping(index);
-                          },
-                          title: Text(
-                            value.shippingmethods.keys.toList()[index],
-                            style: TextStyle(fontSize: 14),
-                          ),
-                          subtitle: Text('subtitle'),
-                          secondary: Text(
-                            'Rp. ${value.shippingmethods.values.elementAt(index).toString()}',
-                            style: TextStyle(fontSize: 14),
-                          ),
-                        );
-                      },
-                    ),
+                    ShippingChoice(),
                     SizedBox(
                       height: 32,
                     ),
@@ -98,7 +77,6 @@ class ShippingPage extends StatelessWidget {
                         Expanded(
                           child: GestureDetector(
                             onTap: () {
-                              value.clearAll();
                               Navigator.pushNamed(context, '/payment');
                             },
                             child: Container(

@@ -19,49 +19,62 @@ class CheckoutFlowVM extends ChangeNotifier {
   var email = TextEditingController();
   bool wantedtoEmail = false;
   //shipping & billing address
-  var savedaddress = TextEditingController();
-  var country = TextEditingController();
-  var firstname = TextEditingController();
-  var lastname = TextEditingController();
-  var company = TextEditingController();
-  var address1 = TextEditingController();
-  var address2 = TextEditingController();
-  var city = TextEditingController();
-  var state = TextEditingController();
-  var zipcode = TextEditingController();
-  var phone = TextEditingController();
+  var shippingcountry = TextEditingController();
+  var shippingfirstname = TextEditingController();
+  var shippinglastname = TextEditingController();
+  var shippingcompany = TextEditingController();
+  var shippingaddress1 = TextEditingController();
+  var shippingaddress2 = TextEditingController();
+  var shippingcity = TextEditingController();
+  var shippingstate = TextEditingController();
+  var shippingzipcode = TextEditingController();
+  var shippingphone = TextEditingController();
+
+  var billingcountry = TextEditingController();
+  var billingfirstname = TextEditingController();
+  var billinglastname = TextEditingController();
+  var billingcompany = TextEditingController();
+  var billingaddress1 = TextEditingController();
+  var billingaddress2 = TextEditingController();
+  var billingcity = TextEditingController();
+  var billingstate = TextEditingController();
+  var billingzipcode = TextEditingController();
+  var billingphone = TextEditingController();
 
   Address? shippingAddress, billingAddress;
+  bool sameAddress = true;
+
   //address confirm
   bool addressconfirmvalue = false;
+
   //shipping method
   Map<String, double> shippingmethods = {
-    'Regular Shipping (3-5 days) Tax Included': 50000.0,
+    'Default Shipping (3-5 days) Tax Included': 50000.0,
     'Express Shipping (2-3 days) Tax Included': 150000.0,
     'Same Day Shipping (1 day) Tax Included': 300000.0,
   };
   int selectedShipping = 0;
   //payment method
   Map<String, List<String>> paymentmethods = {
-    'Credit Card': [placeholder],
-    'Shop pay - Pay in full or in installments': [placeholder],
-    'Afterpay': [placeholder],
-    'Klarna - Flexible payments': [placeholder],
-    'NihaoPay': [placeholder],
+    'Credit Card': [cc1, cc2, cc3, cc4],
+    'Shop pay - Pay in full or in installments': [shoppay],
+    'Afterpay': [afterpay],
+    'Klarna - Flexible payments': [klarna],
+    'NihaoPay': [nihao1, nihao2, nihao3],
   };
+  int selectedPayment = 0;
 
   clearAll() {
-    savedaddress.clear();
-    country.clear();
-    firstname.clear();
-    lastname.clear();
-    company.clear();
-    address1.clear();
-    address2.clear();
-    city.clear();
-    state.clear();
-    zipcode.clear();
-    phone.clear();
+    shippingcountry.clear();
+    shippingfirstname.clear();
+    shippinglastname.clear();
+    shippingcompany.clear();
+    shippingaddress1.clear();
+    shippingaddress2.clear();
+    shippingcity.clear();
+    shippingstate.clear();
+    shippingzipcode.clear();
+    shippingphone.clear();
   }
 
   setProductQtyProtect(
@@ -88,13 +101,17 @@ class CheckoutFlowVM extends ChangeNotifier {
       res += price;
     }
     subtotal = res;
-    if (subtotal! > 2000000) {
-      shippingmethods['Regular Shipping (3-5 days) Tax Included'] = 0;
-    } else {
-      shippingmethods['Regular Shipping (3-5 days) Tax Included'] = 50000;
-    }
+    updateShipping();
     if (shipping == null) {
       shipping = shippingmethods.values.elementAt(0).toInt();
+    }
+  }
+
+  updateShipping() {
+    if (subtotal! > 2000000) {
+      shippingmethods['Default Shipping (3-5 days) Tax Included'] = 0;
+    } else {
+      shippingmethods['Default Shipping (3-5 days) Tax Included'] = 50000;
     }
   }
 
@@ -109,10 +126,14 @@ class CheckoutFlowVM extends ChangeNotifier {
   }
 
   setShippingAddress(User current) {
-    savedaddress.text =
-        '${current.address[0].country} (${current.firstName} ${current.lastName})';
-    firstname.text = current.firstName;
-    lastname.text = current.lastName;
+    shippingfirstname.text = current.firstName;
+    shippinglastname.text = current.lastName;
+    shippingcountry.text = current.address[0].country;
+    shippingaddress1.text = current.address[0].address;
+    shippingcity.text = current.address[0].city;
+    shippingstate.text = current.address[0].state;
+    shippingzipcode.text = current.address[0].zipcode;
+    shippingphone.text = current.address[0].phone;
   }
 
   setSelectedShipping(int index) {
@@ -126,6 +147,16 @@ class CheckoutFlowVM extends ChangeNotifier {
     selectedShipping = 0;
     shipping = shippingmethods.values.elementAt(0).toInt();
     getTotal();
+    notifyListeners();
+  }
+
+  setSelectedPayment(int index) {
+    selectedPayment = index;
+    notifyListeners();
+  }
+
+  sameOrDifferentAddress(bool value) {
+    sameAddress = value;
     notifyListeners();
   }
 }

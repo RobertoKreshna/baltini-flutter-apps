@@ -21,6 +21,7 @@ class ItemAndSummary extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 16.0),
               child: ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: value.checkoutProduct.length,
                 itemBuilder: (BuildContext context, int index) {

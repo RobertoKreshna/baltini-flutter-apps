@@ -35,61 +35,57 @@ class ShippingAddress extends StatelessWidget {
                 ),
               ),
             ),
-            value.userLoggedin
-                ? Padding(
-                    padding: EdgeInsets.symmetric(vertical: 8.0),
-                    child: NonPWTextField(
-                        text: 'Saved Address',
-                        controller: checkout.savedaddress),
-                  )
-                : Container(),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 8.0),
-              child:
-                  NonPWTextField(text: 'Country', controller: checkout.country),
+              child: NonPWTextField(
+                  text: 'Country', controller: checkout.shippingcountry),
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 8.0),
               child: NonPWTextField(
-                  text: 'First Name', controller: checkout.firstname),
+                  text: 'First Name', controller: checkout.shippingfirstname),
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 8.0),
               child: NonPWTextField(
-                  text: 'Last Name', controller: checkout.lastname),
+                  text: 'Last Name', controller: checkout.shippinglastname),
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 8.0),
               child: NonPWTextField(
-                  text: 'Company (optional)', controller: checkout.company),
+                  text: 'Company (optional)',
+                  controller: checkout.shippingcompany),
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 8.0),
               child: NonPWTextField(
-                  text: 'Address', controller: checkout.address1),
+                  text: 'Address', controller: checkout.shippingaddress1),
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 8.0),
               child: NonPWTextField(
                   text: 'Apartment, suite, etc. (optional)',
-                  controller: checkout.address2),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 8.0),
-              child: NonPWTextField(text: 'City', controller: checkout.city),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 8.0),
-              child: NonPWTextField(text: 'State', controller: checkout.state),
+                  controller: checkout.shippingaddress2),
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 8.0),
               child: NonPWTextField(
-                  text: 'Zip Code', controller: checkout.zipcode),
+                  text: 'City', controller: checkout.shippingcity),
             ),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 8.0),
-              child: NonPWTextField(text: 'Phone', controller: checkout.phone),
+              child: NonPWTextField(
+                  text: 'State', controller: checkout.shippingstate),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 8.0),
+              child: NonPWTextField(
+                  text: 'Zip Code', controller: checkout.shippingzipcode),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 8.0),
+              child: NonPWTextField(
+                  text: 'Phone', controller: checkout.shippingphone),
             ),
           ],
         );
