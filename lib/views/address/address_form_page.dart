@@ -24,76 +24,21 @@ class AddressFormPage extends StatelessWidget {
                       if (value.editing == true) value.editing = false;
                       Navigator.pop(context);
                     }),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8.0),
-                      child: NonPWTextField(
-                        text: 'First Name',
-                        controller: value.firstname,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8.0),
-                      child: NonPWTextField(
-                        text: 'Last Name',
-                        controller: value.lastname,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8.0),
-                      child: NonPWTextField(
-                        text: 'Company (optional)',
-                        controller: value.company,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8.0),
-                      child: NonPWTextField(
-                        text: 'Address 1',
-                        controller: value.address1,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8.0),
-                      child: NonPWTextField(
-                        text: 'Address 2',
-                        controller: value.address2,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8.0),
-                      child: NonPWTextField(
-                        text: 'City',
-                        controller: value.city,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8.0),
-                      child: NonPWTextField(
-                        text: 'Country',
-                        controller: value.country,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8.0),
-                      child: NonPWTextField(
-                        text: 'State',
-                        controller: value.state,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8.0),
-                      child: NonPWTextField(
-                        text: 'Zip Code',
-                        controller: value.zipcode,
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8.0),
-                      child: NonPWTextField(
-                        text: 'Phone',
-                        controller: value.phone,
-                      ),
-                    ),
+                    NonPWTextField(
+                        text: 'First Name', controller: value.firstname),
+                    NonPWTextField(
+                        text: 'Last Name', controller: value.lastname),
+                    NonPWTextField(
+                        text: 'Company (optional)', controller: value.company),
+                    NonPWTextField(
+                        text: 'Address 1', controller: value.address1),
+                    NonPWTextField(
+                        text: 'Address 2', controller: value.address2),
+                    NonPWTextField(text: 'City', controller: value.city),
+                    NonPWTextField(text: 'Country', controller: value.country),
+                    NonPWTextField(text: 'State', controller: value.state),
+                    NonPWTextField(text: 'Zip Code', controller: value.zipcode),
+                    NonPWTextField(text: 'Phone', controller: value.phone),
                     Row(
                       children: [
                         Checkbox(

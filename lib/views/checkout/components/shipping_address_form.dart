@@ -1,4 +1,3 @@
-
 import 'package:baltini_flutter_apps/utils/components/textfield.dart';
 import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
 import 'package:baltini_flutter_apps/views/checkout/vm/checkout_flow_vm.dart';
@@ -35,58 +34,25 @@ class ShippingAddressForm extends StatelessWidget {
                         'Please double check the shipping address to ensure prompt delivery'),
                   ),
                 )),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 8.0),
-              child: NonPWTextField(
-                  text: 'Country', controller: checkout.shippingcountry),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 8.0),
-              child: NonPWTextField(
-                  text: 'First Name', controller: checkout.shippingfirstname),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 8.0),
-              child: NonPWTextField(
-                  text: 'Last Name', controller: checkout.shippinglastname),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 8.0),
-              child: NonPWTextField(
-                  text: 'Company (optional)',
-                  controller: checkout.shippingcompany),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 8.0),
-              child: NonPWTextField(
-                  text: 'Address', controller: checkout.shippingaddress1),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 8.0),
-              child: NonPWTextField(
-                  text: 'Apartment, suite, etc. (optional)',
-                  controller: checkout.shippingaddress2),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 8.0),
-              child: NonPWTextField(
-                  text: 'City', controller: checkout.shippingcity),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 8.0),
-              child: NonPWTextField(
-                  text: 'State', controller: checkout.shippingstate),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 8.0),
-              child: NonPWTextField(
-                  text: 'Zip Code', controller: checkout.shippingzipcode),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 8.0),
-              child: NonPWTextField(
-                  text: 'Phone', controller: checkout.shippingphone),
-            ),
+            NonPWTextField(
+                text: 'Country', controller: checkout.shippingcountry),
+            NonPWTextField(
+                text: 'First Name', controller: checkout.shippingfirstname),
+            NonPWTextField(
+                text: 'Last Name', controller: checkout.shippinglastname),
+            NonPWTextField(
+                text: 'Company (optional)',
+                controller: checkout.shippingcompany),
+            NonPWTextField(
+                text: 'Address', controller: checkout.shippingaddress1),
+            NonPWTextField(
+                text: 'Apartment, suite, etc. (optional)',
+                controller: checkout.shippingaddress2),
+            NonPWTextField(text: 'City', controller: checkout.shippingcity),
+            NonPWTextField(text: 'State', controller: checkout.shippingstate),
+            NonPWTextField(
+                text: 'Zip Code', controller: checkout.shippingzipcode),
+            NonPWTextField(text: 'Phone', controller: checkout.shippingphone),
           ],
         );
       },

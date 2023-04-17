@@ -36,36 +36,24 @@ class RegisterPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16.0),
-                  child: NonPWTextField(
-                    text: 'Enter your first name here',
-                    controller: value.firstName,
-                  ),
+                NonPWTextField(
+                  text: 'Enter your first name here',
+                  controller: value.firstName,
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16.0),
-                  child: NonPWTextField(
-                    text: 'Enter your last name here',
-                    controller: value.lastName,
-                  ),
+                NonPWTextField(
+                  text: 'Enter your last name here',
+                  controller: value.lastName,
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16.0),
-                  child: NonPWTextField(
-                    text: 'Enter your email here',
-                    controller: value.email,
-                  ),
+                NonPWTextField(
+                  text: 'Enter your email here',
+                  controller: value.email,
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16.0),
-                  child: PWTextField(
-                    label: 'Password',
-                    hinttext: 'Enter your password here',
-                    controller: value.pass,
-                    isVisible: value.passVisible,
-                    onIconTap: value.toggleVisibile,
-                  ),
+                PWTextField(
+                  label: 'Password',
+                  hinttext: 'Enter your password here',
+                  controller: value.pass,
+                  isVisible: value.passVisible,
+                  onIconTap: value.toggleVisibile,
                 ),
                 SizedBox(
                   height: 24,

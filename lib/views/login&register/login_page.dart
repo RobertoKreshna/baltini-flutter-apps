@@ -40,22 +40,19 @@ class LoginPage extends StatelessWidget {
                   'Login with your email address and password.',
                   style: TextStyle(fontSize: 16),
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 24.0),
-                  child: NonPWTextField(
-                    text: 'Enter your email address here',
-                    controller: value.email,
-                  ),
+                SizedBox(
+                  height: 16,
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8.0),
-                  child: PWTextField(
-                    label: 'PASSWORD',
-                    hinttext: 'Enter your password here',
-                    controller: value.pass,
-                    isVisible: value.passVisible,
-                    onIconTap: value.toggleVisibile,
-                  ),
+                NonPWTextField(
+                  text: 'Enter your email address here',
+                  controller: value.email,
+                ),
+                PWTextField(
+                  label: 'Password',
+                  hinttext: 'Enter your password here',
+                  controller: value.pass,
+                  isVisible: value.passVisible,
+                  onIconTap: value.toggleVisibile,
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 24.0),
