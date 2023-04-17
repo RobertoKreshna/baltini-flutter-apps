@@ -22,7 +22,7 @@ class PWTextField extends StatelessWidget {
       style: TextStyle(fontSize: 14),
       obscureText: isVisible ? false : true,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(vertical: 16.0),
+        contentPadding: EdgeInsets.symmetric(vertical: 22.0),
         suffixIcon: isVisible
             ? GestureDetector(
                 onTap: () {
