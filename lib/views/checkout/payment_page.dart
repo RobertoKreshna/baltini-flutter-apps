@@ -1,6 +1,8 @@
 import 'package:baltini_flutter_apps/utils/components/back_and_title.dart';
 import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
+import 'package:baltini_flutter_apps/views/checkout/components/billing_address_form.dart';
 import 'package:baltini_flutter_apps/views/checkout/components/payment_choice.dart';
+import 'package:baltini_flutter_apps/views/checkout/components/shipping_address_form.dart';
 import 'package:baltini_flutter_apps/views/checkout/vm/checkout_flow_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -93,6 +95,7 @@ class PaymentPage extends StatelessWidget {
                       groupValue: value.sameAddress,
                       onChanged: (newValue) {
                         value.sameOrDifferentAddress(newValue!);
+                        value.billingAddress = value.shippingAddress;
                       },
                       title: Text('Same as shipping address'),
                     ),
@@ -104,13 +107,63 @@ class PaymentPage extends StatelessWidget {
                       groupValue: value.sameAddress,
                       onChanged: (newValue) {
                         value.sameOrDifferentAddress(newValue!);
+                        value.billingAddress = null;
                       },
                       title: Text('Use a different billing address'),
                     ),
                     SizedBox(
                       height: 16,
                     ),
-                    value.sameAddress ? Container() : Container(),
+                    value.sameAddress ? Container() : BillingAddressForm(),
+                    SizedBox(
+                      height: 38,
+                    ),
+                    Divider(
+                      color: Colors.black.withOpacity(0.2),
+                      height: 2,
+                      thickness: 2,
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text(
+                                'Total Price',
+                              ),
+                              Text(
+                                'Rp. ${value.total}',
+                                style: TextStyle(fontSize: 16),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: () {},
+                            child: Container(
+                              padding: EdgeInsets.all(12.0),
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(3),
+                              ),
+                              child: Text(
+                                'PAY NOW',
+                                style: TextStyle(color: Colors.white),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 );
               },

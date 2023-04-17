@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'components/contact_information.dart';
-import 'components/shipping_address.dart';
+import 'components/shipping_address_form.dart';
 
 class CheckoutPage extends StatelessWidget {
   @override
@@ -43,7 +43,7 @@ class CheckoutPage extends StatelessWidget {
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 24.0),
-                      child: ShippingAddress(),
+                      child: ShippingAddressForm(),
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 16.0),

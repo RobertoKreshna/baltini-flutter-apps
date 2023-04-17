@@ -1,10 +1,11 @@
+
 import 'package:baltini_flutter_apps/utils/components/textfield.dart';
 import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
 import 'package:baltini_flutter_apps/views/checkout/vm/checkout_flow_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class ShippingAddress extends StatelessWidget {
+class ShippingAddressForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer2<AccountVM, CheckoutFlowVM>(
@@ -17,24 +18,23 @@ class ShippingAddress extends StatelessWidget {
           children: [
             Text('SHIPPING ADDRESS'),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Color.fromRGBO(
-                    191,
-                    20,
-                    20,
-                    1.0,
-                  ).withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text(
-                      'Please double check the shipping address to ensure prompt delivery'),
-                ),
-              ),
-            ),
+                padding: EdgeInsets.symmetric(vertical: 16.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(
+                      191,
+                      20,
+                      20,
+                      1.0,
+                    ).withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Text(
+                        'Please double check the shipping address to ensure prompt delivery'),
+                  ),
+                )),
             Padding(
               padding: EdgeInsets.symmetric(vertical: 8.0),
               child: NonPWTextField(
