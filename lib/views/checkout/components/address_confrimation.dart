@@ -62,6 +62,7 @@ class AddressConfirmation extends StatelessWidget {
                     value.shippingphone.text,
                     value.shippingcompany.text,
                   );
+                  value.billingAddress = value.shippingAddress;
                   Navigator.pushNamed(context, '/shipping');
                 },
                 child: BaltiniButton(

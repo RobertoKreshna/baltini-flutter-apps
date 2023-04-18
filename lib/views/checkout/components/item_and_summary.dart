@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:invert_colors/invert_colors.dart';
 import 'package:provider/provider.dart';
 
-import '../../utils/const/asset_path.dart';
-import 'components/checkout_item_tile.dart';
-import 'components/checkout_summary.dart';
-import 'components/giftcard_discount_textfield.dart';
+import '../../../utils/const/asset_path.dart';
+import 'checkout_item_tile.dart';
+import 'checkout_summary.dart';
+import 'giftcard_discount_textfield.dart';
 
 class ItemAndSummary extends StatelessWidget {
   @override

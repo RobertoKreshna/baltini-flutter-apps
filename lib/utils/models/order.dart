@@ -1,6 +1,8 @@
 import 'package:baltini_flutter_apps/utils/models/product.dart';
 import 'package:hive/hive.dart';
 
+import 'address.dart';
+
 part 'order.g.dart';
 
 @HiveType(typeId: 0)
@@ -22,9 +24,9 @@ class Order extends HiveObject {
   @HiveField(7)
   String shippingMethod;
   @HiveField(8)
-  String shippingAddress;
+  Address shippingAddress;
   @HiveField(9)
-  String billingAddress;
+  Address billingAddress;
 
   Order({
     required this.id,

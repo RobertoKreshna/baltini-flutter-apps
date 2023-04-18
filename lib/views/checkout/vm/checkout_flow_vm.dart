@@ -1,5 +1,6 @@
 import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
 import 'package:baltini_flutter_apps/utils/models/address.dart';
+import 'package:baltini_flutter_apps/utils/models/order.dart';
 import 'package:baltini_flutter_apps/utils/models/product.dart';
 import 'package:baltini_flutter_apps/utils/models/user.dart';
 import 'package:flutter/material.dart';
@@ -158,5 +159,27 @@ class CheckoutFlowVM extends ChangeNotifier {
   sameOrDifferentAddress(bool value) {
     sameAddress = value;
     notifyListeners();
+  }
+
+  Order getOrder() {
+    String id = generateID();
+    Order newOrder = Order(
+        id: id,
+        orderDate: DateTime.now().toString(),
+        products: checkoutProduct,
+        qty: quantity,
+        totalPrice: total.toString(),
+        paymentMethod: paymentmethods.keys.elementAt(selectedPayment),
+        paymentDate: DateTime.now().toString(),
+        shippingMethod: shippingmethods.keys.elementAt(selectedShipping),
+        shippingAddress: shippingAddress!,
+        billingAddress: billingAddress!);
+    return newOrder;
+  }
+
+  String generateID() {
+    String res = '';
+
+    return res;
   }
 }

@@ -25,8 +25,8 @@ class OrderAdapter extends TypeAdapter<Order> {
       paymentMethod: fields[5] as String,
       paymentDate: fields[6] as String,
       shippingMethod: fields[7] as String,
-      shippingAddress: fields[8] as String,
-      billingAddress: fields[9] as String,
+      shippingAddress: fields[8] as Address,
+      billingAddress: fields[9] as Address,
     );
   }
 

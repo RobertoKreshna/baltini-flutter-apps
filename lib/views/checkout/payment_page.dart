@@ -1,4 +1,6 @@
 import 'package:baltini_flutter_apps/utils/components/back_and_title.dart';
+import 'package:baltini_flutter_apps/utils/models/order.dart';
+import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
 import 'package:baltini_flutter_apps/views/checkout/components/billing_address_form.dart';
 import 'package:baltini_flutter_apps/views/checkout/components/payment_choice.dart';
 import 'package:baltini_flutter_apps/views/checkout/vm/checkout_flow_vm.dart';
@@ -6,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'components/contact_summary.dart';
-import 'item_and_summary.dart';
+import 'components/item_and_summary.dart';
 
 class PaymentPage extends StatelessWidget {
   @override
@@ -16,8 +18,8 @@ class PaymentPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0),
-            child: Consumer<CheckoutFlowVM>(
-              builder: (context, value, child) {
+            child: Consumer2<CheckoutFlowVM, AccountVM>(
+              builder: (context, value, account, child) {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -147,7 +149,10 @@ class PaymentPage extends StatelessWidget {
                         ),
                         Expanded(
                           child: GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              account.addOrder(value.getOrder());
+                              Navigator.pushNamed(context, '/');
+                            },
                             child: Container(
                               padding: EdgeInsets.all(12.0),
                               decoration: BoxDecoration(

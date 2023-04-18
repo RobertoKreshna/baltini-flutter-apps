@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 
 import '../../utils/components/back_and_title.dart';
 import 'components/contact_summary.dart';
-import 'item_and_summary.dart';
+import 'components/item_and_summary.dart';
 
 class ShippingPage extends StatelessWidget {
   @override

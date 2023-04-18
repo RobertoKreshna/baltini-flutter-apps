@@ -2,6 +2,8 @@ import 'package:baltini_flutter_apps/utils/hive/boxes.dart';
 import 'package:baltini_flutter_apps/utils/models/user.dart';
 import 'package:flutter/material.dart';
 
+import '../../../utils/models/order.dart';
+
 class AccountVM extends ChangeNotifier {
   User? currentUser;
 
@@ -67,5 +69,15 @@ class AccountVM extends ChangeNotifier {
           password: password,
         ),
         true);
+  }
+
+  addOrder(Order order) {
+    if (currentUser != null) {
+      currentUser!.orders.add(order);
+      int idx = Boxes.getUserIndex(currentUser!);
+      if (idx != -1) {
+        Boxes.getUsersBox().putAt(idx, currentUser!);
+      }
+    }
   }
 }

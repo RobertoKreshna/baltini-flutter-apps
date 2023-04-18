@@ -1,6 +1,6 @@
 import 'package:baltini_flutter_apps/utils/components/back_and_title.dart';
 import 'package:baltini_flutter_apps/views/checkout/components/address_confrimation.dart';
-import 'package:baltini_flutter_apps/views/checkout/item_and_summary.dart';
+import 'package:baltini_flutter_apps/views/checkout/components/item_and_summary.dart';
 import 'package:baltini_flutter_apps/views/checkout/vm/checkout_flow_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
