@@ -1,18 +1,14 @@
-import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+
+import '../../../utils/models/order.dart';
 
 class OrderTile extends StatelessWidget {
-  int index;
+  Order current;
 
-  OrderTile({super.key, required this.index});
+  OrderTile({super.key, required this.current});
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<AccountVM>(
-      builder: (context, value, child) {
-        return Container();
-      },
-    );
+    return Container();
   }
 }
