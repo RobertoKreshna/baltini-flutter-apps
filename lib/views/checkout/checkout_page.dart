@@ -23,9 +23,11 @@ class CheckoutPage extends StatelessWidget {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    BackAndTitle('Checkout', () {
-                      Navigator.pop(context);
-                    }),
+                    BackAndTitle(
+                        title: 'Checkout',
+                        onPressed: () {
+                          Navigator.pop(context);
+                        }),
                     ItemAndSummary(),
                     Divider(
                       color: Colors.black.withOpacity(0.2),

@@ -6,12 +6,12 @@ class BackAndTitle extends StatelessWidget {
   Function onPressed;
   String title;
 
-  BackAndTitle(this.title, this.onPressed);
+  BackAndTitle({super.key, required this.title, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 16.0),
+      padding: const EdgeInsets.symmetric(vertical: 16.0),
       child: Row(
         children: [
           GestureDetector(
@@ -21,7 +21,7 @@ class BackAndTitle extends StatelessWidget {
               child: Image.asset(back)),
           Text(
             title,
-            style: TextStyle(fontSize: 18),
+            style: const TextStyle(fontSize: 18),
           ),
         ],
       ),

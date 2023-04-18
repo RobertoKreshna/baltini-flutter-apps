@@ -8,31 +8,35 @@ import 'package:provider/provider.dart';
 import 'vm/my_address_vm.dart';
 
 class MyAddressPage extends StatelessWidget {
+  MyAddressPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
           child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Consumer2<AccountVM, AddressVM>(
           builder: (context, account, address, child) {
             return Column(
               children: [
-                BackAndTitle('My Address', () {
-                  Navigator.pop(context);
-                }),
+                BackAndTitle(
+                    title: 'My Address',
+                    onPressed: () {
+                      Navigator.pop(context);
+                    }),
                 GestureDetector(
                   onTap: () {
                     Navigator.pushNamed(context, '/formaddress');
                   },
-                  child: AccountButton('ADD ADDRESS', true),
+                  child: AccountButton(text: 'ADD ADDRESS', blackBG: true),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 ListView.separated(
                   separatorBuilder: (context, index) {
-                    return Padding(
+                    return const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 16.0),
                       child: Divider(
                         color: Colors.black,
@@ -50,6 +54,8 @@ class MyAddressPage extends StatelessWidget {
                         },
                         index,
                       );
+                    } else {
+                      return Container();
                     }
                   },
                 )

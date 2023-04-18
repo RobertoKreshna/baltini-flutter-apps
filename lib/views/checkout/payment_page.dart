@@ -1,8 +1,6 @@
 import 'package:baltini_flutter_apps/utils/components/back_and_title.dart';
-import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
 import 'package:baltini_flutter_apps/views/checkout/components/billing_address_form.dart';
 import 'package:baltini_flutter_apps/views/checkout/components/payment_choice.dart';
-import 'package:baltini_flutter_apps/views/checkout/components/shipping_address_form.dart';
 import 'package:baltini_flutter_apps/views/checkout/vm/checkout_flow_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -23,9 +21,11 @@ class PaymentPage extends StatelessWidget {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    BackAndTitle('Payment', () {
-                      Navigator.pop(context);
-                    }),
+                    BackAndTitle(
+                        title: 'Payment',
+                        onPressed: () {
+                          Navigator.pop(context);
+                        }),
                     ItemAndSummary(),
                     Divider(
                       color: Colors.black.withOpacity(0.2),

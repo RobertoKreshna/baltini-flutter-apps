@@ -90,7 +90,7 @@ class CheckoutFlowVM extends ChangeNotifier {
   }
 
   toggleValidator(bool value) {
-    this.discountCodeValidator = value;
+    discountCodeValidator = value;
     notifyListeners();
   }
 

@@ -13,5 +13,5 @@ void main() async {
   Hive.registerAdapter(AddressAdapter());
   Hive.registerAdapter(UserAdapter());
   await Hive.openBox<User>('users');
-  runApp(MyApp());
+  runApp(const MyApp());
 }

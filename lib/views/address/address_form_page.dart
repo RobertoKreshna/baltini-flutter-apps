@@ -9,21 +9,24 @@ import 'package:provider/provider.dart';
 import '../../utils/components/popup.dart';
 
 class AddressFormPage extends StatelessWidget {
+  AddressFormPage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Consumer2<AccountVM, AddressVM>(
               builder: (context, account, value, child) {
                 return Column(
                   children: [
-                    BackAndTitle('Add Address', () {
-                      if (value.editing == true) value.editing = false;
-                      Navigator.pop(context);
-                    }),
+                    BackAndTitle(
+                        title: 'Add Address',
+                        onPressed: () {
+                          if (value.editing == true) value.editing = false;
+                          Navigator.pop(context);
+                        }),
                     NonPWTextField(
                         text: 'First Name', controller: value.firstname),
                     NonPWTextField(
@@ -42,7 +45,7 @@ class AddressFormPage extends StatelessWidget {
                     Row(
                       children: [
                         Checkbox(
-                          side: BorderSide(
+                          side: const BorderSide(
                             color: Color.fromRGBO(201, 207, 210, 1),
                           ),
                           activeColor: Colors.black,
@@ -52,7 +55,7 @@ class AddressFormPage extends StatelessWidget {
                             value.toggleSetDefault();
                           },
                         ),
-                        Text('Set as default address'),
+                        const Text('Set as default address'),
                       ],
                     ),
                     GestureDetector(
@@ -62,7 +65,7 @@ class AddressFormPage extends StatelessWidget {
                           showDialog(
                                   context: context,
                                   builder: (BuildContext context) =>
-                                      BaltiniPopUp('Address Saved'))
+                                      BaltiniPopUp(title: 'Address Saved'))
                               .then((value) => Navigator.pop(context));
                         } else {
                           value.updateAddress(account.currentUser!);
@@ -70,11 +73,11 @@ class AddressFormPage extends StatelessWidget {
                           showDialog(
                                   context: context,
                                   builder: (BuildContext context) =>
-                                      BaltiniPopUp('Address Saved'))
+                                      BaltiniPopUp(title: 'Address Saved'))
                               .then((value) => Navigator.pop(context));
                         }
                       },
-                      child: AccountButton('SAVE ADDRESS', true),
+                      child: AccountButton(text: 'SAVE ADDRESS', blackBG: true),
                     ),
                   ],
                 );

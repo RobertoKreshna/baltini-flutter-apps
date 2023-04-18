@@ -20,14 +20,14 @@ class NewArrival extends StatelessWidget {
                   children: [
                     displayRow(
                       context: context,
-                      id1: '${vm.homeproducts[0].id}',
-                      id2: '${vm.homeproducts[1].id}',
-                      path1: '${vm.homeproducts[0].image}',
-                      path2: '${vm.homeproducts[1].image}',
-                      brand1: '${vm.homeproducts[0].vendor}',
-                      brand2: '${vm.homeproducts[1].vendor}',
-                      name1: '${vm.homeproducts[0].title}',
-                      name2: '${vm.homeproducts[1].title}',
+                      id1: vm.homeproducts[0].id,
+                      id2: vm.homeproducts[1].id,
+                      path1: vm.homeproducts[0].image,
+                      path2: vm.homeproducts[1].image,
+                      brand1: vm.homeproducts[0].vendor,
+                      brand2: vm.homeproducts[1].vendor,
+                      name1: vm.homeproducts[0].title,
+                      name2: vm.homeproducts[1].title,
                       price1: 'Rp.${vm.homeproducts[0].price}',
                       price2: 'Rp.${vm.homeproducts[1].price}',
                     ),
@@ -36,14 +36,14 @@ class NewArrival extends StatelessWidget {
                     ),
                     displayRow(
                       context: context,
-                      id1: '${vm.homeproducts[2].id}',
-                      id2: '${vm.homeproducts[3].id}',
-                      path1: '${vm.homeproducts[2].image}',
-                      path2: '${vm.homeproducts[3].image}',
-                      brand1: '${vm.homeproducts[2].vendor}',
-                      brand2: '${vm.homeproducts[3].vendor}',
-                      name1: '${vm.homeproducts[2].title}',
-                      name2: '${vm.homeproducts[3].title}',
+                      id1: vm.homeproducts[2].id,
+                      id2: vm.homeproducts[3].id,
+                      path1: vm.homeproducts[2].image,
+                      path2: vm.homeproducts[3].image,
+                      brand1: vm.homeproducts[2].vendor,
+                      brand2: vm.homeproducts[3].vendor,
+                      name1: vm.homeproducts[2].title,
+                      name2: vm.homeproducts[3].title,
                       price1: 'Rp.${vm.homeproducts[2].price}',
                       price2: 'Rp.${vm.homeproducts[3].price}',
                     ),
@@ -52,14 +52,14 @@ class NewArrival extends StatelessWidget {
                     ),
                     displayRow(
                       context: context,
-                      id1: '${vm.homeproducts[4].id}',
-                      id2: '${vm.homeproducts[5].id}',
-                      path1: '${vm.homeproducts[4].image}',
-                      path2: '${vm.homeproducts[5].image}',
-                      brand1: '${vm.homeproducts[4].vendor}',
-                      brand2: '${vm.homeproducts[5].vendor}',
-                      name1: '${vm.homeproducts[4].title}',
-                      name2: '${vm.homeproducts[5].title}',
+                      id1: vm.homeproducts[4].id,
+                      id2: vm.homeproducts[5].id,
+                      path1: vm.homeproducts[4].image,
+                      path2: vm.homeproducts[5].image,
+                      brand1: vm.homeproducts[4].vendor,
+                      brand2: vm.homeproducts[5].vendor,
+                      name1: vm.homeproducts[4].title,
+                      name2: vm.homeproducts[5].title,
                       price1: 'Rp.${vm.homeproducts[4].price}',
                       price2: 'Rp.${vm.homeproducts[5].price}',
                     ),
@@ -105,23 +105,23 @@ class NewArrival extends StatelessWidget {
         var product = await HomeService().getProductByID(id);
         Navigator.pushNamed(context, '/details', arguments: product);
       },
-      child: Container(
+      child: SizedBox(
         width: 163,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
+            SizedBox(
                 height: 245,
                 child: Image.asset('assets/images/placeholder.png')),
             SizedBox(
               height: 4,
             ),
-            Center(child: Text('$brand')),
+            Center(child: Text(brand)),
             SizedBox(
               height: 4,
             ),
             Text(
-              '$name',
+              name,
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.black.withOpacity(0.5)),
             ),
@@ -133,7 +133,7 @@ class NewArrival extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        '$price',
+                        price,
                         style: TextStyle(
                           decoration: TextDecoration.lineThrough,
                           color: Colors.black.withOpacity(0.5),
@@ -144,7 +144,7 @@ class NewArrival extends StatelessWidget {
                         width: 4,
                       ),
                       Text(
-                        '$disc',
+                        disc,
                         style: TextStyle(
                           color: Colors.red,
                           fontSize: 14,
@@ -154,7 +154,7 @@ class NewArrival extends StatelessWidget {
                   )
                 : Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                     Text(
-                      '$price',
+                      price,
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 14,

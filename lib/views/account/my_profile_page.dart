@@ -6,16 +6,15 @@ import 'package:baltini_flutter_apps/views/account/vm/my_profile_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../utils/const/asset_path.dart';
-
 class MyProfilePage extends StatelessWidget {
+  MyProfilePage({super.key});
   @override
   Widget build(BuildContext context) {
     MyProfileVM vm = MyProfileVM();
     return Scaffold(
       body: SafeArea(
           child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Consumer<AccountVM>(
           builder: (context, value, child) {
             vm.firstName.text = value.currentUser!.firstName;
@@ -24,44 +23,46 @@ class MyProfilePage extends StatelessWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                BackAndTitle('My Profile', () {
-                  Navigator.pop(context);
-                }),
+                BackAndTitle(
+                    title: 'My Profile',
+                    onPressed: () {
+                      Navigator.pop(context);
+                    }),
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: NonPWTextField(
                     text: 'Enter your first name here',
                     controller: vm.firstName,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: NonPWTextField(
                     text: 'Enter your last name here',
                     controller: vm.lastName,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: NonPWTextField(
                     text: 'Enter your email here',
                     controller: vm.email,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: GestureDetector(
                     onTap: () {
                       Navigator.pushNamed(context, '/changepw')
                           .then((value) => Navigator.pop(context));
                     },
-                    child: Text(
+                    child: const Text(
                       'CHANGE PASSWORD',
                       style: TextStyle(decoration: TextDecoration.underline),
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 GestureDetector(
@@ -70,7 +71,7 @@ class MyProfilePage extends StatelessWidget {
                         vm.firstName.text, vm.lastName.text, vm.email.text);
                     Navigator.pop(context);
                   },
-                  child: AccountButton('SAVE', true),
+                  child: AccountButton(text: 'SAVE', blackBG: true),
                 ),
               ],
             );

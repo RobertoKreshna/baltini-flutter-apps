@@ -10,18 +10,19 @@ import 'package:provider/provider.dart';
 import '../../utils/components/password_textfield.dart';
 
 class RegisterPage extends StatelessWidget {
+  RegisterPage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
           child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Consumer<RegisterVM>(
           builder: (context, value, child) {
             return Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 24.0),
+                  padding: const EdgeInsets.symmetric(vertical: 24.0),
                   child: Row(
                     children: [
                       GestureDetector(
@@ -29,7 +30,7 @@ class RegisterPage extends StatelessWidget {
                             Navigator.pop(context);
                           },
                           child: Image.asset(back)),
-                      Text(
+                      const Text(
                         'Register',
                         style: TextStyle(fontSize: 18),
                       )
@@ -55,7 +56,7 @@ class RegisterPage extends StatelessWidget {
                   isVisible: value.passVisible,
                   onIconTap: value.toggleVisibile,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 24,
                 ),
                 Consumer<AccountVM>(
@@ -69,11 +70,11 @@ class RegisterPage extends StatelessWidget {
                           showDialog(
                               context: context,
                               builder: (BuildContext context) =>
-                                  BaltiniPopUp('Account Created')).then(
+                                  BaltiniPopUp(title: 'Account Created')).then(
                               (value) => Navigator.pushNamed(context, '/'));
                         }
                       },
-                      child: AccountButton('CREATE', true),
+                      child: AccountButton(text: 'CREATE', blackBG: true),
                     );
                   },
                 ),

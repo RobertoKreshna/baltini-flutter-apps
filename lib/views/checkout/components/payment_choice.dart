@@ -26,7 +26,7 @@ class PaymentChoice extends StatelessWidget {
                 value.paymentmethods.keys.toList()[index],
                 style: TextStyle(fontSize: 14),
               ),
-              subtitle: Container(
+              subtitle: SizedBox(
                 height: 32,
                 width: double.infinity,
                 child: ListView.builder(
@@ -38,7 +38,7 @@ class PaymentChoice extends StatelessWidget {
                     itemBuilder: (BuildContext context, int indexInside) {
                       return Padding(
                         padding: EdgeInsets.only(right: 8.0),
-                        child: Container(
+                        child: SizedBox(
                           width: 32,
                           height: 32,
                           child: Image.asset(value.paymentmethods.values

@@ -17,6 +17,7 @@ import 'package:provider/provider.dart';
 import 'utils/route/route.dart';
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
   @override
   Widget build(Object context) {
     return MultiProvider(
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<CategoryVM>(create: (_) => CategoryVM()),
         ChangeNotifierProvider<CheckoutFlowVM>(create: (_) => CheckoutFlowVM()),
       ],
-      child: MaterialApp(
+      child: const MaterialApp(
         initialRoute: '/',
         onGenerateRoute: RouteGenerator.generateRoute,
       ),

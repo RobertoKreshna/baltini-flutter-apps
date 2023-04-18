@@ -5,7 +5,8 @@ class AccountButton extends StatelessWidget {
   double size;
   bool blackBG;
 
-  AccountButton(this.text, this.blackBG, [this.size = 16]);
+  AccountButton(
+      {super.key, required this.text, required this.blackBG, this.size = 16});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class AccountButton extends StatelessWidget {
                     borderRadius: BorderRadius.circular(5),
                   ),
             child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 12.0),
+              padding: const EdgeInsets.symmetric(vertical: 12.0),
               child: Text(
                 text,
                 style: TextStyle(

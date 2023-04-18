@@ -9,20 +9,22 @@ import 'package:provider/provider.dart';
 import '../../utils/const/asset_path.dart';
 
 class ChangePasswordPage extends StatelessWidget {
+  ChangePasswordPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     ChangePasswordVM vm = ChangePasswordVM();
     return Scaffold(
       body: SafeArea(
           child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Consumer<AccountVM>(
           builder: (context, value, child) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: Row(
                     children: [
                       GestureDetector(
@@ -30,7 +32,7 @@ class ChangePasswordPage extends StatelessWidget {
                             Navigator.pop(context);
                           },
                           child: Image.asset(back)),
-                      Text(
+                      const Text(
                         'Change Password',
                         style: TextStyle(fontSize: 18),
                       ),
@@ -38,27 +40,27 @@ class ChangePasswordPage extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: NonPWTextField(
                     text: 'Enter your old password here',
                     controller: vm.oldPW,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: NonPWTextField(
                     text: 'Enter your new password here',
                     controller: vm.newPW,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
                   child: NonPWTextField(
                     text: 'Confirm your new password here',
                     controller: vm.confirmNewPW,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 GestureDetector(
@@ -69,13 +71,11 @@ class ChangePasswordPage extends StatelessWidget {
                       showDialog(
                               context: context,
                               builder: (BuildContext context) =>
-                                  BaltiniPopUp('Password Changed'))
+                                  BaltiniPopUp(title: 'Password Changed'))
                           .then((value) => Navigator.pop(context));
-                    } else {
-                      print('salah');
-                    }
+                    } else {}
                   },
-                  child: AccountButton('SAVE', true),
+                  child: AccountButton(text: 'SAVE', blackBG: true),
                 ),
               ],
             );

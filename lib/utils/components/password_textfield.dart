@@ -7,6 +7,7 @@ class PWTextField extends StatelessWidget {
   Function onIconTap;
 
   PWTextField({
+    super.key,
     required this.label,
     required this.hinttext,
     required this.controller,
@@ -19,29 +20,29 @@ class PWTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
-      style: TextStyle(fontSize: 14),
+      style: const TextStyle(fontSize: 14),
       obscureText: isVisible ? false : true,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(vertical: 22.0),
+        contentPadding: const EdgeInsets.symmetric(vertical: 22.0),
         suffixIcon: isVisible
             ? GestureDetector(
                 onTap: () {
                   onIconTap();
                 },
-                child: Icon(Icons.visibility))
+                child: const Icon(Icons.visibility))
             : GestureDetector(
                 onTap: () {
                   onIconTap();
                 },
-                child: Icon(Icons.visibility_off)),
+                child: const Icon(Icons.visibility_off)),
         hintText: hinttext,
         labelText: label,
-        labelStyle: TextStyle(color: Colors.black, fontSize: 14),
+        labelStyle: const TextStyle(color: Colors.black, fontSize: 14),
         focusColor: Colors.black,
-        enabledBorder:
-            UnderlineInputBorder(borderSide: BorderSide(color: Colors.black)),
-        focusedBorder:
-            UnderlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+        enabledBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.black)),
+        focusedBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.black)),
       ),
     );
   }

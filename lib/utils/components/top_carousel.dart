@@ -1,11 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 import '../style.dart';
 
 class TopCarousel extends StatelessWidget {
+  const TopCarousel({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,8 +15,8 @@ class TopCarousel extends StatelessWidget {
       child: CarouselSlider(
         options: CarouselOptions(
           autoPlay: true,
-          autoPlayInterval: Duration(seconds: 3),
-          autoPlayAnimationDuration: Duration(milliseconds: 800),
+          autoPlayInterval: const Duration(seconds: 3),
+          autoPlayAnimationDuration: const Duration(milliseconds: 800),
           autoPlayCurve: Curves.fastOutSlowIn,
           viewportFraction: 1.0,
         ),

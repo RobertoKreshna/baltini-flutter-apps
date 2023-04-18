@@ -11,9 +11,11 @@ class ShipReturn extends StatelessWidget {
             child: SingleChildScrollView(
           child: Column(
             children: [
-              BackAndTitle('Shipping & Returns', () {
-                Navigator.pop(context);
-              }),
+              BackAndTitle(
+                  title: 'Shipping & Returns',
+                  onPressed: () {
+                    Navigator.pop(context);
+                  }),
               SizedBox(
                 height: 30,
               ),

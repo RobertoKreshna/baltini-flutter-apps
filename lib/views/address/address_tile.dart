@@ -15,44 +15,40 @@ class AddressTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(current.name),
-              GestureDetector(
-                onTap: () {
-                  onDeleteTap();
-                },
-                child: Container(
-                  child: Image.asset(delete),
-                ),
-              ),
-            ],
-          ),
-          Text(
-            '${current.address}, ${current.city}, ${current.state}, ${current.country}',
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 16.0),
-            child: Consumer<AddressVM>(
-              builder: (context, value, child) {
-                return GestureDetector(
-                  onTap: () {
-                    value.setEdit(current);
-                    value.editing = true;
-                    Navigator.pushNamed(context, '/formaddress');
-                  },
-                  child: AccountButton('EDIT', false),
-                );
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(current.name),
+            GestureDetector(
+              onTap: () {
+                onDeleteTap();
               },
+              child: Image.asset(delete),
             ),
+          ],
+        ),
+        Text(
+          '${current.address}, ${current.city}, ${current.state}, ${current.country}',
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16.0),
+          child: Consumer<AddressVM>(
+            builder: (context, value, child) {
+              return GestureDetector(
+                onTap: () {
+                  value.setEdit(current);
+                  value.editing = true;
+                  Navigator.pushNamed(context, '/formaddress');
+                },
+                child: AccountButton(text: 'EDIT', blackBG: false),
+              );
+            },
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

@@ -22,7 +22,7 @@ class ProductListPage extends StatelessWidget {
             return Column(children: [
               Padding(
                 padding: EdgeInsets.all(16.0),
-                child: TopRow(true, value.fromSearch),
+                child: TopRow(back: true, fromSearch: value.fromSearch),
               ),
               TopCarousel(),
               Padding(

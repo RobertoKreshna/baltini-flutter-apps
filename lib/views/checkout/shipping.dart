@@ -20,10 +20,12 @@ class ShippingPage extends StatelessWidget {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    BackAndTitle('Shipping', () {
-                      value.resetSelectedShipping();
-                      Navigator.pop(context);
-                    }),
+                    BackAndTitle(
+                        title: 'Shipping',
+                        onPressed: () {
+                          value.resetSelectedShipping();
+                          Navigator.pop(context);
+                        }),
                     ItemAndSummary(),
                     Divider(
                       color: Colors.black.withOpacity(0.2),

@@ -18,7 +18,7 @@ class Exclusive extends StatelessWidget {
           AspectRatio(
             aspectRatio: 3.0 / 4.0,
             child: Image.asset(
-              '$path',
+              path,
               fit: BoxFit.fitWidth,
             ),
           ),
@@ -34,17 +34,17 @@ class Exclusive extends StatelessWidget {
                     Navigator.pushNamed(context, '/list');
                   },
                   child: Text(
-                    '$brand'.toUpperCase(),
+                    brand.toUpperCase(),
                     style: TextStyle(fontSize: 14),
                   ),
                 ),
               );
             },
           ),
-          Container(
+          SizedBox(
             width: 343,
             child: Text(
-              '$desc',
+              desc,
               style: TextStyle(
                   fontSize: 14, color: Color.fromRGBO(18, 19, 19, 0.5)),
             ),

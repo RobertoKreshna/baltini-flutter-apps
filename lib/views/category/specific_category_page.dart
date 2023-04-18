@@ -16,9 +16,11 @@ class SpecificCategoryPage extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 16.0),
               child: Column(
                 children: [
-                  BackAndTitle(value.currentCategory.keys.first, () {
-                    Navigator.pop(context);
-                  }),
+                  BackAndTitle(
+                      title: value.currentCategory.keys.first,
+                      onPressed: () {
+                        Navigator.pop(context);
+                      }),
                   ListView.builder(
                     shrinkWrap: true,
                     itemCount: value.currentCategory.values.first.length,

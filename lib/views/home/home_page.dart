@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
             children: [
               Padding(
                 padding: EdgeInsets.all(16.0),
-                child: TopRow(false, false),
+                child: TopRow(back: false, fromSearch: false),
               ),
               TopCarousel(),
               Consumer2<HomeVM, ListVM>(

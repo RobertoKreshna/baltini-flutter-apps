@@ -1,5 +1,4 @@
 import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
-import 'package:baltini_flutter_apps/utils/hive/boxes.dart';
 import 'package:baltini_flutter_apps/utils/components/custom_tile.dart';
 import 'package:baltini_flutter_apps/views/account/components/button.dart';
 import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
@@ -7,18 +6,19 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class AccountPage extends StatelessWidget {
+  AccountPage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: SafeArea(
           child: Consumer<AccountVM>(
             builder: (context, vm, child) {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.symmetric(vertical: 16),
                     child: Text(
                       'My Account',
@@ -27,10 +27,10 @@ class AccountPage extends StatelessWidget {
                   ),
                   vm.userLoggedin
                       ? Padding(
-                          padding: EdgeInsets.symmetric(vertical: 16),
+                          padding: const EdgeInsets.symmetric(vertical: 16),
                           child: Text(
                             'Hi ${vm.currentUser!.firstName} ${vm.currentUser!.lastName}',
-                            style: TextStyle(fontSize: 18),
+                            style: const TextStyle(fontSize: 18),
                           ),
                         )
                       : Container(),
@@ -65,7 +65,7 @@ class AccountPage extends StatelessWidget {
                           ),
                         )
                       : Container(),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                   vm.userLoggedin
@@ -78,8 +78,9 @@ class AccountPage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Expanded(
-                                  child:
-                                      AccountButton('LOGIN TO BALTINI', false)),
+                                  child: AccountButton(
+                                      text: 'LOGIN TO BALTINI',
+                                      blackBG: false)),
                             ],
                           ),
                         )

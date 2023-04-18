@@ -11,9 +11,11 @@ class Authenticity extends StatelessWidget {
             child: SingleChildScrollView(
           child: Column(
             children: [
-              BackAndTitle('Authenticity Guarantee', () {
-                Navigator.pop(context);
-              }),
+              BackAndTitle(
+                  title: 'Authenticity Guarantee',
+                  onPressed: () {
+                    Navigator.pop(context);
+                  }),
               SizedBox(
                 height: 30,
               ),

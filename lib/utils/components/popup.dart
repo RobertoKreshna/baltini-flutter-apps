@@ -5,7 +5,7 @@ import '../const/asset_path.dart';
 class BaltiniPopUp extends StatelessWidget {
   String title;
 
-  BaltiniPopUp(this.title);
+  BaltiniPopUp({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -20,19 +20,17 @@ class BaltiniPopUp extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
-            Container(
-              child: Image.asset(success),
-            ),
-            SizedBox(
+            Image.asset(success),
+            const SizedBox(
               height: 40,
             ),
             Text(
               title,
               maxLines: 1,
-              style: TextStyle(color: Colors.black, fontSize: 18),
+              style: const TextStyle(color: Colors.black, fontSize: 18),
             ),
           ],
         ),

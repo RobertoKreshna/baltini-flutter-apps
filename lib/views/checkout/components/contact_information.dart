@@ -17,78 +17,73 @@ class ContactInformation extends StatelessWidget {
               height: 16,
             ),
             value.userLoggedin
-                ? Container(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                            '${value.currentUser!.firstName} ${value.currentUser!.lastName} (${value.currentUser!.email})'),
-                        Row(
-                          children: [
-                            Checkbox(
-                              side: BorderSide(
-                                color: Color.fromRGBO(201, 207, 210, 1),
-                              ),
-                              activeColor: Colors.black,
-                              checkColor: Colors.white,
-                              value: checkout.wantedtoEmail,
-                              onChanged: (currentVal) {
-                                checkout.toggleEmail();
-                              },
+                ? Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                          '${value.currentUser!.firstName} ${value.currentUser!.lastName} (${value.currentUser!.email})'),
+                      Row(
+                        children: [
+                          Checkbox(
+                            side: BorderSide(
+                              color: Color.fromRGBO(201, 207, 210, 1),
                             ),
-                            Text('Email me with news and offers'),
-                          ],
-                        )
-                      ],
-                    ),
+                            activeColor: Colors.black,
+                            checkColor: Colors.white,
+                            value: checkout.wantedtoEmail,
+                            onChanged: (currentVal) {
+                              checkout.toggleEmail();
+                            },
+                          ),
+                          Text('Email me with news and offers'),
+                        ],
+                      )
+                    ],
                   )
-                : Container(
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Text('already have an account?'),
-                            SizedBox(
-                              width: 8,
+                : Column(
+                    children: [
+                      Row(
+                        children: [
+                          Text('already have an account?'),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, '/login');
+                            },
+                            child: Text(
+                              'LOG IN',
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline),
                             ),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.pushNamed(context, '/login');
-                              },
-                              child: Text(
-                                'LOG IN',
-                                style: TextStyle(
-                                    decoration: TextDecoration.underline),
-                              ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 16,
+                      ),
+                      NonPWTextField(text: 'Email', controller: checkout.email),
+                      SizedBox(
+                        height: 12,
+                      ),
+                      Row(
+                        children: [
+                          Checkbox(
+                            side: BorderSide(
+                              color: Color.fromRGBO(201, 207, 210, 1),
                             ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 16,
-                        ),
-                        NonPWTextField(
-                            text: 'Email', controller: checkout.email),
-                        SizedBox(
-                          height: 12,
-                        ),
-                        Row(
-                          children: [
-                            Checkbox(
-                              side: BorderSide(
-                                color: Color.fromRGBO(201, 207, 210, 1),
-                              ),
-                              activeColor: Colors.black,
-                              checkColor: Colors.white,
-                              value: checkout.wantedtoEmail,
-                              onChanged: (currentVal) {
-                                checkout.toggleEmail();
-                              },
-                            ),
-                            Text('Email me with news and offers'),
-                          ],
-                        )
-                      ],
-                    ),
+                            activeColor: Colors.black,
+                            checkColor: Colors.white,
+                            value: checkout.wantedtoEmail,
+                            onChanged: (currentVal) {
+                              checkout.toggleEmail();
+                            },
+                          ),
+                          Text('Email me with news and offers'),
+                        ],
+                      )
+                    ],
                   ),
           ],
         );

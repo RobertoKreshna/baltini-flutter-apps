@@ -25,7 +25,7 @@ class SpotlightBanner extends StatelessWidget {
             child: AspectRatio(
               aspectRatio: 3.0 / 4.0,
               child: Image.asset(
-                '$path',
+                path,
                 fit: BoxFit.fill,
               ),
             ),

@@ -29,7 +29,7 @@ class _CategoryPageBarState extends State<CategoryPageBar>
           children: [
             Padding(
               padding: EdgeInsets.all(16.0),
-              child: TopRow(false, false),
+              child: TopRow(back: false, fromSearch: false),
             ),
             Consumer<CategoryVM>(
               builder: (context, value, child) {

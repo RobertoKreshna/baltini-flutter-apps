@@ -60,15 +60,12 @@ class LoginPage extends StatelessWidget {
                     onTap: () {
                       Navigator.pushNamed(context, '/forgotpassword');
                     },
-                    child: Container(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(vertical: 7.0),
-                        child: Text(
-                          'FORGOT PASSWORD',
-                          style: TextStyle(
-                              fontSize: 12,
-                              decoration: TextDecoration.underline),
-                        ),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(vertical: 7.0),
+                      child: Text(
+                        'FORGOT PASSWORD',
+                        style: TextStyle(
+                            fontSize: 12, decoration: TextDecoration.underline),
                       ),
                     ),
                   ),
@@ -83,10 +80,9 @@ class LoginPage extends StatelessWidget {
                           Navigator.pushNamed(context, '/');
                         } else {
                           value.clearAll();
-                          print('wrong credentials');
                         }
                       },
-                      child: AccountButton('LOGIN', true),
+                      child: AccountButton(text: 'LOGIN', blackBG: true),
                     );
                   },
                 ),
@@ -101,7 +97,8 @@ class LoginPage extends StatelessWidget {
                   onTap: () {
                     Navigator.pushNamed(context, '/register');
                   },
-                  child: AccountButton('CREATE BALTINI ACCOUNT', false),
+                  child: AccountButton(
+                      text: 'CREATE BALTINI ACCOUNT', blackBG: false),
                 ),
               ],
             );

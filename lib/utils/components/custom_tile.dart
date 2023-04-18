@@ -7,6 +7,7 @@ class CustomTile extends StatelessWidget {
   Color? color;
 
   CustomTile({
+    super.key,
     required this.name,
     this.image = arrowright,
     this.color = Colors.black,
@@ -15,7 +16,7 @@ class CustomTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 12.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 12.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

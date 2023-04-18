@@ -11,63 +11,63 @@ class AddressConfirmation extends StatelessWidget {
     return Consumer<CheckoutFlowVM>(
       builder: (context, value, child) {
         return AlertDialog(
-          content: Container(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  'Is the shipping address correct?',
-                  style: TextStyle(fontSize: 16),
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                Text(
-                  '${value.shippingaddress1.text}, ${value.shippingaddress2.text}',
-                  style: TextStyle(fontSize: 14),
-                ),
-                Text(
-                  '${value.shippingcity.text}',
-                  style: TextStyle(fontSize: 14),
-                ),
-                Text(
-                  '${value.shippingstate.text}',
-                  style: TextStyle(fontSize: 14),
-                ),
-                Text(
-                  '${value.shippingzipcode.text}',
-                  style: TextStyle(fontSize: 14),
-                ),
-                SizedBox(
-                  height: 32,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: AccountButton('MODIFY ADDRESS', true, 14),
-                ),
-                SizedBox(
-                  height: 8,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    value.shippingAddress = Address(
-                      '${value.shippingfirstname.text} ${value.shippinglastname.text}',
-                      '${value.shippingaddress1.text} ${value.shippingaddress2.text}',
-                      value.shippingcity.text,
-                      value.shippingcountry.text,
-                      value.shippingstate.text,
-                      value.shippingzipcode.text,
-                      value.shippingphone.text,
-                      value.shippingcompany.text,
-                    );
-                    Navigator.pushNamed(context, '/shipping');
-                  },
-                  child: AccountButton('YES, PROCEED', true, 14),
-                ),
-              ],
-            ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                'Is the shipping address correct?',
+                style: TextStyle(fontSize: 16),
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              Text(
+                '${value.shippingaddress1.text}, ${value.shippingaddress2.text}',
+                style: TextStyle(fontSize: 14),
+              ),
+              Text(
+                value.shippingcity.text,
+                style: TextStyle(fontSize: 14),
+              ),
+              Text(
+                value.shippingstate.text,
+                style: TextStyle(fontSize: 14),
+              ),
+              Text(
+                value.shippingzipcode.text,
+                style: TextStyle(fontSize: 14),
+              ),
+              SizedBox(
+                height: 32,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: AccountButton(
+                    text: 'MODIFY ADDRESS', blackBG: true, size: 14),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              GestureDetector(
+                onTap: () {
+                  value.shippingAddress = Address(
+                    '${value.shippingfirstname.text} ${value.shippinglastname.text}',
+                    '${value.shippingaddress1.text} ${value.shippingaddress2.text}',
+                    value.shippingcity.text,
+                    value.shippingcountry.text,
+                    value.shippingstate.text,
+                    value.shippingzipcode.text,
+                    value.shippingphone.text,
+                    value.shippingcompany.text,
+                  );
+                  Navigator.pushNamed(context, '/shipping');
+                },
+                child: AccountButton(
+                    text: 'YES, PROCEED', blackBG: true, size: 14),
+              ),
+            ],
           ),
         );
       },

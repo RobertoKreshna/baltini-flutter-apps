@@ -55,7 +55,7 @@ class ForgotPasswordPage extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {},
-              child: AccountButton('SUBMIT', true),
+              child: AccountButton(text: 'SUBMIT', blackBG: true),
             ),
           ],
         ),

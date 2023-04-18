@@ -5,6 +5,7 @@ class NonPWTextField extends StatelessWidget {
   TextEditingController controller;
 
   NonPWTextField({
+    super.key,
     required this.text,
     required this.controller,
   });
@@ -13,17 +14,17 @@ class NonPWTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
-      style: TextStyle(fontSize: 14),
+      style: const TextStyle(fontSize: 14),
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(vertical: 22.0),
+        contentPadding: const EdgeInsets.symmetric(vertical: 22.0),
         hintText: text,
         labelText: text,
-        labelStyle: TextStyle(color: Colors.black, fontSize: 14),
+        labelStyle: const TextStyle(color: Colors.black, fontSize: 14),
         focusColor: Colors.black,
-        enabledBorder:
-            UnderlineInputBorder(borderSide: BorderSide(color: Colors.black)),
-        focusedBorder:
-            UnderlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+        enabledBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.black)),
+        focusedBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.black)),
       ),
     );
   }

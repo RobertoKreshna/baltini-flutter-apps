@@ -20,12 +20,12 @@ class ProductCard extends StatelessWidget {
               Navigator.pushNamed(context, '/details',
                   arguments: products[index]);
             },
-            child: Container(
+            child: SizedBox(
               width: 163,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
+                  SizedBox(
                       height: 245,
                       child: products[index].image == 'null'
                           ? Image.asset(placeholder)
@@ -33,12 +33,12 @@ class ProductCard extends StatelessWidget {
                   SizedBox(
                     height: 4,
                   ),
-                  Center(child: Text('${products[index].vendor}')),
+                  Center(child: Text(products[index].vendor)),
                   SizedBox(
                     height: 4,
                   ),
                   Text(
-                    '${products[index].title}',
+                    products[index].title,
                     textAlign: TextAlign.center,
                     style: TextStyle(color: Colors.black.withOpacity(0.5)),
                   ),

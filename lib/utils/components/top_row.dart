@@ -10,7 +10,7 @@ class TopRow extends StatelessWidget {
   bool back;
   bool fromSearch;
 
-  TopRow(this.back, this.fromSearch);
+  TopRow({super.key, required this.back, required this.fromSearch});
 
   @override
   Widget build(BuildContext context) {
@@ -21,27 +21,27 @@ class TopRow extends StatelessWidget {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: Icon(Icons.arrow_back))
+                icon: const Icon(Icons.arrow_back))
             : Container(),
         Expanded(
           flex: 6,
           child: Container(
             decoration: BoxDecoration(
                 color: Style.grey, borderRadius: BorderRadius.circular(5.0)),
-            padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
             child: GestureDetector(
               onTap: () {
                 Navigator.pushNamed(context, '/search');
               },
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Row(
                   children: [
                     Image.asset(search),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
-                    Text(
+                    const Text(
                       'Search...',
                       style: TextStyle(fontSize: 14),
                     ),
@@ -67,7 +67,7 @@ class TopRow extends StatelessWidget {
                                       end: 8, bottom: 0),
                                   badgeContent: Text(
                                     value.products.length.toString(),
-                                    style: TextStyle(color: Colors.white),
+                                    style: const TextStyle(color: Colors.white),
                                   ),
                                   child: Image.asset(cart),
                                 )));
@@ -75,6 +75,5 @@ class TopRow extends StatelessWidget {
               ),
       ],
     );
-    ;
   }
 }

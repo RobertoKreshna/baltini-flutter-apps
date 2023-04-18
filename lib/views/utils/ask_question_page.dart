@@ -2,8 +2,6 @@ import 'package:baltini_flutter_apps/utils/components/back_and_title.dart';
 import 'package:baltini_flutter_apps/views/utils/ask_question_components/components.dart';
 import 'package:flutter/material.dart';
 
-import '../../utils/const/asset_path.dart';
-
 class AskQuestion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -14,9 +12,11 @@ class AskQuestion extends StatelessWidget {
             child: SingleChildScrollView(
           child: Column(
             children: [
-              BackAndTitle('Contact Us', () {
-                Navigator.pop(context);
-              }),
+              BackAndTitle(
+                  title: 'Contact Us',
+                  onPressed: () {
+                    Navigator.pop(context);
+                  }),
               SizedBox(
                 height: 30,
               ),
