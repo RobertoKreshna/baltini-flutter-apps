@@ -5,7 +5,7 @@ import 'address.dart';
 
 part 'order.g.dart';
 
-@HiveType(typeId: 0)
+@HiveType(typeId: 2)
 class Order extends HiveObject {
   @HiveField(0)
   String id;
