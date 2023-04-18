@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class AccountButton extends StatelessWidget {
+class BaltiniButton extends StatelessWidget {
   String text;
   double size;
   bool blackBG;
 
-  AccountButton(
+  BaltiniButton(
       {super.key, required this.text, required this.blackBG, this.size = 16});
 
   @override

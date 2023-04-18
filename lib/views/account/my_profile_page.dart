@@ -1,6 +1,6 @@
 import 'package:baltini_flutter_apps/utils/components/back_and_title.dart';
 import 'package:baltini_flutter_apps/utils/components/textfield.dart';
-import 'package:baltini_flutter_apps/views/account/components/button.dart';
+import 'package:baltini_flutter_apps/utils/components/button.dart';
 import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
 import 'package:baltini_flutter_apps/views/account/vm/my_profile_vm.dart';
 import 'package:flutter/material.dart';
@@ -71,7 +71,7 @@ class MyProfilePage extends StatelessWidget {
                         vm.firstName.text, vm.lastName.text, vm.email.text);
                     Navigator.pop(context);
                   },
-                  child: AccountButton(text: 'SAVE', blackBG: true),
+                  child: BaltiniButton(text: 'SAVE', blackBG: true),
                 ),
               ],
             );

@@ -1,5 +1,5 @@
 import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
-import 'package:baltini_flutter_apps/views/account/components/button.dart';
+import 'package:baltini_flutter_apps/utils/components/button.dart';
 import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
 import 'package:baltini_flutter_apps/utils/components/textfield.dart';
 import 'package:baltini_flutter_apps/views/login&register/vm/login_vm.dart';
@@ -82,7 +82,7 @@ class LoginPage extends StatelessWidget {
                           value.clearAll();
                         }
                       },
-                      child: AccountButton(text: 'LOGIN', blackBG: true),
+                      child: BaltiniButton(text: 'LOGIN', blackBG: true),
                     );
                   },
                 ),
@@ -97,7 +97,7 @@ class LoginPage extends StatelessWidget {
                   onTap: () {
                     Navigator.pushNamed(context, '/register');
                   },
-                  child: AccountButton(
+                  child: BaltiniButton(
                       text: 'CREATE BALTINI ACCOUNT', blackBG: false),
                 ),
               ],

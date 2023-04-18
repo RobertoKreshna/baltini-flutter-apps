@@ -1,6 +1,6 @@
 import 'package:baltini_flutter_apps/utils/components/back_and_title.dart';
 import 'package:baltini_flutter_apps/utils/components/textfield.dart';
-import 'package:baltini_flutter_apps/views/account/components/button.dart';
+import 'package:baltini_flutter_apps/utils/components/button.dart';
 import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
 import 'package:baltini_flutter_apps/views/address/vm/my_address_vm.dart';
 import 'package:flutter/material.dart';
@@ -77,7 +77,7 @@ class AddressFormPage extends StatelessWidget {
                               .then((value) => Navigator.pop(context));
                         }
                       },
-                      child: AccountButton(text: 'SAVE ADDRESS', blackBG: true),
+                      child: BaltiniButton(text: 'SAVE ADDRESS', blackBG: true),
                     ),
                   ],
                 );

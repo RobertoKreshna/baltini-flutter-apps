@@ -1,6 +1,6 @@
 import 'package:baltini_flutter_apps/utils/components/popup.dart';
 import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
-import 'package:baltini_flutter_apps/views/account/components/button.dart';
+import 'package:baltini_flutter_apps/utils/components/button.dart';
 import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
 import 'package:baltini_flutter_apps/utils/components/textfield.dart';
 import 'package:baltini_flutter_apps/views/login&register/vm/register_vm.dart';
@@ -74,7 +74,7 @@ class RegisterPage extends StatelessWidget {
                               (value) => Navigator.pushNamed(context, '/'));
                         }
                       },
-                      child: AccountButton(text: 'CREATE', blackBG: true),
+                      child: BaltiniButton(text: 'CREATE', blackBG: true),
                     );
                   },
                 ),

@@ -1,5 +1,5 @@
 import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
-import 'package:baltini_flutter_apps/views/account/components/button.dart';
+import 'package:baltini_flutter_apps/utils/components/button.dart';
 import 'package:baltini_flutter_apps/views/forgotpassword/vm/forgot_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -55,7 +55,7 @@ class ForgotPasswordPage extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {},
-              child: AccountButton(text: 'SUBMIT', blackBG: true),
+              child: BaltiniButton(text: 'SUBMIT', blackBG: true),
             ),
           ],
         ),

@@ -1,6 +1,6 @@
 import 'package:baltini_flutter_apps/utils/components/popup.dart';
 import 'package:baltini_flutter_apps/utils/components/textfield.dart';
-import 'package:baltini_flutter_apps/views/account/components/button.dart';
+import 'package:baltini_flutter_apps/utils/components/button.dart';
 import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
 import 'package:baltini_flutter_apps/views/account/vm/change_password_vm.dart';
 import 'package:flutter/material.dart';
@@ -75,7 +75,7 @@ class ChangePasswordPage extends StatelessWidget {
                           .then((value) => Navigator.pop(context));
                     } else {}
                   },
-                  child: AccountButton(text: 'SAVE', blackBG: true),
+                  child: BaltiniButton(text: 'SAVE', blackBG: true),
                 ),
               ],
             );

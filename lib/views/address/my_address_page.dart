@@ -1,5 +1,5 @@
 import 'package:baltini_flutter_apps/utils/components/back_and_title.dart';
-import 'package:baltini_flutter_apps/views/account/components/button.dart';
+import 'package:baltini_flutter_apps/utils/components/button.dart';
 import 'package:baltini_flutter_apps/views/account/vm/account_vm.dart';
 import 'package:baltini_flutter_apps/views/address/address_tile.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +29,7 @@ class MyAddressPage extends StatelessWidget {
                   onTap: () {
                     Navigator.pushNamed(context, '/formaddress');
                   },
-                  child: AccountButton(text: 'ADD ADDRESS', blackBG: true),
+                  child: BaltiniButton(text: 'ADD ADDRESS', blackBG: true),
                 ),
                 const SizedBox(
                   height: 16,

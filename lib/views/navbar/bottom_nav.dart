@@ -7,6 +7,7 @@ import '../category/category_page_bar.dart';
 import '../order/order_page.dart';
 
 class MyNavBar extends StatefulWidget {
+  @override
   State<MyNavBar> createState() => _MyNavbarState();
 }
 

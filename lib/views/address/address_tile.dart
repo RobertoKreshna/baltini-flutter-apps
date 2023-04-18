@@ -1,5 +1,5 @@
 import 'package:baltini_flutter_apps/utils/models/address.dart';
-import 'package:baltini_flutter_apps/views/account/components/button.dart';
+import 'package:baltini_flutter_apps/utils/components/button.dart';
 import 'package:baltini_flutter_apps/views/address/vm/my_address_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -43,7 +43,7 @@ class AddressTile extends StatelessWidget {
                   value.editing = true;
                   Navigator.pushNamed(context, '/formaddress');
                 },
-                child: AccountButton(text: 'EDIT', blackBG: false),
+                child: BaltiniButton(text: 'EDIT', blackBG: false),
               );
             },
           ),

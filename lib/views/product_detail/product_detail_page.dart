@@ -18,7 +18,7 @@ class ProductDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     //get all images from product
     List<Image> images = [];
-    if (current.images.length != 0) {
+    if (current.images.isNotEmpty) {
       for (int i = 0; i < current.images.length; i++) {
         images.add(Image.network(current.images[i]['src']));
       }
