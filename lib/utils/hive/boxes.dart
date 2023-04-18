@@ -1,9 +1,11 @@
+import 'package:baltini_flutter_apps/utils/models/order.dart';
 import 'package:hive/hive.dart';
 
 import '../models/user.dart';
 
 class Boxes {
   static Box<User> getUsersBox() => Hive.box<User>('users');
+  static Box<Order> getOrderBox() => Hive.box<Order>('orders');
 
   static int getUserIndex(User current) {
     final box = Boxes.getUsersBox();

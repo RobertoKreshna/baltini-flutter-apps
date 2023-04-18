@@ -71,13 +71,15 @@ class AccountVM extends ChangeNotifier {
         true);
   }
 
-  addOrder(Order order) {
+  addOrder(Order order) async {
     if (currentUser != null) {
       currentUser!.orders.add(order);
       int idx = Boxes.getUserIndex(currentUser!);
       if (idx != -1) {
-        Boxes.getUsersBox().putAt(idx, currentUser!);
+        await Boxes.getUsersBox().putAt(idx, currentUser!);
       }
+    } else {
+      await Boxes.getOrderBox().add(order);
     }
   }
 }
