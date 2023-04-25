@@ -11,7 +11,9 @@ class HomeVM extends ChangeNotifier {
 
   setProductNewArrival() async {
     var data = await HomeService().getNewArrivalProduct();
-    homeproducts = data;
+    if (data != null) {
+      homeproducts = data;
+    }
     notifyListeners();
   }
 

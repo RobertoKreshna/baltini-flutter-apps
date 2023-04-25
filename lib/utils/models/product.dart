@@ -1,6 +1,31 @@
+import 'package:hive/hive.dart';
+
+part 'product.g.dart';
+
+@HiveType(typeId: 3)
 class Product {
-  String id, title, vendor, productType, status, image, price, created;
-  List variant, options, images;
+  @HiveField(0)
+  String id;
+  @HiveField(1)
+  String title;
+  @HiveField(2)
+  String vendor;
+  @HiveField(3)
+  String productType;
+  @HiveField(4)
+  String status;
+  @HiveField(5)
+  String image;
+  @HiveField(6)
+  String price;
+  @HiveField(7)
+  String created;
+  @HiveField(8)
+  List variant;
+  @HiveField(9)
+  List options;
+  @HiveField(10)
+  List images;
 
   Product({
     required this.id,
