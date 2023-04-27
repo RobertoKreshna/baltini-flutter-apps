@@ -15,18 +15,17 @@ class OrderItemTile extends StatelessWidget {
       child: Row(
         children: [
           SizedBox(
-              width: 70,
-              height: 93,
-              child: current.products[index].image == 'null'
-                  ? Image.asset(placeholder)
-                  : Image.asset(placeholder)
-              // : Image.network(
-              //     current.products[index].image,
-              //     errorBuilder: (context, error, stackTrace) {
-              //       return Image.asset(placeholder);
-              //     },
-              //   ),
-              ),
+            width: 70,
+            height: 93,
+            child: current.products[index].image == 'null'
+                ? Image.asset(placeholder)
+                : Image.network(
+                    current.products[index].image,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Image.asset(placeholder);
+                    },
+                  ),
+          ),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

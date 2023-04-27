@@ -7,6 +7,7 @@ import 'package:baltini_flutter_apps/views/forgotpassword/vm/forgot_vm.dart';
 import 'package:baltini_flutter_apps/views/home/vm/home_vm.dart';
 import 'package:baltini_flutter_apps/views/login&register/vm/login_vm.dart';
 import 'package:baltini_flutter_apps/views/login&register/vm/register_vm.dart';
+import 'package:baltini_flutter_apps/views/order_detail/vm/order_detail_vm.dart';
 import 'package:baltini_flutter_apps/views/product_detail/vm/detail_vm.dart';
 import 'package:baltini_flutter_apps/views/product_list/vm/list_vm.dart';
 import 'package:baltini_flutter_apps/views/search/vm/search_vm.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<AddressVM>(create: (_) => AddressVM()),
         ChangeNotifierProvider<CategoryVM>(create: (_) => CategoryVM()),
         ChangeNotifierProvider<CheckoutFlowVM>(create: (_) => CheckoutFlowVM()),
+        ChangeNotifierProvider<OrderDetailVM>(create: (_) => OrderDetailVM()),
       ],
       child: const MaterialApp(
         initialRoute: '/',

@@ -163,7 +163,6 @@ class CheckoutFlowVM extends ChangeNotifier {
 
   Order getOrder() {
     String id = generateID();
-    print(checkoutProduct[0].image);
     Order newOrder = Order(
       id: id,
       orderDate: DateTime.now(),
