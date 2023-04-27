@@ -60,4 +60,16 @@ class CartVM extends ChangeNotifier {
     agreeTC = !agreeTC;
     notifyListeners();
   }
+
+  finish() {
+    totalPrice = 0;
+    agreeTC = false;
+    valueClickProtect = false;
+    products = [];
+    sizeIndex = [];
+    qty = [];
+    recentlydeleted = null;
+    recentlydeletedqty = null;
+    recentlydeletedselectedsize = null;
+  }
 }

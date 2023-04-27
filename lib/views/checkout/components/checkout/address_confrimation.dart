@@ -3,7 +3,7 @@ import 'package:baltini_flutter_apps/views/checkout/vm/checkout_flow_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../utils/models/address.dart';
+import '../../../../utils/models/address.dart';
 
 class AddressConfirmation extends StatelessWidget {
   @override

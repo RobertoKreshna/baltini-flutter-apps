@@ -163,17 +163,20 @@ class CheckoutFlowVM extends ChangeNotifier {
 
   Order getOrder() {
     String id = generateID();
+    print(checkoutProduct[0].image);
     Order newOrder = Order(
-        id: id,
-        orderDate: DateTime.now().toString(),
-        products: checkoutProduct,
-        qty: quantity,
-        totalPrice: total.toString(),
-        paymentMethod: paymentmethods.keys.elementAt(selectedPayment),
-        paymentDate: DateTime.now().toString(),
-        shippingMethod: shippingmethods.keys.elementAt(selectedShipping),
-        shippingAddress: shippingAddress!,
-        billingAddress: billingAddress!);
+      id: id,
+      orderDate: DateTime.now(),
+      products: checkoutProduct,
+      qty: quantity,
+      totalPrice: total.toString(),
+      paymentMethod: paymentmethods.keys.elementAt(selectedPayment),
+      paymentDate: DateTime.now(),
+      shippingMethod: shippingmethods.keys.elementAt(selectedShipping),
+      shippingAddress: shippingAddress!,
+      billingAddress: billingAddress!,
+      sizeIndex: sizeIndex,
+    );
     return newOrder;
   }
 

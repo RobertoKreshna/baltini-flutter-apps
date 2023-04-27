@@ -21,6 +21,7 @@ class ProductDetailPage extends StatelessWidget {
     if (current.images.isNotEmpty) {
       for (int i = 0; i < current.images.length; i++) {
         images.add(Image.network(current.images[i]['src']));
+        print(current.image);
       }
     }
     if (images.isEmpty) {

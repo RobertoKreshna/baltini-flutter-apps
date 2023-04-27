@@ -18,13 +18,19 @@ class OrderPage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'My Order',
-                      style: TextStyle(fontSize: 18),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 16.0),
+                      child: Text(
+                        'My Order',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 8,
                     ),
                     value.userLoggedin
                         ? ListView.separated(
-                            physics: const NeverScrollableScrollPhysics(),
+                            physics: BouncingScrollPhysics(),
                             shrinkWrap: true,
                             itemCount: value.currentUser!.orders.length,
                             itemBuilder: (context, index) {
@@ -39,7 +45,7 @@ class OrderPage extends StatelessWidget {
                             },
                           )
                         : ListView.separated(
-                            physics: const NeverScrollableScrollPhysics(),
+                            physics: BouncingScrollPhysics(),
                             shrinkWrap: true,
                             itemCount: Boxes.getOrderBox().values.length,
                             itemBuilder: (context, index) {

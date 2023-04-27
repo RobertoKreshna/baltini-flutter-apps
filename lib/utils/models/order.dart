@@ -10,7 +10,7 @@ class Order extends HiveObject {
   @HiveField(0)
   String id;
   @HiveField(1)
-  String orderDate;
+  DateTime orderDate;
   @HiveField(2)
   List<Product> products;
   @HiveField(3)
@@ -20,13 +20,15 @@ class Order extends HiveObject {
   @HiveField(5)
   String paymentMethod;
   @HiveField(6)
-  String paymentDate;
+  DateTime paymentDate;
   @HiveField(7)
   String shippingMethod;
   @HiveField(8)
   Address shippingAddress;
   @HiveField(9)
   Address billingAddress;
+  @HiveField(10)
+  List<int> sizeIndex;
 
   Order({
     required this.id,
@@ -39,5 +41,6 @@ class Order extends HiveObject {
     required this.shippingMethod,
     required this.shippingAddress,
     required this.billingAddress,
+    required this.sizeIndex,
   });
 }

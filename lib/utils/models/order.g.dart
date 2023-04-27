@@ -18,22 +18,23 @@ class OrderAdapter extends TypeAdapter<Order> {
     };
     return Order(
       id: fields[0] as String,
-      orderDate: fields[1] as String,
+      orderDate: fields[1] as DateTime,
       products: (fields[2] as List).cast<Product>(),
       qty: (fields[3] as List).cast<int>(),
       totalPrice: fields[4] as String,
       paymentMethod: fields[5] as String,
-      paymentDate: fields[6] as String,
+      paymentDate: fields[6] as DateTime,
       shippingMethod: fields[7] as String,
       shippingAddress: fields[8] as Address,
       billingAddress: fields[9] as Address,
+      sizeIndex: (fields[10] as List).cast<int>(),
     );
   }
 
   @override
   void write(BinaryWriter writer, Order obj) {
     writer
-      ..writeByte(10)
+      ..writeByte(11)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -53,7 +54,9 @@ class OrderAdapter extends TypeAdapter<Order> {
       ..writeByte(8)
       ..write(obj.shippingAddress)
       ..writeByte(9)
-      ..write(obj.billingAddress);
+      ..write(obj.billingAddress)
+      ..writeByte(10)
+      ..write(obj.sizeIndex);
   }
 
   @override

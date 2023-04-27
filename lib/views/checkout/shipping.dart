@@ -1,4 +1,4 @@
-import 'package:baltini_flutter_apps/views/checkout/components/shipping_choice.dart';
+import 'package:baltini_flutter_apps/views/checkout/components/shipping/shipping_choice.dart';
 import 'package:baltini_flutter_apps/views/checkout/vm/checkout_flow_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

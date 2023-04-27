@@ -1,12 +1,12 @@
 import 'package:baltini_flutter_apps/utils/components/back_and_title.dart';
-import 'package:baltini_flutter_apps/views/checkout/components/address_confrimation.dart';
+import 'package:baltini_flutter_apps/views/checkout/components/checkout/address_confrimation.dart';
 import 'package:baltini_flutter_apps/views/checkout/components/item_and_summary.dart';
 import 'package:baltini_flutter_apps/views/checkout/vm/checkout_flow_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'components/contact_information.dart';
-import 'components/shipping_address_form.dart';
+import 'components/shipping/contact_information.dart';
+import 'components/checkout/shipping_address_form.dart';
 
 class CheckoutPage extends StatelessWidget {
   @override
