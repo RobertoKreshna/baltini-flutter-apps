@@ -9,4 +9,11 @@ class OrderDetailVM extends ChangeNotifier {
     current = wanted;
     notifyListeners();
   }
+
+  getTotalperItem(int index) {
+    int price = double.parse(current!.products[index].price).toInt();
+    int qty = current!.qty[index];
+    int total = price * qty;
+    return total.toString();
+  }
 }

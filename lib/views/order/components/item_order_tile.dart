@@ -25,7 +25,7 @@ class OrderTile extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(current.id),
+                  Text('Order ${current.id}'),
                   Text(TimeFormatter.getDate(current.orderDate)),
                 ],
               ),

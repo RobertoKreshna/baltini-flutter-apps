@@ -46,9 +46,7 @@ class ProductDetailPage extends StatelessWidget {
                                 value.disposeProduct();
                                 Navigator.pop(context);
                               },
-                              child: Container(
-                                child: Image.asset(back),
-                              ),
+                              child: Image.asset(back),
                             ),
                             Container(
                               width: 270,

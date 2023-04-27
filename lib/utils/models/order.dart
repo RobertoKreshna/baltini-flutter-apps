@@ -29,6 +29,14 @@ class Order extends HiveObject {
   Address billingAddress;
   @HiveField(10)
   List<int> sizeIndex;
+  @HiveField(11)
+  String subTotal;
+  @HiveField(12)
+  String shippingCost;
+  @HiveField(13)
+  String importDutyTaxes;
+  @HiveField(14)
+  String email;
 
   Order({
     required this.id,
@@ -42,5 +50,9 @@ class Order extends HiveObject {
     required this.shippingAddress,
     required this.billingAddress,
     required this.sizeIndex,
+    required this.subTotal,
+    required this.shippingCost,
+    required this.importDutyTaxes,
+    required this.email,
   });
 }

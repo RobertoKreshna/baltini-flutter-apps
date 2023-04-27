@@ -17,7 +17,7 @@ class SpotlightBanner extends StatelessWidget {
         builder: (context, home, list, child) {
           return GestureDetector(
             onTap: () async {
-              home.setArgs('brand', brand);
+              await home.setArgs('brand', brand);
               list.setFromSearch(false);
               list.setProduct(home.argsProducts!);
               Navigator.pushNamed(context, '/list');

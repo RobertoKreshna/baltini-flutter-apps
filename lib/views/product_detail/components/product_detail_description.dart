@@ -15,7 +15,7 @@ class ProductDetailDesc extends StatelessWidget {
               TextStyle(fontSize: 14, height: 1.5, fontWeight: FontWeight.w600),
         ),
         Text(
-          '$value',
+          value,
           style: TextStyle(fontSize: 14, height: 1.5),
         ),
       ],

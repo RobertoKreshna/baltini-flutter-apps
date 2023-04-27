@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:baltini_flutter_apps/utils/const/asset_path.dart';
 import 'package:baltini_flutter_apps/utils/models/address.dart';
 import 'package:baltini_flutter_apps/utils/models/order.dart';
@@ -15,7 +17,7 @@ class CheckoutFlowVM extends ChangeNotifier {
   var discountCode = TextEditingController();
   bool discountCodeValidator = false;
   //summary
-  int? subtotal, shipping, total;
+  int? subtotal, shippingCost, total;
   //contact
   var email = TextEditingController();
   bool wantedtoEmail = false;
@@ -103,8 +105,8 @@ class CheckoutFlowVM extends ChangeNotifier {
     }
     subtotal = res;
     updateShipping();
-    if (shipping == null) {
-      shipping = shippingmethods.values.elementAt(0).toInt();
+    if (shippingCost == null) {
+      shippingCost = shippingmethods.values.elementAt(0).toInt();
     }
   }
 
@@ -117,7 +119,7 @@ class CheckoutFlowVM extends ChangeNotifier {
   }
 
   getTotal() {
-    total = subtotal! + shipping!;
+    total = subtotal! + shippingCost!;
     if (protect) total = total! + 325000;
   }
 
@@ -139,14 +141,14 @@ class CheckoutFlowVM extends ChangeNotifier {
 
   setSelectedShipping(int index) {
     selectedShipping = index;
-    shipping = shippingmethods.values.elementAt(index).toInt();
+    shippingCost = shippingmethods.values.elementAt(index).toInt();
     getTotal();
     notifyListeners();
   }
 
   resetSelectedShipping() {
     selectedShipping = 0;
-    shipping = shippingmethods.values.elementAt(0).toInt();
+    shippingCost = shippingmethods.values.elementAt(0).toInt();
     getTotal();
     notifyListeners();
   }
@@ -163,6 +165,22 @@ class CheckoutFlowVM extends ChangeNotifier {
 
   Order getOrder() {
     String id = generateID();
+    if (protect) {
+      checkoutProduct.add(Product(
+          id: 'protect',
+          title: 'Shipping Protection',
+          vendor: 'Baltini',
+          productType: 'Service',
+          status: 'active',
+          image: shipping,
+          variant: [],
+          options: [],
+          images: [],
+          price: '325000',
+          created: 'now'));
+      subtotal = subtotal! + 325000;
+    }
+
     Order newOrder = Order(
       id: id,
       orderDate: DateTime.now(),
@@ -175,13 +193,24 @@ class CheckoutFlowVM extends ChangeNotifier {
       shippingAddress: shippingAddress!,
       billingAddress: billingAddress!,
       sizeIndex: sizeIndex,
+      subTotal: subtotal.toString(),
+      shippingCost:
+          shippingmethods.values.elementAt(selectedShipping).toString(),
+      importDutyTaxes: 'calculated..',
+      email: email.text,
     );
     return newOrder;
   }
 
   String generateID() {
+    //13 digit
     String res = '';
-
+    const chars =
+        'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789';
+    Random random = Random();
+    for (int i = 0; i < 13; i++) {
+      res += chars[random.nextInt(chars.length)];
+    }
     return res;
   }
 }

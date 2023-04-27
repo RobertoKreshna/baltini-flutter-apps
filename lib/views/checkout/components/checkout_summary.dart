@@ -17,9 +17,9 @@ class CheckoutSummary extends StatelessWidget {
             ),
             CheckoutSummaryRow(
                 text1: 'Shipping',
-                text2: value.shipping == null
+                text2: value.shippingCost == null
                     ? 'Rp. ${value.shippingmethods.values.elementAt(0).toInt().toString()}'
-                    : 'Rp. ${value.shipping}'),
+                    : 'Rp. ${value.shippingCost}'),
             SizedBox(
               height: 8,
             ),
