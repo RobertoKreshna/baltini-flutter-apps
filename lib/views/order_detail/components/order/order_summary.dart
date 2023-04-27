@@ -1,8 +1,8 @@
 import 'package:baltini_flutter_apps/utils/models/order.dart';
-import 'package:baltini_flutter_apps/views/order_detail/components/summary_row.dart';
 import 'package:flutter/material.dart';
 
 import 'order_detail_item_tile.dart';
+import 'summary_row.dart';
 
 class OrderDetailComponents extends StatelessWidget {
   Order current;
@@ -13,7 +13,7 @@ class OrderDetailComponents extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('ORDER SUMMARY'),
+        Text('Order Summary'.toUpperCase()),
         Padding(
           padding: EdgeInsets.symmetric(vertical: 16.0),
           child: ListView.builder(
@@ -28,15 +28,15 @@ class OrderDetailComponents extends StatelessWidget {
             },
           ),
         ),
-        OrderSummaryRow(left: 'Subtotal', right: 'Rp. ${current.subTotal}'),
-        OrderSummaryRow(left: 'Shipping', right: 'Rp. ${current.shippingCost}'),
+        OrderSummaryRow(left: 'Subtotal', right: current.subTotal),
+        OrderSummaryRow(left: 'Shipping', right: current.shippingCost),
         OrderSummaryRow(
-            left: 'Import Duty/Taxes', right: 'Rp. ${current.importDutyTaxes}'),
+            left: 'Import Duty/Taxes', right: current.importDutyTaxes),
         OrderSummaryRow(
-            left: 'Estimated Taxes', right: 'Rp. ${current.importDutyTaxes}'),
+            left: 'Estimated Taxes', right: current.importDutyTaxes),
         OrderSummaryRow(
           left: 'Total',
-          right: 'Rp. ${current.totalPrice}',
+          right: current.totalPrice,
           weight: FontWeight.w700,
         ),
       ],

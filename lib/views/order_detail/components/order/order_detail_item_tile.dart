@@ -1,10 +1,9 @@
 import 'package:baltini_flutter_apps/utils/models/order.dart';
-import 'package:baltini_flutter_apps/utils/models/product.dart';
 import 'package:baltini_flutter_apps/views/order_detail/vm/order_detail_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../utils/const/asset_path.dart';
+import '../../../../utils/const/asset_path.dart';
 
 class OrderDetailItemTile extends StatelessWidget {
   Order current;
