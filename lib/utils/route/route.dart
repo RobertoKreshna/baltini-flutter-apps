@@ -30,8 +30,7 @@ class RouteGenerator {
       case '/list':
         return MaterialPageRoute(builder: (_) => ProductListPage());
       case '/details':
-        return MaterialPageRoute(
-            builder: (_) => ProductDetailPage(settings.arguments as Product));
+        return MaterialPageRoute(builder: (_) => ProductDetailPage());
       case '/chart':
         return MaterialPageRoute(builder: (_) => SizeChartPage());
       case '/search':
